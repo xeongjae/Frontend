@@ -1,0 +1,43 @@
+/*사이트 header 작업*/
+.Header {
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.Header_Row {
+    display: flex;
+    justify-content: center;
+}
+
+/*사이트 로고*/
+.Title {
+    display: block;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+    margin-top: 30px;
+}
+
+/*로고 밑에 카테고리 작업*/
+.Categories {
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.Categories a {
+    text-decoration: none;
+    color: black;
+    margin-left: 80px;
+}
+
+/*User 정보를 담는 공간*/
+.User {
+    padding-left: 100px;
+    font-size: 25px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.User i{
+    padding-left: 30px;
+}
