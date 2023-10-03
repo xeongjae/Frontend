@@ -18,6 +18,9 @@
     font-weight: 700;
     margin-top: 20px;
 }
+.Title a{
+    text-decoration: none;
+}
 
 /*로고 밑에 카테고리 작업*/
 .Categories {

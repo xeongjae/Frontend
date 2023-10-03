@@ -1,3 +1,6 @@
+html{
+    font-family: 'Nanum Gothic Coding', cursive;
+}
 .Advertisement{
     display: block;
     width: 100%;
@@ -51,8 +54,8 @@
 }
 
 .Product_Img:hover{
-    width: 520px;
-    height: 420px;
+    width: 510px;
+    height: 410px;
     background: url("./Product_Hover.jpg") no-repeat center center;
     background-size: contain;
 }
