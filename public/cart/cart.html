@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+</head>
+<link rel="stylesheet" href="./cart.css">
+
+<body>
+    <div class="wrapper">
+        <h1 class="cart-header">장 바구니 (idx)</h1>
+        <div class="cart-container">
+            <ul>
+                <li id="cart-item">
+                    <div class="img-box">
+                        <img class="img-items" src="./img/IMG_7247.jpg" alt="">
+                    </div>
+                    <div class="item-inpo">
+                        <p>화분</p>
+                        <p>5,000원</p>
+                        <div class="count-box">
+                            <button class="btn-minus" id="btn-minus"><img class="img-minus" src="./img/minus.png"
+                                    alt=""></button>
+                            <input id="change_qty" class="input-count" type="text" value="1">
+                            <button class="btn-plus" id="btn-plus"><img class="img-plus" src="./img/plus.png"
+                                    alt=""></button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="container-box">
+            <div class="price-container">
+                <div>
+                    <p>상품 합계</p>
+                    <input type="text" value="10,000원">
+                </div>
+                <div>
+                    <p>배송비</p>
+                    <p>3,500원</p>
+                </div>
+                <div>
+                    <button class="btn-buy">구매</button>
+                    <p class="p-total">합계</p>
+                    <input type="text" value="13,500">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
