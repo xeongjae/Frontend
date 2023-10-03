@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>log-in</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="login.css"/>
 </head>
 <body>
+    <div id="header-container"></div>
     <main>
         <!-- 로그인 폼(Form) -->
         <div class="login-form-container">
             <form class="login-form" method="post">
-                <h5 class="title">로그인</h5>
+                <h5 class="title">Login</h5>
                 <div class="inp-area">
-                    <label class="label" for="idInput">아이디</label>
+                    <label class="label" for="idInput">ID</label>
                     <div class="control">
                         <input
                             class="input"
@@ -27,7 +31,7 @@
                 </div>
 
                 <div class="inp-area">
-                    <label class="label" for="passwordInput">비밀번호</label>
+                    <label class="label" for="passwordInput">Password</label>
                     <div class="control">
                         <input
                             class="input"
@@ -49,6 +53,8 @@
                 </div>
             </form>
         </div>
-    <main>
+    </main>
+    <div id="footer-container"></div>
+    <script src="login.js"></script>
 </body>
 </html>
