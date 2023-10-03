@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="header-container"></div>
+    <div>
+        <span class="Advertisement"></span>
+    </div>
+    <section class="Popular">
+        <div class="Product_Tiitle">
+            <div class="Eng_Title">Popular Product</div>
+            <div class="KR_Title">이달의 인기상품</div>
+        </div>
+        <div class="Product_Col">
+            <div class="Popular_Product">
+                <div class="Product_Img"></div>
+                <div class="Product_Name">세라믹 힐 실린더</div>
+                <div class="Product_Price">39,000원</div>
+            </div>
+            <div class="Popular_Product">
+                <div class="Product_Img"></div>
+                <div class="Product_Name">세라믹 힐 실린더</div>
+                <div class="Product_Price">39,000원</div>
+            </div>
+            <div class="Popular_Product">
+                <div class="Product_Img"></div>
+                <div class="Product_Name">세라믹 힐 실린더</div>
+                <div class="Product_Price">39,000원</div>
+            </div>
+        </div>
+    </section>
+    <div id="footer-container"></div>
+</body>
+<script>
+    // header.html을 header-container에 포함
+    fetch('../header_footer/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+        });
+
+    // footer.html을 footer-container에 포함
+    fetch('../header_footer/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        });
+</script>
+</html>
