@@ -1,6 +1,6 @@
 /*사이트 header 작업*/
 .Header {
-    padding-top: 30px;
+    padding-top: 50px;
     padding-bottom: 30px;
 }
 
@@ -11,15 +11,11 @@
 
 /*사이트 로고*/
 .Title {
-    margin: 0;
     display: block;
     text-align: center;
     font-size: 50px;
     font-weight: 700;
-    margin-top: 20px;
-}
-.Title a{
-    text-decoration: none;
+    margin-top: 30px;
 }
 
 /*로고 밑에 카테고리 작업*/
@@ -42,6 +38,6 @@
     align-items: flex-end;
 }
 
-.User a{
+.User i{
     padding-left: 30px;
 }
