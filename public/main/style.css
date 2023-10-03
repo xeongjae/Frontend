@@ -37,6 +37,7 @@
     height: 400px;
     background: url("./Product_Img.jpg") no-repeat center center;
     background-size: contain;
+    transition: all 0.5s;
 }
 
 .Product_Name{
@@ -47,4 +48,11 @@
 .Product_Price{
     font-family: 500;
     margin-top: 10px;
+}
+
+.Product_Img:hover{
+    width: 520px;
+    height: 420px;
+    background: url("./Product_Hover.jpg") no-repeat center center;
+    background-size: contain;
 }
