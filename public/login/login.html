@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>log-in</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="login.css"/>
 </head>
@@ -17,9 +17,8 @@
         <div class="login-form-container">
             <form class="login-form" method="post">
                 <h5 class="title">Login</h5>
-                <div class="inp-area">
+                <div class="inp-area id-inp-area">
                     <label class="label" for="idInput">ID</label>
-                    <div class="control">
                         <input
                             class="input"
                             id="idInput"
@@ -27,19 +26,16 @@
                             placeholder="아이디를 입력하세요"
                             autocomplete="on"
                         >
-                    </div>
                 </div>
 
                 <div class="inp-area">
                     <label class="label" for="passwordInput">Password</label>
-                    <div class="control">
                         <input
                             class="input"
                             id="passwordInput"
                             type="password"
                             placeholder="비밀번호를 입력하세요"
                         >
-                    </div>
                 </div>
                 <div class="btn-area">
                     <button class="login-button button is-success is-rounded">
