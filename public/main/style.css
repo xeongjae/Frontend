@@ -1,0 +1,61 @@
+html{
+    font-family: 'Nanum Gothic Coding', cursive;
+}
+.Advertisement{
+    display: block;
+    width: 100%;
+    height: 650px;
+    background: url('./Ad.jpg') no-repeat center center;
+    background-size: cover;
+}
+.Popular{
+    margin-top: 100px;
+}
+.Product_Tiitle{
+    text-align: center;
+    line-height: 35px;
+}
+.Eng_Title{
+    font-size: 25px;
+    font-weight: 700;
+}
+.KR_Title{
+    color: #969696;
+}
+
+.Product_Col{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+.Popular_Product{
+    margin-left: 30px;
+    cursor: pointer;
+}
+.Popular_Product div{
+    text-align: center;
+}
+.Product_Img{
+    width: 500px;
+    height: 400px;
+    background: url("./Product_Img.jpg") no-repeat center center;
+    background-size: contain;
+    transition: all 0.5s;
+}
+
+.Product_Name{
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.Product_Price{
+    font-family: 500;
+    margin-top: 10px;
+}
+
+.Product_Img:hover{
+    width: 510px;
+    height: 410px;
+    background: url("./Product_Hover.jpg") no-repeat center center;
+    background-size: contain;
+}
