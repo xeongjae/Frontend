@@ -1,1 +1,15 @@
 /*사이트 footer 작업*/
+.Footer_Container{
+    text-align: center;
+    color: #959595;
+    padding: 70px 0px
+}
+.Producer{
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+}
+.Producer li{
+    margin-left: 30px;
+}
