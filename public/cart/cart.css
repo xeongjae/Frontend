@@ -16,6 +16,8 @@ li {
     border-top: 2px solid olive;
     display: flex;
     flex-direction: row;
+    margin-top: 12px;
+    padding: 12px;
 }
 
 .cart-header {
