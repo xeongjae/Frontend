@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +9,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    <script src="main.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <div id="header-container"></div>
-    <div>
-        <span class="Advertisement"></span>
-    </div>
+    <section class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="Ad.jpg" alt="Image 1">
+        </div>
+        <div class="mySlides fade">
+            <img src="Ad2.jpg" alt="Image 2">
+        </div>
+        <div class="mySlides fade">
+            <img src="Ad3.jpg" alt="Image 3">
+        </div>
+    </section>
     <section class="Popular">
         <div class="Product_Tiitle">
             <div class="Eng_Title">Popular Product</div>
@@ -55,4 +66,5 @@
             document.getElementById('footer-container').innerHTML = data;
         });
 </script>
+
 </html>
