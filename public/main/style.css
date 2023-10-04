@@ -39,7 +39,7 @@ html{
     width: 500px;
     height: 400px;
     background: url("./Product_Img.jpg") no-repeat center center;
-    background-size: contain;
+    background-size: cover;
     transition: all 0.5s;
 }
 

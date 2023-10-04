@@ -1,4 +1,7 @@
 /*사이트 footer 작업*/
+html{
+    background-color: #F8F8F8;
+}
 .Footer_Container{
     text-align: center;
     color: #959595;

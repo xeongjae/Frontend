@@ -2,6 +2,10 @@
 .Header {
     padding-top: 30px;
     padding-bottom: 30px;
+    background-color: #F8F8F8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .Header_Row {
@@ -13,14 +17,18 @@
 .Title {
     margin: 0;
     display: block;
-    text-align: center;
     font-size: 50px;
     font-weight: 700;
     margin-top: 20px;
+    width: 300px;
+    height: 130px;
+    background: url(./Casa\ Verde-logo.png) no-repeat center center;
+    background-size: cover;
 }
 .Title a{
-    text-decoration: none;
+    
 }
+
 
 /*로고 밑에 카테고리 작업*/
 .Categories {
@@ -32,6 +40,7 @@
     text-decoration: none;
     color: black;
     margin-left: 80px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /*User 정보를 담는 공간*/
