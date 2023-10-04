@@ -33,7 +33,9 @@ main {
     width: 300px;
     margin-top: 100px;
     margin-bottom: 10px;
+    background-color: #3CB371;
   }
+
   .sign-up-button {
     display: block;
     margin-left: auto;
