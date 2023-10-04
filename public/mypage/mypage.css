@@ -1,0 +1,212 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.body_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.body_left_container {
+  width: 30%;
+  height: 100%;
+  background-color: white;
+  box-shadow: 2px 0 17px rgba(0, 0, 0, 0.3);
+  position: sticky;
+}
+
+.body_right_container {
+  padding-top: 30px;
+  width: 70%;
+  height: 100%;
+  background-color: #f6f6f6;
+}
+.left_container_top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.left_container_top_logo {
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.left_container_top_myinfo {
+  font-size: 30px;
+  margin-left: auto;
+  margin-right: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.left_container_mid {
+  margin-top: 10px;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.left_container_mid_username {
+  font-size: 15px;
+  font-weight: bold;
+}
+.left_container_mid_email {
+  font-size: 10px;
+  color: gray;
+}
+img {
+  margin-top: 30px;
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+}
+.left_container_nav {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav_infoedit {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 25px;
+  padding-left: 10px;
+  justify-content: center;
+  background-color: orange;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.nav_favorite {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 25px;
+  padding-left: 10px;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.nav_reviewlist {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 25px;
+  padding-left: 10px;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.nav_history {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 25px;
+  padding-left: 10px;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: bold;
+}
+.body_right_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.body_right_top {
+  width: 100%;
+  height: 80%;
+  padding-left: 70px;
+}
+.account_info {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.account_info_container {
+  width: 80%;
+  height: 132px;
+  border: 2px solid orange;
+  background-color: white;
+}
+.account_info_userid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 33%;
+  border-bottom: 1px solid rgb(197, 197, 197);
+}
+.account_info_useremail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 33%;
+  border-bottom: 1px solid rgb(197, 197, 197);
+}
+.account_info_username {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 33%;
+}
+.account_info_title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.secure_title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.secure_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80%;
+  height: 40px;
+  border: 2px solid orange;
+  background-color: white;
+}
+.account_info_userid_database {
+  margin-left: auto;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.account_info_useremail_database {
+  margin-left: auto;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.account_info_username_database {
+  margin-left: auto;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.sss {
+  width: 40px;
+  height: 30px;
+  margin-left: auto;
+  margin-bottom: 30px;
+  margin-right: 10px;
+}
