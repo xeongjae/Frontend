@@ -1,61 +1,100 @@
+html {
+  font-family: "Nanum Gothic", sans-serif;
+}
+.cart-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .wrapper {
   margin: 13px;
-  font-family: "Nanum Gothic Coding", cursive;
-}
-ul {
-  width: 100%;
-}
-li {
-  display: flex;
-  width: 100%;
-}
-.cart-container {
-  border-top: 2px solid olive;
-  display: flex;
-  flex-direction: row;
+  width: 65%;
 }
 
 .cart-header {
-  margin-left: 40px;
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: 700;
 }
 
-ul {
+/*상품 박스 제목*/
+.product-container {
+  padding: 15px 0px 15px;
+  display: flex;
+  width: 100%;
+  height: 15px;
+}
+
+.product-container span {
+  font-size: 15px;
+  font-weight: 700;
+}
+.name {
+  width: 50%;
+}
+
+.qty {
+  width: 40%;
+  text-align: center;
+}
+.price {
+  width: 40%;
+  text-align: center;
+}
+
+/* 상품 정보들 */
+.cart-container {
+  border-top: 1px solid black;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.cart-container ul {
+  width: 100%;
   list-style: none;
-  border: 1px solid;
-  border-radius: 20px;
+  border-bottom: 1px solid black;
   padding: 12px;
+  margin: 0;
+}
+.cart-container li {
+  display: flex;
+  width: 100%;
 }
 
-.item-inpo {
+.item-info {
   width: 100%;
   margin-top: 1px;
   margin-left: 10px;
+  display: flex;
+  align-items: center;
 }
 
+.item-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 20px;
+  width: 43%;
+}
 .input-count {
-  width: 20px;
+  width: 40px;
+  font-size: 20px;
   text-align: center;
   border-radius: 0px;
 }
 
 .count-box {
   display: flex;
-}
-
-.btn-minus {
-  width: 30px;
-  border-radius: 0px;
-  border: 0px;
-  background-color: rgb(156, 183, 136);
+  width: 37%;
+  height: 40px;
 }
 
 .img-minus {
   width: 10px;
 }
 
-.btn-plus {
-  width: 30px;
+.btn-plus,
+.btn-minus {
+  width: 35px;
   border-radius: 0px;
   border: 0px;
   background-color: rgb(156, 183, 136);
@@ -76,20 +115,24 @@ ul {
   margin: auto;
 }
 
+.item-price {
+  font-weight: 600;
+}
+/* 가격상자 */
 .container-box {
   display: flex;
   justify-content: flex-end;
 }
 
 .price-container {
-  border-top: 2px solid olive;
-  padding-top: 12px;
-  width: 300px;
+  border-bottom: 1px solid black;
+  width: 50%;
 }
 
-.price-container div {
+.price-container div,
+.total-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .price-container input {
@@ -99,15 +142,37 @@ ul {
   margin-bottom: auto;
 }
 
+.item-total-text,
+.delivery-text,
+.p-total {
+  font-weight: 600;
+}
+
+.item-total-price,
+.delivery-price,
+.total-price {
+  width: 40%;
+  text-align: right;
+}
+
+.total-container {
+  width: 50%;
+  float: right;
+}
+
+.btn-container {
+  margin-top: 80px;
+  text-align: right;
+  vertical-align: middle;
+}
+
 .btn-buy {
-  width: 100px;
-  height: 30px;
-  margin-top: auto;
-  margin-bottom: auto;
-  text-align: center;
-  background-color: rgb(86, 161, 32);
-  border-radius: 5px;
-  border: 1px solid olive;
+  width: 150px;
+  height: 50px;
+  font-size: 15px;
+  color: white;
+  background-color: #3cb371;
+  border: #3cb371;
 }
 
 .btn-buy:hover {
