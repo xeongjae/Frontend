@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Nanum Gothic Coding', cursive;
+  font-family: "Nanum Gothic Coding", cursive;
 }
 main {
   height: 100%;
@@ -35,7 +35,7 @@ main {
 .label {
   margin-left: 103px;
 }
-.input{
+.input {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -57,4 +57,6 @@ main {
 .id-inp-area {
   margin-top: 80px;
 }
-.label {font-size: 13px;}
+.label {
+  font-size: 13px;
+}
