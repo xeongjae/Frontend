@@ -28,12 +28,12 @@
         <form class="sign-up-form" method="post">
           <h5 class="title">회원가입</h5>
           <div class="inp-area id-inp-area">
-            <label class="label" for="idInput">아이디</label>
+            <label class="label" for="emailInput">이메일</label>
             <input
               class="input"
-              id="idInput"
-              type="text"
-              placeholder="아이디"
+              id="emailInput"
+              type="email"
+              placeholder="example@example.com"
               autocomplete="on"
             />
 
@@ -78,11 +78,6 @@
           </div>
 
           <div class="inp-area">
-            <label class="label" for="birthInput">생년월일</label>
-            <input type="text" id="birthInput" class="input" name="birthday" />
-          </div>
-
-          <div class="inp-area">
             <label class="label" for="phoneInput">전화번호</label>
             <input
               class="input"
@@ -113,9 +108,15 @@
           </div>
 
           <div class="btn-area">
-            <button class="sign-up-button button is-success is-rounded">
+            <button id="sign-up-btn" class="button is-success is-rounded">
               회원가입하기
             </button>
+            <a
+              href="../login/login.html"
+              id="go-to-login-btn"
+              class="button is-rounded"
+              >돌아가기</a
+            >
           </div>
         </form>
       </div>
