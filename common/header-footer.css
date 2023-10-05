@@ -29,12 +29,12 @@
 }
 
 /*로고 밑에 카테고리 작업*/
-.Categories {
+.categories {
   font-size: 20px;
   margin-top: 30px;
 }
 
-.Categories a {
+.categories a {
   text-decoration: none;
   color: black;
   margin-left: 80px;
@@ -51,6 +51,8 @@
 
 .User a {
   padding-left: 30px;
+  text-decoration: none;
+  color: black;
 }
 
 /*사이트 footer 작업*/

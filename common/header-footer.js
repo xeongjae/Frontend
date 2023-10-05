@@ -8,16 +8,16 @@ function createHeader() {
       </a>
       <div class="Header_Row">
         <div class="Middle_Container">
-          <div class="Categories">
-            <a href="../Categories/Plant.html">PLANT</a>
-            <a href="../Categories/Pot.html">POT</a>
-            <a href="../Categories/Gardening_Tools.html">GARDENING TOOLS</a>
-            <a href="../Categories/Gardening_Kit.html">GARDENING KIT</a>
+          <div class="categories">
+            <a href="/categories/plant.html">PLANT</a>
+            <a href="/categories/pot.html">POT</a>
+            <a href="/categories/gardening-tools.html">GARDENING TOOLS</a>
+            <a href="/categories/gardening-kit.html">GARDENING KIT</a>
           </div>
         </div>
         <div class="User">
-          <a class="far fa-user" href="https://www.naver.com"></a>
-          <a class="fas fa-shopping-bag"></a>
+          <a class="far fa-user"></a>
+          <a class="fas fa-shopping-bag" href="/cart/cart.html"></a>
           <a class="fas fa-search"></a>
         </div>
       </div>
