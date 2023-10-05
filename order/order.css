@@ -7,10 +7,6 @@
 body {
   background-color: #f8f8f8;
 }
-main {
-  border-top: 0.5px solid gray;
-  border-bottom: 0.5px solid gray;
-}
 .title {
   text-align: center;
   padding: 50px;

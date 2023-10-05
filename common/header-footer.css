@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-bottom: 0.5px solid gray;
 }
 
 .Header_Row {
@@ -64,6 +65,7 @@ html {
   text-align: center;
   color: #959595;
   padding: 70px 0px;
+  border-top: 0.5px solid gray;
 }
 .Producer {
   padding: 0;

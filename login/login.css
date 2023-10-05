@@ -7,8 +7,6 @@
 main {
   height: auto;
   min-height: 100%;
-  border-top: 0.5px solid gray;
-  border-bottom: 0.5px solid gray;
 }
 .title {
   font-size: 35px;

@@ -65,6 +65,20 @@ main {
   margin: 0;
   border-radius: 5px;
 }
+#addressInput {
+  width: 355px;
+  display: inline;
+}
+#detailAddressInput {
+  margin-top: 5px;
+}
+#find-address-btn {
+  margin-left: 95px;
+  width: 87px;
+  background-color: #f8f8f8;
+  display: inline;
+  border-radius: 5px;
+}
 .id-inp-area {
   margin-top: 80px;
 }

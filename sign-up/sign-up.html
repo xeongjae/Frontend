@@ -20,6 +20,7 @@
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
     <link rel="stylesheet" href="sign-up.css" />
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer></script>
   </head>
   <body>
     <main>
@@ -73,7 +74,7 @@
               class="input"
               id="nameInput"
               type="text"
-              placeholder="이름을 입력하세요"
+              placeholder="이름을 입력해주세요"
             />
           </div>
 
@@ -89,28 +90,34 @@
 
           <div class="inp-area">
             <label class="label" for="addressInput">주소</label>
+            <button
+              id="find-address-btn"
+              class="find-address-button button is-rounded"
+              type="button"
+            >
+            주소찾기
+          </button>
             <input
               class="input"
-              id="adressInput"
+              id="addressInput"
               type="text"
-              placeholder="주소를 입력하세요"
+              placeholder="주소찾기를 클릭하세요"
             />
-          </div>
-
-          <div class="inp-area">
-            <label class="label" for="emaillInput">이메일</label>
             <input
               class="input"
-              id="emaillInput"
-              type="emaill"
-              placeholder="example@example.com"
+              id="detailAddressInput"
+              type="text"
+              placeholder="상세주소를 입력해주세요"
             />
           </div>
 
           <div class="btn-area">
-            <button id="sign-up-btn" class="button is-success is-rounded">
-              회원가입하기
-            </button>
+            <input
+              type="submit"
+              value="회원가입"
+              id="sign-up-btn"
+              class="button is-success is-rounded"
+            />
             <a
               href="../login/login.html"
               id="go-to-login-btn"
@@ -121,18 +128,6 @@
         </form>
       </div>
     </main>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"
-    ></script>
     <script src="sign-up.js"></script>
   </body>
 </html>
