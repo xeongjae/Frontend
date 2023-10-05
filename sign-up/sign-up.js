@@ -1,3 +1,31 @@
+// 이메일 중복검사
+document.getElementById('id-duplicated-confilm-btn').addEventListener('click', function() {
+  const email = document.getElementById('emailInput').value;
+
+  const apiUrl = 'API 엔트포인트';
+
+  fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: email })
+  })
+  .then(response => response.json())
+  .then(data => {
+      if(data.isDuplicate) {
+          return alert('이미 사용중인 이메일입니다.');
+      } else {
+          return alert('사용 가능한 이메일입니다.');
+      }
+  })
+  .catch(error => {
+      console.error('Error:', error);
+      document.getElementById('emailResult').innerText = '서버 오류 발생. 다시 시도해 주세요.';
+  });
+});
+
+//daum 주소찾기 API
 document.getElementById('find-address-btn').addEventListener('click', function() {
   new daum.Postcode({
     oncomplete: function(data) {

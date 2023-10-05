@@ -14,6 +14,8 @@ html {
 .cart-header {
   font-size: 25px;
   font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 30px;
 }
 
 /*상품 박스 제목*/
@@ -22,6 +24,7 @@ html {
   display: flex;
   width: 100%;
   height: 15px;
+  margin-left: 10px;
 }
 
 .product-container span {
@@ -29,25 +32,30 @@ html {
   font-weight: 700;
 }
 .name {
+  margin-left: 5px;
   width: 50%;
 }
 
 .qty {
-  width: 40%;
+  margin-left: 100px;
+  width: 35%;
   text-align: center;
 }
 .price {
-  width: 40%;
+  margin-left: 10px;
+  width: 45%;
   text-align: center;
 }
 
 /* 상품 정보들 */
 .cart-container {
-  border-top: 1px solid #969696;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+#ul1 {
+  border-top: 1px solid #969696;
 }
 .cart-container ul {
   width: 100%;
@@ -81,6 +89,7 @@ html {
   font-size: 20px;
   text-align: center;
   border-radius: 0px;
+  border: none;
 }
 
 .count-box {
@@ -94,13 +103,23 @@ html {
   width: 10px;
 }
 
-.btn-plus,
+.btn-plus{
+  width: 35px;
+  border-radius: 0px;
+  border: 0px;
+  background-color: rgb(210, 208, 208);
+  cursor: pointer;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
 .btn-minus {
   width: 35px;
   border-radius: 0px;
   border: 0px;
-  background-color: rgb(156, 183, 136);
+  background-color: rgb(210, 208, 208);
   cursor: pointer;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
 }
 
 .img-box {
@@ -168,20 +187,22 @@ html {
 }
 
 .btn-container {
-  margin-top: 80px;
+  margin-top: 60px;
+  margin-bottom: 30px;
   text-align: right;
   vertical-align: middle;
 }
 
 .btn-buy {
   width: 150px;
-  height: 50px;
+  height: 45px;
   font-size: 15px;
   color: white;
   background-color: #3cb371;
   border: #3cb371;
+  border-radius: 30px;
 }
 
 .btn-buy:hover {
-  background-color: green;
+  filter: brightness(0.9);
 }
