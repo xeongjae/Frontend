@@ -7,32 +7,31 @@
 main {
   height: auto;
   min-height: 100%;
+  border-top: 0.5px solid gray;
+  border-bottom: 0.5px solid gray;
 }
 .title {
   font-size: 35px;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 80px;
 }
 .login-form-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 80px;
-  margin-bottom: 120px;
-  background-color: #eee;
+  background-color: #f8f8f8;
 }
 .login-form {
   width: 40rem;
   height: 35rem;
-  padding: 30px;
-  background-color: white;
+  background-color: #f8f8f8;
 }
 .login-button {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 300px;
-  margin-top: 100px;
+  margin-top: 60px;
   margin-bottom: 10px;
   background-color: #3cb371;
 }
@@ -50,7 +49,7 @@ main {
   margin-top: 55px;
 }
 .label {
-  margin-left: 97px;
+  margin-left: 130px;
 }
 .input {
   display: block;
