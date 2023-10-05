@@ -43,22 +43,23 @@ html {
 
 /* 상품 정보들 */
 .cart-container {
-  border-top: 1px solid black;
+  border-top: 1px solid #969696;
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
 }
 .cart-container ul {
   width: 100%;
   list-style: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #969696;
   padding: 12px;
   margin: 0;
 }
 .cart-container li {
   display: flex;
   width: 100%;
+  align-items: center;
 }
 
 .item-info {
@@ -84,11 +85,12 @@ html {
 
 .count-box {
   display: flex;
-  width: 37%;
+  width: 35%;
   height: 40px;
 }
 
-.img-minus {
+.img-minus,
+.img-plus {
   width: 10px;
 }
 
@@ -98,11 +100,9 @@ html {
   border-radius: 0px;
   border: 0px;
   background-color: rgb(156, 183, 136);
+  cursor: pointer;
 }
 
-.img-plus {
-  width: 10px;
-}
 .img-box {
   display: flex;
   width: 100px;
@@ -118,6 +118,13 @@ html {
 .item-price {
   font-weight: 600;
 }
+
+.delete-btn {
+  font-weight: 500;
+  font-size: 20px;
+  color: #969696;
+  cursor: pointer;
+}
 /* 가격상자 */
 .container-box {
   display: flex;
@@ -125,7 +132,7 @@ html {
 }
 
 .price-container {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #969696;
   width: 50%;
 }
 
