@@ -35,10 +35,9 @@ html {
   text-align: center;
 }
 
-.Product_Img {
+.Product_Img img {
   width: 500px;
   height: 400px;
-  background: url("./Product_Img.jpg") no-repeat center center;
   background-size: cover;
   transition: all 0.5s;
 }
@@ -54,7 +53,7 @@ html {
   margin-top: 10px;
 }
 
-.Product_Img:hover {
+.Product_Img img:hover {
   width: 510px;
   height: 410px;
   background: url("./Product_Hover.jpg") no-repeat center center;
