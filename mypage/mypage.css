@@ -25,11 +25,12 @@ body {
 
 .body_left_container {
   background-color: #f8f8f8;
+  padding-left: 100px;
 }
 
 .body_right_container {
-  margin-left: 100px;
   background-color: #f8f8f8;
+  padding-left: 100px;
 }
 
 .order_list {
@@ -155,4 +156,140 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+}
+.id_box {
+  width: 100%;
+  margin-top: 20px;
+}
+.id_box_title {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.id_box_insert {
+  width: 96%;
+  height: 30px;
+}
+.email_box {
+  width: 100%;
+  margin-top: 20px;
+}
+.email_box_title {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.email_box_insert {
+  width: 96%;
+  height: 30px;
+}
+.name {
+  width: 100%;
+  margin-top: 20px;
+}
+.name_title {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.name_insert {
+  width: 96%;
+  height: 30px;
+}
+.phone {
+  width: 100%;
+  margin-top: 20px;
+}
+.phone_title {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.phone_insert1 {
+  width: 26%;
+  height: 25px;
+}
+.phone_insert2 {
+  width: 26%;
+  height: 25px;
+}
+.phone_insert3 {
+  width: 26%;
+  height: 25px;
+}
+
+select {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+  width: 30%; /* 각 select 박스가 동일한 너비를 갖도록 설정 */
+  box-sizing: border-box;
+  appearance: none; /* 브라우저 기본 스타일 제거 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAQAAAC1QeVaAAAAWElEQVR42mP4//8/AxmYYjg1PIZp0ZVgNsMUB7LLJBazxgIyMDCQV1Hl/+AfDinOJLHNBs1lEq/7FP4I0bDqB8RM/+IvMtSBBABZ4SDoyF/YKwAAAABJRU5ErkJggg==")
+    no-repeat 95% center; /* 드롭다운 화살표 아이콘 */
+  background-size: 10px;
+  cursor: pointer;
+}
+
+select:focus {
+  border-color: #007bff;
+}
+.birth {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 14px;
+}
+.birth_select {
+  width: 100%;
+  margin-top: 10px;
+}
+.postal {
+  width: 100%;
+  margin-top: 20px;
+}
+.postal_title {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+label {
+  cursor: pointer;
+}
+.gender {
+  width: 100%;
+  margin-top: 20px;
+}
+.gender_title {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.account_issue {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: gray;
+  font-size: 12px;
+}
+.account_issue_password {
+  margin-right: 20px;
+  padding-left: -20px;
+  cursor: pointer;
+}
+.account_issue_signout {
+  cursor: pointer;
+}
+.account_edit_save {
+  margin-left: 70px;
+  margin-top: 30px;
+  width: 150px;
+  height: 50px;
+  background-color: black;
+  color: white;
+  font-size: 13px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }

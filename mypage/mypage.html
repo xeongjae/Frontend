@@ -51,38 +51,38 @@
           <div class="user_box_container">
             <div class="id_box">
               <div class="id_box_title">아이디</div>
-              <div class="id_box_insert">
-                <input
-                  type="text"
-                  name="user_id"
-                  placeholder="아이디를 입력하세요."
-                />
-              </div>
+              <input
+                class="id_box_insert"
+                type="text"
+                name="user_id"
+                placeholder="아이디를 입력하세요."
+              />
             </div>
             <div class="email_box">
               <div class="email_box_title">이메일</div>
-              <div class="email_box_insert">
-                <input
-                  type="text"
-                  name="user_email"
-                  placeholder="이메일을 입력하세요."
-                />
-              </div>
+
+              <input
+                class="email_box_insert"
+                type="text"
+                name="user_email"
+                placeholder="이메일을 입력하세요."
+              />
             </div>
             <div class="name">
               <div class="name_title">이름</div>
-              <div class="name_insert">
-                <input
-                  type="text"
-                  name="user_name"
-                  placeholder="이름을 입력하세요."
-                />
-              </div>
+
+              <input
+                class="name_insert"
+                type="text"
+                name="user_name"
+                placeholder="이름을 입력하세요."
+              />
             </div>
             <div class="phone">
               <div class="phone_title">휴대폰 번호</div>
               <div class="phone_insert">
                 <input
+                  class="phone_insert1"
                   type="text"
                   name="phone1"
                   maxlength="3"
@@ -91,6 +91,7 @@
                 />
                 -
                 <input
+                  class="phone_insert2"
                   type="text"
                   name="phone2"
                   maxlength="4"
@@ -98,14 +99,24 @@
                   onkeyup="moveFocus(4, this, document.getElementsByName('phone3')[0])"
                 />
                 -
-                <input type="text" name="phone3" maxlength="4" size="4" />
+                <input
+                  class="phone_insert3"
+                  type="text"
+                  name="phone3"
+                  maxlength="4"
+                  size="4"
+                />
               </div>
             </div>
             <div class="postal">
               <div class="postal_title">우편번호</div>
               <div class="postal_insert">
-                <div class="postal_insert_left"></div>
-                <div class="postal_insert_right"></div>
+                <input
+                  type="text"
+                  id="addressInput"
+                  placeholder="주소를 입력하세요"
+                />
+                <button onclick="searchAddress()">검색</button>
               </div>
             </div>
             <div class="address">
@@ -115,19 +126,29 @@
             <div class="birth">
               <div class="birth_title">생년월일</div>
               <div class="birth_select">
-                <div class="birth_select_year"></div>
-                <div class="birth_select_month"></div>
-                <div class="birth_select_day"></div>
+                <select id="year" onchange="populateDays()"></select>
+                <select id="month" onchange="populateDays()"></select>
+                <select id="day"></select>
               </div>
             </div>
             <div class="gender">
-              <div class="gender_male"></div>
-              <div class="gender_female"></div>
+              <div class="gender_title">성별</div>
+              <div class="gender_selector">
+                <label>
+                  <input type="radio" name="gender" value="male" checked />
+                  남성
+                </label>
+                <label>
+                  <input type="radio" name="gender" value="female" />
+                  여성
+                </label>
+              </div>
             </div>
-            <div class="marketing">
-              <div class="marketing_email"></div>
-              <div class="marketing_message"></div>
+            <div class="account_issue">
+              <div class="account_issue_password">비밀번호 변경하기</div>
+              <div class="account_issue_signout">탈퇴하기</div>
             </div>
+            <div class="account_edit_save">변경사항 저장하기</div>
           </div>
         </div>
       </div>
@@ -139,5 +160,7 @@
         }
       }
     </script>
+    <script src="https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js"></script>
+    <script src="mypage.js"></script>
   </body>
 </html>
