@@ -12,6 +12,10 @@
     />
     <link rel="stylesheet" href="/common/header-footer.css" />
     <link rel="stylesheet" href="cart.css" />
+    <script
+      src="https://kit.fontawesome.com/def66b134a.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="/common/header-footer.js" defer></script>
     <script src="/cart/cart.js" defer></script>
   </head>
@@ -33,7 +37,9 @@
                 <img class="img-items" src="./img/Plant1.jpg" alt="" />
               </div>
               <div class="item-info">
-                <p class="item-name">스투키 & 하트호야 골드</p>
+                <a class="item-name" href="/detailpage/detailpage.html"
+                  >스투키 & 하트호야 골드</a
+                >
                 <div class="count-box">
                   <button class="btn-minus" id="btn-minus">
                     <img class="img-minus" src="./img/minus.png" alt="" />
@@ -56,10 +62,12 @@
           <ul>
             <li id="cart-item">
               <div class="img-box">
-                <img class="img-items" src="./img/Plant1.jpg" alt="" />
+                <img class="img-items" src="/cart/img/Pot1_Img.jpg" alt="" />
               </div>
               <div class="item-info">
-                <p class="item-name">스투키 & 하트호야 골드</p>
+                <a class="item-name" href="/detailpage/detailpage.html"
+                  >세라믹 힐 실린더</a
+                >
                 <div class="count-box">
                   <button class="btn-minus" id="btn-minus">
                     <img class="img-minus" src="./img/minus.png" alt="" />
@@ -100,6 +108,10 @@
           <button onclick="location.href='/order/order.html'" class="btn-buy">구매하기</button>
         </div>
       </div>
+    </div>
+    <div class="modal">
+      <span class="close-modal">&times;</span>
+      <img src="" alt="" class="modal-content" />
     </div>
     <div class="footer-container"></div>
   </body>
