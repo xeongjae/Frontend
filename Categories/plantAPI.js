@@ -1,6 +1,6 @@
 const ProductCol = document.querySelector(".Product_Col");
 
-fetch("http://localhost:3000/categories/1/items/zCPOTidmnR7N7r-NR8N9Z", {
+fetch("http://localhost:3000/categories/1/items", {
   method: "put",
   body: JSON.stringify({
     name: "세라믹",

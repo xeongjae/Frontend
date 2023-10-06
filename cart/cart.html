@@ -26,7 +26,8 @@
       <div class="wrapper">
         <h1 class="cart-header">장바구니 (idx)</h1>
         <div class="product-container">
-          <span class="name">상품 정보</span>
+          <span class="info">상품 정보</span>
+          <span class="name">상품명 </span>
           <span class="qty">수량</span>
           <span class="price">가격</span>
         </div>
@@ -44,12 +45,7 @@
                   <button class="btn-minus" id="btn-minus">
                     <img class="img-minus" src="./img/minus.png" alt="" />
                   </button>
-                  <input
-                    id="change_qty"
-                    class="input-count"
-                    type="text"
-                    value="1"
-                  />
+                  <div class="input-count">1</div>
                   <button class="btn-plus" id="btn-plus">
                     <img class="img-plus" src="./img/plus.png" alt="" />
                   </button>
@@ -72,12 +68,7 @@
                   <button class="btn-minus" id="btn-minus">
                     <img class="img-minus" src="./img/minus.png" alt="" />
                   </button>
-                  <input
-                    id="change_qty"
-                    class="input-count"
-                    type="text"
-                    value="1"
-                  />
+                  <div class="input-count">1</div>
                   <button class="btn-plus" id="btn-plus">
                     <img class="img-plus" src="./img/plus.png" alt="" />
                   </button>
@@ -105,7 +96,9 @@
           <p class="total-price">41,500원</p>
         </div>
         <div class="btn-container">
-          <button onclick="location.href='/order/order.html'" class="btn-buy">구매하기</button>
+          <button onclick="location.href='/order/order.html'" class="btn-buy">
+            구매하기
+          </button>
         </div>
       </div>
     </div>

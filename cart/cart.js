@@ -34,7 +34,7 @@ MinusBtn.forEach(function (Minus) {
     const liElement = Minus.closest("li"); // 현재 버튼과 가장 가까운 li 요소를 찾음
     const ClosetQty = liElement.querySelector(".input-count"); // li 요소 내부에서 input-count 검색
     if (Qty.value > 1) {
-      ClosetQty.value--;
+      ClosetQty.textContent--;
       TotalPrice();
     }
   });
@@ -44,7 +44,7 @@ PlusBtn.forEach(function (Plus) {
   Plus.addEventListener("click", function () {
     const liElement = Plus.closest("li"); // 현재 버튼과 가장 가까운 li 요소를 찾음
     const ClosetQty = liElement.querySelector(".input-count"); // li 요소 내부에서 input-count 검색
-    ClosetQty.value++;
+    ClosetQty.textContent++;
     TotalPrice();
   });
 });
@@ -62,6 +62,6 @@ function FormatPrice(price) {
 }
 
 function TotalPrice() {
-  const total = Qty.value * InitialPrice;
+  const total = Qty.textContent * InitialPrice;
   Price.textContent = FormatPrice(total);
 }
