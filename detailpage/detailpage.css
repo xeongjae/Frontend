@@ -17,15 +17,49 @@ body {
   width: 10%;
   height: 100%;
 }
-.container_image::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
-}
 .container_image {
   width: 40%;
   height: 100%;
-  overflow: auto;
-  -ms-overflow-style: none; /* Internet Explorer, Edge */
-  scrollbar-width: none; /* Firefox */
+  position: relative; /* 버튼을 위한 relative 포지션 */
+  overflow: hidden; /* 슬라이드 되는 이미지들을 숨깁니다. */
+}
+
+.image_slider {
+  display: flex;
+  margin-top: 50px;
+  transition: all 0.5s; /* 부드럽게 전환되는 이미지를 위한 트랜지션 */
+}
+
+.slide-btn {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute; /* 버튼을 이미지 위에 위치시킵니다. */
+  top: 50%;
+  transform: translateY(-50%); /* 버튼을 수직으로 중앙에 위치시킵니다. */
+  color: #333;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  z-index: 2; /* 버튼이 이미지 위에 올라가게 합니다. */
+}
+
+.slide-btn:hover {
+  opacity: 1;
+}
+
+#prevSlide {
+  left: 10px; /* 왼쪽에 약간의 간격을 줍니다. */
+}
+
+#nextSlide {
+  right: 10px; /* 오른쪽에 약간의 간격을 줍니다. */
+}
+
+img {
+  width: 100%;
+  height: auto; /* 이미지의 원래 비율을 유지합니다. */
+  flex: 0 0 100%; /* 슬라이드 이미지를 각각 100%의 너비로 만들어 flex 컨테이너에 맞게 조절합니다. */
 }
 .container_detail {
   width: 40%;
