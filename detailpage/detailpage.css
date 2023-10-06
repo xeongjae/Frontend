@@ -104,14 +104,22 @@ img {
   font-size: 11px;
   margin-top: 20px;
   border-top: 1px solid black;
+  width: 370px;
 }
 .order_count {
   margin-top: 20px;
   display: flex;
   flex-direction: row;
 }
-.order_count_mass {
+.order_count_div {
   margin-left: auto;
+  display: flex;
+  flex-direction: row;
+}
+.order_count_mass {
+  width: 24px;
+  text-align: center;
+  margin-top: 4px;
 }
 .order_money {
   margin-top: 10px;
@@ -119,7 +127,8 @@ img {
   flex-direction: row;
 }
 .order_money_mass {
-  margin-left: 230px;
+  margin-left: auto;
+  margin-right: 5px;
 }
 .order_button {
   margin-top: 30px;
@@ -155,4 +164,17 @@ img {
 img {
   width: 100%;
   height: 100%;
+}
+.count-btn {
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 0 5px;
+  font-size: 12px;
+  transition: background-color 0.3s;
+}
+
+.count-btn:hover {
+  background-color: #ddd;
 }
