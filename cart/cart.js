@@ -3,6 +3,28 @@ const PlusBtn = document.querySelectorAll(".btn-plus");
 const Qty = document.querySelector(".input-count");
 const Price = document.querySelector(".item-price");
 const Total = document.querySelector(".item-total-price");
+const Imgs = document.querySelectorAll(".img-items");
+const Modal = document.querySelector(".modal");
+const ModalImg = document.querySelector(".modal-content");
+const CloseModal = document.querySelector(".close-modal");
+
+Imgs.forEach(function (Img) {
+  Img.addEventListener("click", function () {
+    Modal.style.display = "flex";
+    ModalImg.src = this.src;
+  });
+});
+
+CloseModal.addEventListener("click", function () {
+  Modal.style.display = "none";
+});
+
+// 모달 외부 클릭 시 모달 닫기
+window.onclick = function (event) {
+  if (event.target == Modal) {
+    Modal.style.display = "none";
+  }
+};
 
 // 초기 가격 값 가져오기
 const InitialPrice = convertnum(Price);
