@@ -26,7 +26,7 @@ html {
 .Product_Img {
   width: 600px;
   height: 450px;
-  background: url("./img/Plant1.jpg") no-repeat center center;
+  background: no-repeat center center;
   background-size: contain;
   transition: all 0.5s;
 }

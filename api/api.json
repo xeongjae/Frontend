@@ -1,0 +1,16 @@
+{
+  "item": [
+    {
+      "name": "세라믹 힐 실린더",
+      "price": 39000,
+      "description": "아무노래나 일단 틀어",
+      "main_image": ["/categories/img/Pot1_Img", "iii"]
+    },
+    {
+      "name": "세라믹",
+      "price": 32000,
+      "description": "아무노래나 일단 틀어",
+      "main_image": ["/categories/img/Pot2", "iii"]
+    }
+  ]
+}

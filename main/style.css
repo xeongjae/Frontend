@@ -80,6 +80,7 @@ html {
 .slideshow-container {
   position: relative;
   height: 400px;
+  margin-top: 40px;
 }
 
 /* 이미지 숨김 */
