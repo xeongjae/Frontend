@@ -1,18 +1,16 @@
 const ProductColContainer = document.querySelector(".Product_Col_Container");
 
-fetch(`/api/api.json`)
-  // , {
-  //   method: "put",
-  //   body: JSON.stringify({
-  //     name: "세라믹",
-  //     price: 39000,
-  //     description: "아무노래나 일단 틀어",
-  //     main_image: ["ii", "iii"],
-  //   }),
+fetch(
+  "/api/api.json"
+  // `${SERVER_URI}/categories/:category_id/items/?page=1&perPage=5&sort=인기순`
+  // ,
+  // {
+  //   method: "get", // GET 요청
   //   headers: {
   //     "Content-Type": "application/json",
   //   },
-  // })
+  // }
+)
   .then((res) => {
     if (!res.ok) {
       throw new Error("Network response was not ok");
@@ -37,9 +35,17 @@ function ItemCategory(data, container) {
     <div class="Product_Img" style="background-image: url(${ItemInfo.main_image[0]})"></div>
     <div class="Product_Name">${ItemInfo.name}</div>
     <div class="Product_Price">${ItemInfo.price} 원</div>
-  </div>`;
-
+    </div>`;
     ProductCol.appendChild(Product);
+
+    //hover했을 때 hover이미지가 나오도록 구현
+    const ProductImg = Product.querySelector(".Product_Img");
+    ProductImg.addEventListener("mouseenter", function () {
+      ProductImg.style.backgroundImage = `url(${ItemInfo.main_image[1]})`;
+    });
+    ProductImg.addEventListener("mouseleave", function () {
+      ProductImg.style.backgroundImage = `url(${ItemInfo.main_image[0]})`;
+    });
 
     if (++ProductColCount === 3) {
       container.appendChild(ProductCol); // 현재의 ProductCol을 문서에 추가
