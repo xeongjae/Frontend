@@ -44,6 +44,6 @@ html {
 .Product_Img:hover {
   width: 610px;
   height: 460px;
-  background: url("./img/Plant1_Hover.jpg") no-repeat center center;
+  background: no-repeat center center;
   background-size: contain;
 }

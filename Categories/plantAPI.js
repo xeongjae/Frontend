@@ -1,16 +1,15 @@
 const ProductColContainer = document.querySelector(".Product_Col_Container");
+// require("dotenv").config();
+// const SERVER_URI = process.env.SERVER_URI;
 
-fetch(
-  "/api/api.json"
-  // `${SERVER_URI}/categories/:category_id/items/?page=1&perPage=5&sort=인기순`
-  // ,
-  // {
-  //   method: "get", // GET 요청
+fetch("/api/api.json")
+  //   `${SERVER_URI}/categories/`, {
+  //   method: "get",
   //   headers: {
   //     "Content-Type": "application/json",
   //   },
-  // }
-)
+  //   body: JSON.stringify(data),
+  // })
   .then((res) => {
     if (!res.ok) {
       throw new Error("Network response was not ok");
@@ -18,6 +17,7 @@ fetch(
     return res.json();
   })
   .then((data) => {
+    console.log(data);
     ItemCategory(data, ProductColContainer);
   })
   .catch((error) => {
@@ -27,30 +27,33 @@ fetch(
 function ItemCategory(data, container) {
   let ProductColCount = 0;
   let ProductCol = CreateProductCol();
-  for (let i = 0; i < data.item.length; i++) {
-    let ItemInfo = data.item[i];
+  for (let i = 0; i < data.categories.length; i++) {
+    const category = data.categories[i];
+    for (let j = 0; j < data.categories.item.length; j++) {
+      let ItemInfo = category.item[j];
 
-    const Product = document.createElement("div");
-    Product.innerHTML = `<div class="Product">
+      const Product = document.createElement("div");
+      Product.innerHTML = `<div class="Product">
     <div class="Product_Img" style="background-image: url(${ItemInfo.main_image[0]})"></div>
     <div class="Product_Name">${ItemInfo.name}</div>
     <div class="Product_Price">${ItemInfo.price} 원</div>
     </div>`;
-    ProductCol.appendChild(Product);
+      ProductCol.appendChild(Product);
 
-    //hover했을 때 hover이미지가 나오도록 구현
-    const ProductImg = Product.querySelector(".Product_Img");
-    ProductImg.addEventListener("mouseenter", function () {
-      ProductImg.style.backgroundImage = `url(${ItemInfo.main_image[1]})`;
-    });
-    ProductImg.addEventListener("mouseleave", function () {
-      ProductImg.style.backgroundImage = `url(${ItemInfo.main_image[0]})`;
-    });
+      //hover했을 때 hover이미지가 나오도록 구현
+      const ProductImg = Product.querySelector(".Product_Img");
+      ProductImg.addEventListener("mouseenter", function () {
+        ProductImg.style.backgroundImage = `url(${ItemInfo.main_image[1]})`;
+      });
+      ProductImg.addEventListener("mouseleave", function () {
+        ProductImg.style.backgroundImage = `url(${ItemInfo.main_image[0]})`;
+      });
 
-    if (++ProductColCount === 3) {
-      container.appendChild(ProductCol); // 현재의 ProductCol을 문서에 추가
-      ProductCol = CreateProductCol(); // 새로운 ProductCol 생성
-      ProductColCount = 0; // ProductCol 개수 초기화
+      if (++ProductColCount === 3) {
+        container.appendChild(ProductCol); // 현재의 ProductCol을 문서에 추가
+        ProductCol = CreateProductCol(); // 새로운 ProductCol 생성
+        ProductColCount = 0; // ProductCol 개수 초기화
+      }
     }
   }
   if (ProductColCount > 0) {
