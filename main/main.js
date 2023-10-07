@@ -1,5 +1,6 @@
 let SlideIndex = 0; // 현재 슬라이드 인덱스
 let SlideInterval = 2000; // 슬라이드 전환 간격 (밀리초)
+const Product_Contain = document.querySelectorAll(".Product_Col");
 
 function ShowSlides() {
   let Slides = document.getElementsByClassName("mySlides");
