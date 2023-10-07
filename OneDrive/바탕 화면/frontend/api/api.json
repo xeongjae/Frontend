@@ -1,0 +1,172 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "PLANT",
+      "item": [
+        {
+          "name": "세라믹_1",
+          "price": 39000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot1_Img.jpg",
+            "/categories/img/Pot1_Hover.jpg"
+          ]
+        },
+        {
+          "name": "세라믹_2",
+          "price": 32000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot2.jpg",
+            "/categories/img/Pot2_Hover.jpg"
+          ]
+        },
+        {
+          "name": "세라믹_3",
+          "price": 32000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot2.jpg",
+            "/categories/img/Pot2_Hover.jpg"
+          ]
+        },
+        {
+          "name": "세라믹_10",
+          "price": 39000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot1_Img.jpg",
+            "/categories/img/Pot1_Hover.jpg"
+          ]
+        },
+        {
+          "name": "세라믹_10",
+          "price": 39000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot1_Img.jpg",
+            "/categories/img/Pot1_Hover.jpg"
+          ]
+        },
+        {
+          "name": "세라믹_10",
+          "price": 39000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot1_Img.jpg",
+            "/categories/img/Pot1_Hover.jpg"
+          ]
+        },
+        {
+          "name": "세라믹_10",
+          "price": 39000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot1_Img.jpg",
+            "/categories/img/Pot1_Hover.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "POT",
+      "item": [
+        {
+          "name": "세라믹_4",
+          "price": 39000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot1_Img.jpg",
+            "/categories/img/Pot1_Hover.jpg"
+          ]
+        },
+        {
+          "name": "세라믹_5",
+          "price": 32000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot2.jpg",
+            "/categories/img/Pot2_Hover.jpg"
+          ]
+        },
+        {
+          "name": "세라믹_6",
+          "price": 32000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot2.jpg",
+            "/categories/img/Pot2_Hover.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "GARDENING TOOLS",
+      "item": [
+        {
+          "name": "세라믹_7",
+          "price": 39000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot1_Img.jpg",
+            "/categories/img/Pot1_Hover.jpg"
+          ]
+        },
+        {
+          "name": "세라믹_8",
+          "price": 32000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot2.jpg",
+            "/categories/img/Pot2_Hover.jpg"
+          ]
+        },
+        {
+          "name": "세라믹_9",
+          "price": 32000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot2.jpg",
+            "/categories/img/Pot2_Hover.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "GARDENING KIT",
+      "item": [
+        {
+          "name": "세라믹_10",
+          "price": 39000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot1_Img.jpg",
+            "/categories/img/Pot1_Hover.jpg"
+          ]
+        },
+        {
+          "name": "세라믹_11",
+          "price": 32000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot2.jpg",
+            "/categories/img/Pot2_Hover.jpg"
+          ]
+        },
+        {
+          "name": "세라믹_12",
+          "price": 32000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot2.jpg",
+            "/categories/img/Pot2_Hover.jpg"
+          ]
+        }
+      ]
+    }
+  ]
+}

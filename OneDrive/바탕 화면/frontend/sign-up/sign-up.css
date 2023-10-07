@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Nanum Gothic Coding", cursive;
+}
+main {
+  height: 100%;
+  min-height: 100%;
+  background-color: #f8f8f8;
+}
+.title {
+  font-size: 33px;
+  text-align: center;
+  margin-top: 80px;
+}
+.sign-up-form-container {
+  display: flex;
+  justify-content: center;
+  height: 150vh;
+}
+.sign-up-form {
+  width: 40rem;
+  height: 100%;
+  background-color: white;
+}
+#sign-up-btn {
+  display: block;
+  margin: 60px auto 0 auto;
+  width: 230px;
+  background-color: #3cb371;
+}
+#go-to-login-btn {
+  display: block;
+  margin: 15px auto 0 auto;
+  width: 230px;
+  background-color: white;
+}
+.button:hover {
+  filter: brightness(0.9);
+}
+.inp-area {
+  margin-top: 30px;
+}
+.label {
+  margin-left: 103px;
+  font-size: 13px;
+}
+.input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 450px;
+}
+#emailInput {
+  width: 350px;
+  margin-left: 98px;
+  margin-right: auto;
+  display: inline;
+}
+#id-duplicated-confilm-btn {
+  width: 92px;
+  background-color: #f8f8f8;
+  display: inline;
+  margin: 0;
+  border-radius: 5px;
+}
+#addressInput {
+  width: 355px;
+  display: inline;
+}
+#detailAddressInput {
+  margin-top: 5px;
+}
+#find-address-btn {
+  margin-left: 95px;
+  width: 87px;
+  background-color: #f8f8f8;
+  display: inline;
+  border-radius: 5px;
+}
+.id-inp-area {
+  margin-top: 80px;
+}

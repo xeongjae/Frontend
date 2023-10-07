@@ -1,0 +1,83 @@
+/*사이트 header 작업*/
+body {
+  margin: 0;
+}
+.Header {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 0.5px solid #c5c5c5;
+  letter-spacing: 3px;
+}
+
+.Header_Row {
+  display: flex;
+  justify-content: center;
+}
+
+/*사이트 로고*/
+.Title {
+  margin: 0;
+  display: block;
+  font-size: 50px;
+  font-weight: 700;
+  margin-top: 20px;
+  width: 300px;
+  height: 130px;
+  background: url(./Casa\ Verde-logo.png) no-repeat center center;
+  background-size: cover;
+}
+.Title a {
+}
+
+/*로고 밑에 카테고리 작업*/
+.categories {
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.categories a {
+  text-decoration: none;
+  color: black;
+  margin-left: 80px;
+  font-family: "Montserrat", sans-serif;
+}
+
+/*User 정보를 담는 공간*/
+.User {
+  padding-left: 100px;
+  font-size: 25px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.User a {
+  padding-left: 30px;
+  text-decoration: none;
+  color: black;
+}
+
+/*사이트 footer 작업*/
+html {
+  background-color: #f8f8f8;
+}
+.Footer_Container {
+  margin-top: 100px;
+  background-color: #f8f8f8;
+  text-align: center;
+  color: #959595;
+  padding: 70px 0px;
+  border-top: 0.5px solid #c5c5c5;
+}
+.Producer {
+  padding: 0;
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+}
+.Producer li {
+  margin-left: 30px;
+}

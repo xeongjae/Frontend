@@ -1,0 +1,49 @@
+html {
+  font-family: "Nanum Gothic Coding", cursive;
+  background-color: #f8f8f8;
+}
+
+.Categories_Title {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+  color: #969696;
+  margin-top: 70px;
+}
+
+.Product_Col {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+.Product {
+  margin-left: 30px;
+  cursor: pointer;
+}
+.Product div {
+  text-align: center;
+}
+.Product_Img {
+  width: 600px;
+  height: 450px;
+  background: url("./img/Pot1_Img.jpg") no-repeat center center;
+  background-size: contain;
+  transition: all 0.5s;
+}
+
+.Product_Name {
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.Product_Price {
+  font-family: 500;
+  margin-top: 10px;
+}
+
+.Product_Img:hover {
+  width: 610px;
+  height: 460px;
+  background: url("./img/Pot1_Hover.jpg") no-repeat center center;
+  background-size: contain;
+}
