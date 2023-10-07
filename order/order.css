@@ -10,13 +10,14 @@ body {
 .title {
   text-align: center;
   padding: 50px;
+  margin-top: 20px;
 }
 .notification.is-primary {
   border-radius: 5px;
   border: 3px solid white;
   color: black;
   background-color: white;
-  height: 150px;
+  height: 100%;
   margin-top: 30px;
   margin-left: 50px;
   margin-right: 50px;
@@ -25,8 +26,7 @@ body {
 }
 .btn-container {
   text-align: center;
-  padding-top: 100px;
-  padding-bottom: 159px;
+  padding-top: 80px;
 }
 .button {
   margin-left: 40px;

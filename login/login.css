@@ -11,18 +11,16 @@ main {
 .title {
   font-size: 35px;
   text-align: center;
-  margin-top: 80px;
+  margin-top: 90px;
 }
 .login-form-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f8f8f8;
 }
 .login-form {
   width: 40rem;
-  height: 35rem;
-  background-color: #f8f8f8;
+  height: 100%;
 }
 .login-button {
   display: block;
