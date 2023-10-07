@@ -223,7 +223,7 @@
     </div>
   </body>
   <script>
-    fetch("../nav-script/nav.html")
+    fetch("/manager/manager-navbar/nav.html")
       .then((response) => response.text())
       .then((data) => {
         document.getElementById("nav-container").innerHTML = data;

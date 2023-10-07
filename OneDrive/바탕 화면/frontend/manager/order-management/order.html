@@ -107,11 +107,11 @@
     </div>
   </body>
   <script>
-    fetch("../nav-script/nav.html")
+    fetch("/manager/manager-navbar/nav.html")
       .then((response) => response.text())
       .then((data) => {
         document.getElementById("nav-container").innerHTML = data;
       });
   </script>
-  <script src="/public/manager/order-management/orderModal.js"></script>
+  <script src="/manager/order-management/orderModal.js"></script>
 </html>

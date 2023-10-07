@@ -15,8 +15,8 @@
     />
     <link
       rel="stylesheet"
-      href="/public/manager/category-management/category.css"
-    />  
+      href="/manager/category-management/category.css"
+    />
     <title>manager</title>
   </head>
 
@@ -27,63 +27,22 @@
         <div id="nav-container"></div>
       </div>
       <!--카테고리 관리 페이지-->
-      
-        <div class="content-box">
-          <div id="managing-category">
-            <div class="title-box">
-              <h3>카테고리 수정</h3>
-            </div>
-            <ul class="list-box">
-              <li>
-                <h4>Plant</h4>
-                <div>
-                  <button class="button is-primary is-small">수정</button>
-                  <button class="button is-danger is-small">삭제</button>
-                </div>
-              </li>
-              <li>
-                <h4>Pot</h4>
-                <div>
-                  <button class="button is-primary is-small">수정</button>
-                  <button class="button is-danger is-small">삭제</button>
-                </div>
-              </li>
-              <li>
-                <h4>Gardening Tool</h4>
-                <div>
-                  <button class="button is-primary is-small">수정</button>
-                  <button class="button is-danger is-small">삭제</button>
-                </div>
-              </li>
-              <li>
-                <h4>Gardening Kit</h4>
-                <div>
-                  <button class="button is-primary is-small">수정</button>
-                  <button class="button is-danger is-small">삭제</button>
-                </div>
-              </li>
-            </ul>
-            <div class="adding-box">
-              <input type="text" value="Plant" />
-              <button class="button is-success is-small">추가</button>
-            </div>
-            <div class="pagination">
-              <a href="#">&laquo;</a>
-              <a href="#">1</a>
-              <a class="active" href="#">2</a>
-              <a href="#">3</a>
-              <a href="#">4</a>
-              <a href="#">5</a>
-              <a href="#">6</a>
-              <a href="#">&raquo;</a>
-            </div>
-          </div>
-        </div>
+      <div style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 50px;
+    ">
+
+        <button class="button-box-01"></button>
+        <div class="category-card" style="width: 100px; height: 100px; background-color: white;"></div>
+        <button class="button-box-02"></button>
+        <div class="subomit-card" style="width: 100px; height: 100px; background-color: white;"></div>
       </div>
     </div>
   </body>
   <script>
-    fetch("../nav-script/nav.html")
+    fetch("/manager/manager-navbar/nav.html")
       .then((response) => response.text())
       .then((data) => {
         document.getElementById("nav-container").innerHTML = data;

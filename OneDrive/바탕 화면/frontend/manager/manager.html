@@ -18,28 +18,56 @@
   </head>
 
   <body>
-    <!--관리자 페이지 사이드 nav바-->
-    <div class="container-wrapper">
-      <nav class="navbar">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/public/manager/manager.html">
-            <p>Casa Verde</p>
-          </a>
+    <div>
+      <!--관리자 페이지 사이드 nav바-->
+      <div class="container-wrapper">
+        <div id="nav-container"></div>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 50px;
+        "
+      >
+        <div class="div-login-layout">
+          <form style="display: block; justify-content:center; align-items: center;">
+            <h1 style="font-weight: bold; color: white; font-size: 1.5rem">
+              로그인
+            </h1>
+            <div class="box-formargin">
+              <input type="email" placeholder="아이디" />
+            </div>
+            <div class="box-formargin">
+              <input type="password" placeholder="비밀번호" />
+            </div>
+
+            <div style="margin-top: 140px;">
+              
+              <div class="box-formargin">
+                <button
+                  id="button-submit"
+                  class="button-submit"
+                  type="submit"
+                >
+                  로그인
+                </button>
+                <div class="box-formargin">
+                  <a href="#" style="font-size: 12px; color:white;">아직 관리자가 아닙니꺼?</a>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
-        <ul class="">
-          <li>
-            <a class="navbar-item" href="./category-management/category.html"
-              >카테고리</a
-            >
-          </li>
-          <li>
-            <a class="navbar-item" href="./item-management/item.html">상품</a>
-          </li>
-          <li>
-            <a class="navbar-item" href="./order-management/order.html">주문</a>
-          </li>
-        </ul>
-      </nav>
+      </div>
     </div>
   </body>
+  <script>
+    fetch("/manager/manager-navbar/nav.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("nav-container").innerHTML = data;
+      });
+  </script>
 </html>
