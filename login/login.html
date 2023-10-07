@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>log-in</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../common/header-footer.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="login.css" />
+    <script src="login.js" defer></script>
+    <script src="../common/header-footer.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/def66b134a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="header-container"></div>
+    <main>
+      <!-- 로그인 폼(Form) -->
+      <div class="login-form-container">
+        <form class="login-form" method="post">
+          <h5 class="title">Login</h5>
+          <div class="inp-area id-inp-area">
+            <label class="label" for="idInput">Email</label>
+            <input
+              class="input"
+              id="idInput"
+              type="text"
+              placeholder="이메일을 입력하세요"
+              autocomplete="on"
+            />
+          </div>
+
+          <div class="inp-area">
+            <label class="label" for="passwordInput">Password</label>
+            <input
+              class="input"
+              id="passwordInput"
+              type="password"
+              placeholder="비밀번호를 입력하세요"
+            />
+          </div>
+          <div class="btn-area">
+            <button class="login-button button is-success is-rounded">
+              로그인하기
+            </button>
+          </div>
+          <div class="btn-area">
+            <a
+              href="../sign-up/sign-up.html"
+              class="sign-up-button button is-rounded"
+              >회원가입</a
+            >
+          </div>
+        </form>
+      </div>
+    </main>
+    <div class="footer-container"></div>
+  </body>
+</html>

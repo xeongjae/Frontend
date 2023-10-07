@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Nanum Gothic Coding", cursive;
+}
+body {
+  background-color: #f8f8f8;
+}
+.title {
+  text-align: center;
+  padding: 50px;
+  margin-top: 20px;
+}
+.notification.is-primary {
+  border-radius: 5px;
+  border: 3px solid white;
+  color: black;
+  background-color: white;
+  height: 100%;
+  margin-top: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 30px;
+  box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.3);
+}
+.btn-container {
+  text-align: center;
+  padding-top: 80px;
+}
+.button {
+  margin-left: 40px;
+  margin-right: 40px;
+  width: 500px;
+  height: 50px;
+}
+#go-to-cart-btn {
+  background-color: gray;
+}
+#purchase-btn {
+  background-color: #3cb371;
+}
+.button:hover {
+  filter: brightness(0.9);
+}

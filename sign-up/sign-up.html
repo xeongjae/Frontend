@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sign-up</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="sign-up.css" />
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <!-- 회원가입 폼(Form) -->
+      <div class="sign-up-form-container">
+        <form class="sign-up-form" method="post">
+          <h5 class="title">회원가입</h5>
+          <div class="inp-area id-inp-area">
+            <label class="label" for="emailInput">이메일 *</label>
+            <input
+              class="input"
+              id="emailInput"
+              type="email"
+              placeholder="example@example.com"
+              autocomplete="on"
+            />
+
+            <button
+              id="id-duplicated-confilm-btn"
+              class="sign-up-button button is-rounded"
+            >
+              중복확인
+            </button>
+          </div>
+
+          <div class="inp-area">
+            <label class="label" for="passwordInput">비밀번호 *</label>
+            <input
+              class="input"
+              id="passwordInput"
+              type="password"
+              placeholder="********"
+            />
+          </div>
+
+          <div class="inp-area">
+            <label class="label" for="passwordConfirmInput"
+              >비밀번호 확인 *</label
+            >
+            <input
+              class="input"
+              id="passwordConfirmInput"
+              type="password"
+              placeholder="********"
+            />
+          </div>
+
+          <div class="inp-area">
+            <label class="label" for="nameInput">이름</label>
+            <input
+              class="input"
+              id="nameInput"
+              type="text"
+              placeholder="이름을 입력해주세요"
+            />
+          </div>
+
+          <div class="inp-area">
+            <label class="label" for="phoneInput">전화번호 *</label>
+            <input
+              class="input"
+              id="phoneInput"
+              type="tel"
+              placeholder="010-1234-1234"
+            />
+          </div>
+
+          <div class="inp-area">
+            <label class="label" for="addressInput">주소 *</label>
+            <button
+              id="find-address-btn"
+              class="find-address-button button is-rounded"
+              type="button"
+            >
+            주소찾기
+          </button>
+            <input
+              class="input"
+              id="addressInput"
+              type="text"
+              placeholder="주소찾기를 클릭하세요"
+            />
+            <input
+              class="input"
+              id="detailAddressInput"
+              type="text"
+              placeholder="상세주소를 입력해주세요"
+            />
+          </div>
+
+          <div class="btn-area">
+            <input
+              type="submit"
+              value="회원가입"
+              id="sign-up-btn"
+              class="button is-success is-rounded"
+            />
+            <a
+              href="/login/login.html"
+              id="go-to-login-btn"
+              class="button is-rounded"
+              >돌아가기</a
+            >
+          </div>
+        </form>
+      </div>
+    </main>
+    <script src="sign-up.js"></script>
+  </body>
+</html>
