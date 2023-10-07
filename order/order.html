@@ -16,7 +16,11 @@
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
     <link rel="stylesheet" href="order.css" defer />
-    <script src="../common/header-footer.js" defer></script>
+    <script src="/common/header-footer.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/def66b134a.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
@@ -27,29 +31,22 @@
       <div class="container">
         <div class="notification is-primary">
           <p>주문자</p>
+          <span class="orderer-area"></span>
+          <p>배송지</p>
+          <span class="ordered-address-area"></span>
+          <p>배송메세지</p>
+          <select class="deliveryMsg">
+            <option name="msg">배송메세지를 선택하세요.</option>
+            <option name="msg">도착전 전화해주세요.</option>
+            <option name="msg">부재시 문자남겨주세요.</option>
+            <option name="msg">경비실에 맡겨주세요.</option>
+          </select>
         </div>
       </div>
-
-      <div class="container">
+        <div class="container"> 
         <div class="notification is-primary">
-          <div class="orderedAdress">
-            <p class="orderedAdressTitle">배송지</p>
-          </div>
-          <div class="deliveryMsgContainer">
-            <p class="deliveryMsgTitle">배송메세지</p>
-            <select class="deliveryMsg">
-              <option name="msg">배송메세지를 선택하세요.</option>
-              <option name="msg">도착전 전화해주세요.</option>
-              <option name="msg">부재시 문자남겨주세요.</option>
-              <option name="msg">경비실에 맡겨주세요.</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="notification is-primary">
-          <p class="productTitle">주문상품</p>
+          <p>주문상품</p>
+          <span class="ordered-products-area"></span>
         </div>
       </div>
 
@@ -57,11 +54,6 @@
         <div class="notification is-primary">
           <p class="priceTitle">결제금액</p>
           <p class="totalPrice"></p>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="notification is-primary">
           <h2 class="cardOrcashTitle">결제수단</h2>
           <div class="cardOrcashBtnGroup">
             <div class="cardOrcashBtn">
@@ -79,7 +71,7 @@
 
       <div class="btn-container">
         <button class="button is-success is-rounded" id="purchase-btn">
-          구매하기
+          결제하기
         </button>
         <a href=../cart/cart.html class="button is-success is-rounded"
         id="go-to-cart-btn"> 장바구니로 돌아가기

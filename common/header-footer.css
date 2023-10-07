@@ -10,6 +10,7 @@ body {
   flex-direction: column;
   align-items: center;
   border-bottom: 0.5px solid #c5c5c5;
+  letter-spacing: 3px;
 }
 
 .Header_Row {

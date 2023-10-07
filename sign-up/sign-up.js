@@ -1,7 +1,8 @@
 // 이메일 중복검사
-document.getElementById('id-duplicated-confilm-btn').addEventListener('click', function() {
-  const email = document.getElementById('emailInput').value;
+document.getElementById('id-duplicated-confilm-btn').addEventListener('click', function(e) {
+  e.preventDefault();
 
+  const email = document.getElementById('emailInput').value;
   const apiUrl = 'API 엔트포인트';
 
   fetch(apiUrl, {
@@ -21,7 +22,7 @@ document.getElementById('id-duplicated-confilm-btn').addEventListener('click', f
   })
   .catch(error => {
       console.error('Error:', error);
-      document.getElementById('emailResult').innerText = '서버 오류 발생. 다시 시도해 주세요.';
+      return alert('서버오류 발생, 다시 시도해 주세요');
   });
 });
 
@@ -76,8 +77,7 @@ signUpButton.addEventListener('click', handleSignUp);
 
 async function handleSignUp(e) {
   e.preventDefault();
-  
-  // 입력값 가져오기
+
   const email = emailInput.value;
   const password = passwordInput.value;
   const passwordConfirm = passwordConfirmInput.value;
@@ -85,24 +85,46 @@ async function handleSignUp(e) {
   const phone = phoneInput.value;
   const address = addressInput.value;
 
-  // 비밀번호 확인
-  if (password !== passwordConfirm) {
-    return alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+  if (!email) {
+    return alert('이메일을 입력하세요.');
   }
 
-  // 입력 여부 확인
+  // 이메일 형식 검증
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  if (!emailRegex.test(email)) {
+      return alert('올바른 이메일 형식을 입력하세요.');
+  }
+
   if (!email) {
-    return alert('email을 입력하세요.');
+    return alert('이메일을 입력하세요.');
   }
 
   if (!password) {
     return alert('비밀번호를 입력하세요.');
   }
+
   if (!passwordConfirm) {
     return alert('비밀번호 확인을 입력하세요.');
   }
+
+  // 비밀번호 일치 확인
+  if (password !== passwordConfirm) {
+    return alert('비밀번호 확인이 일치하지 않습니다.');
+  }
+
+  //비밀번호 형식 확인
+  const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/;
+  if (!passwordRegex.test(password)) {
+    return alert('비밀번호는 8자리 이상이며, 영어, 숫자, 특수문자를 포함해야 합니다.');
+  }
+
   if (!phone) {
     return alert('전화번호를 입력하세요..');
+  }
+  //전화번호 형식 확인
+  const phoneRegex = /^01[016789]-\d{3,4}-\d{4}$/;
+  if (!phoneRegex.test(phone)) {
+    return alert('올바른 전화번호 형식을 입력하세요. (ex: 010-1234-5678)');
   }
 
   if (!address) {
@@ -119,19 +141,20 @@ async function handleSignUp(e) {
 
   const dataJson = JSON.stringify(data);
 
-  const apiUrl = `배포된Url받아오기`;
+  const apiUrl = 'API 엔트포인트';
   try {
     const res = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: dataJson,
+      body: JSON.stringify(data)
     });
     if (res.status === 200) {
       alert('회원가입에 성공하였습니다!');
+      window.location.href = '/login/login.html';
     } else {
-      alert('회원가입에 실패하였습니다...');
+      alert('회원가입에 실패하였습니다');
     }
   } catch (error) {
     alert('네트워크 오류가 발생했습니다.');
