@@ -1,3 +1,5 @@
+const Product_Contain = document.querySelectorAll(".Product_Col");
+
 fetch("/api/api.json")
   //   `${SERVER_URI}/categories/`, {
   //   method: "get",
@@ -21,19 +23,21 @@ fetch("/api/api.json")
 
 function ItemCategory(data) {
   data.categories.forEach((category) => {
+    // 각 카테고리의 아이템 중에서 처음 3개만 처리
     for (let i = 0; i < 3 && i < category.item.length; i++) {
       const Item = category.item[i];
       const Product = document.createElement("div");
       Product.innerHTML = `
-        <div class="New_Product">
-          <div class="Product_Img">
-            <img src="${Item.main_image[0]}" alt="" />
+          <div class="New_Product">
+            <div class="Product_Img">
+              <img src="${Item.main_image[0]}" alt="" />
+            </div>
+            <div class="Product_Name">${Item.name}</div>
+            <div class="Product_Price">${Item.price}</div>
           </div>
-          <div class="Product_Name">${Item.name}</div>
-          <div class="Product_Price">${Item.price}</div>
-        </div>
-      `;
+        `;
 
+      // 아래는 기존 코드와 동일합니다.
       if (category.id === 1) {
         Product_Contain[0].appendChild(Product);
       } else if (category.id === 2) {

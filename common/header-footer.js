@@ -46,7 +46,7 @@ function createFooter() {
       </ul>
       <div class="Company_Info">
         <p>
-          상호: Casa Verder | 대표: 이진이 | 전화: 070-4633-2740 | 이메일:
+          상호: Casa Verde | 대표: 이진이 | 전화: 070-4633-2740 | 이메일:
           jsj487@naver.com
         </p>
       </div>

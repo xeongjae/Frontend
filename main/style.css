@@ -2,6 +2,43 @@ html {
   font-family: "Montserrat", sans-serif;
 }
 
+.About-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e7e7e7;
+  padding: 35px 0px;
+  height: 625px;
+}
+.About-left {
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+}
+.About-left img {
+  margin-top: 80px;
+  height: 310px;
+}
+.About-right img {
+  width: 600px;
+}
+
+.About-title {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 45px 0px 25px;
+}
+
+.About-des {
+  font-weight: 600;
+  margin: 0;
+}
+
+.About-text {
+  font-family: Nanum Gothic, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
 .New {
   margin-top: 140px;
 }
@@ -58,32 +95,4 @@ html {
   height: 410px;
   background: no-repeat center center;
   background-size: contain;
-}
-
-/*슬라이드 쇼*/
-.Advertisement {
-  display: block;
-  width: 100%;
-  height: 650px;
-}
-
-.slideshow-container {
-  text-align: center;
-}
-
-/* 슬라이드 쇼 */
-.slideshow-container .mySlides img {
-  height: 500px;
-  transition: opacity 0.5s ease;
-}
-
-.slideshow-container {
-  position: relative;
-  height: 400px;
-  margin-top: 40px;
-}
-
-/* 이미지 숨김 */
-.mySlides {
-  display: none;
 }
