@@ -30,6 +30,42 @@
             "/categories/img/Pot2.jpg",
             "/categories/img/Pot2_Hover.jpg"
           ]
+        },
+        {
+          "name": "세라믹_10",
+          "price": 39000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot1_Img.jpg",
+            "/categories/img/Pot1_Hover.jpg"
+          ]
+        },
+        {
+          "name": "세라믹_10",
+          "price": 39000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot1_Img.jpg",
+            "/categories/img/Pot1_Hover.jpg"
+          ]
+        },
+        {
+          "name": "세라믹_10",
+          "price": 39000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot1_Img.jpg",
+            "/categories/img/Pot1_Hover.jpg"
+          ]
+        },
+        {
+          "name": "세라믹_10",
+          "price": 39000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot1_Img.jpg",
+            "/categories/img/Pot1_Hover.jpg"
+          ]
         }
       ]
     },
