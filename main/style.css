@@ -1,0 +1,98 @@
+html {
+  font-family: "Montserrat", sans-serif;
+}
+
+.About-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e7e7e7;
+  padding: 35px 0px;
+  height: 625px;
+}
+.About-left {
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+}
+.About-left img {
+  margin-top: 80px;
+  height: 310px;
+}
+.About-right img {
+  width: 600px;
+}
+
+.About-title {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 45px 0px 25px;
+}
+
+.About-des {
+  font-weight: 600;
+  margin: 0;
+}
+
+.About-text {
+  font-family: Nanum Gothic, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.New {
+  margin-top: 140px;
+}
+
+.Product_Tiitle {
+  text-align: center;
+  line-height: 35px;
+}
+
+.Eng_Title {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.KR_Title {
+  color: #969696;
+}
+
+.Product_Col {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.New_Product {
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.New_Product div {
+  text-align: center;
+}
+
+.Product_Img img {
+  width: 500px;
+  height: 400px;
+  background-size: cover;
+  transition: all 0.5s;
+}
+
+.Product_Name {
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.Product_Price {
+  font-family: 500;
+  margin-top: 10px;
+}
+
+.Product_Img img:hover {
+  width: 510px;
+  height: 410px;
+  background: no-repeat center center;
+  background-size: contain;
+}
