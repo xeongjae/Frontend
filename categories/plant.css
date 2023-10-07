@@ -1,5 +1,6 @@
 html {
   font-family: "Nanum Gothic Coding", cursive;
+  background-color: #f8f8f8;
 }
 
 .Categories_Title {
@@ -25,7 +26,7 @@ html {
 .Product_Img {
   width: 600px;
   height: 450px;
-  background: url("./img/Tools1_Img.jpg") no-repeat center center;
+  background: no-repeat center center;
   background-size: contain;
   transition: all 0.5s;
 }
@@ -43,6 +44,6 @@ html {
 .Product_Img:hover {
   width: 610px;
   height: 460px;
-  background: url("./img/Tools1_Hover.jpg") no-repeat center center;
+  background: no-repeat center center;
   background-size: contain;
 }
