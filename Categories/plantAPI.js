@@ -17,7 +17,6 @@ fetch("/api/api.json")
     return res.json();
   })
   .then((data) => {
-    console.log(data);
     ItemCategory(data, ProductColContainer);
   })
   .catch((error) => {
@@ -27,35 +26,34 @@ fetch("/api/api.json")
 function ItemCategory(data, container) {
   let ProductColCount = 0;
   let ProductCol = CreateProductCol();
-  for (let i = 0; i < data.categories.length; i++) {
-    const category = data.categories[i];
-    for (let j = 0; j < data.categories.item.length; j++) {
-      let ItemInfo = category.item[j];
+  for (let j = 0; j < data.categories[0].item.length; j++) {
+    let ItemInfo = data.categories[0].item[j];
+    console.log(ItemInfo);
 
-      const Product = document.createElement("div");
-      Product.innerHTML = `<div class="Product">
+    const Product = document.createElement("div");
+    Product.innerHTML = `<div class="Product">
     <div class="Product_Img" style="background-image: url(${ItemInfo.main_image[0]})"></div>
     <div class="Product_Name">${ItemInfo.name}</div>
     <div class="Product_Price">${ItemInfo.price} 원</div>
     </div>`;
-      ProductCol.appendChild(Product);
+    ProductCol.appendChild(Product);
 
-      //hover했을 때 hover이미지가 나오도록 구현
-      const ProductImg = Product.querySelector(".Product_Img");
-      ProductImg.addEventListener("mouseenter", function () {
-        ProductImg.style.backgroundImage = `url(${ItemInfo.main_image[1]})`;
-      });
-      ProductImg.addEventListener("mouseleave", function () {
-        ProductImg.style.backgroundImage = `url(${ItemInfo.main_image[0]})`;
-      });
+    //hover했을 때 hover이미지가 나오도록 구현
+    const ProductImg = Product.querySelector(".Product_Img");
+    ProductImg.addEventListener("mouseenter", function () {
+      ProductImg.style.backgroundImage = `url(${ItemInfo.main_image[1]})`;
+    });
+    ProductImg.addEventListener("mouseleave", function () {
+      ProductImg.style.backgroundImage = `url(${ItemInfo.main_image[0]})`;
+    });
 
-      if (++ProductColCount === 3) {
-        container.appendChild(ProductCol); // 현재의 ProductCol을 문서에 추가
-        ProductCol = CreateProductCol(); // 새로운 ProductCol 생성
-        ProductColCount = 0; // ProductCol 개수 초기화
-      }
+    if (++ProductColCount === 3) {
+      container.appendChild(ProductCol); // 현재의 ProductCol을 문서에 추가
+      ProductCol = CreateProductCol(); // 새로운 ProductCol 생성
+      ProductColCount = 0; // ProductCol 개수 초기화
     }
   }
+
   if (ProductColCount > 0) {
     container.appendChild(ProductCol);
   }

@@ -20,11 +20,9 @@ fetch("/api/api.json")
   });
 
 function ItemCategory(data) {
-  const Items = data.categories[0].item;
-  console.log(data);
-
   data.categories.forEach((category) => {
-    category.item.forEach((Item) => {
+    for (let i = 0; i < 3 && i < category.item.length; i++) {
+      const Item = category.item[i];
       const Product = document.createElement("div");
       Product.innerHTML = `
         <div class="New_Product">
@@ -54,6 +52,6 @@ function ItemCategory(data) {
       ProductImg.addEventListener("mouseleave", function () {
         ProductImg.src = `${Item.main_image[0]}`;
       });
-    });
+    }
   });
 }
