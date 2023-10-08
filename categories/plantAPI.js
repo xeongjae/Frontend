@@ -1,6 +1,4 @@
 const ProductColContainer = document.querySelector(".Product_Col_Container");
-// require("dotenv").config();
-// const SERVER_URI = process.env.SERVER_URI;
 
 fetch("/api/api.json")
   //   `${SERVER_URI}/categories/`, {
@@ -28,7 +26,6 @@ function ItemCategory(data, container) {
   let ProductCol = CreateProductCol();
   for (let j = 0; j < data.categories[0].item.length; j++) {
     let ItemInfo = data.categories[0].item[j];
-    console.log(ItemInfo);
 
     const Product = document.createElement("div");
     Product.innerHTML = `<div class="Product">
