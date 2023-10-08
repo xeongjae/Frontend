@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/manager/order-management/order.css" />
+
+    <title>manager</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!--관리자 페이지 사이드 nav바-->
+      <div class="container-wrapper">
+        <div id="nav-container"></div>
+      </div>
+      <!--주문 관리 페이지-->
+      <div class="content-box">
+        <div class="title-box">
+          <h3>주문 배송 관리</h3>
+        </div>
+        <div id="managing-order">
+          <div class="tb-box">
+            <table width="100%">
+              <thead>
+                <tr class="table-header">
+                  <td>상품번호</td>
+                  <td>상품명</td>
+                  <td>닉네임</td>
+                  <td>배송상태</td>
+                  <td>할인적용</td>
+                  <td>결제방식</td>
+                  <td>수량</td>
+                  <td>주소</td>
+                  <td>총가격</td>
+                </tr>
+              </thead>
+              <tr></tr>
+              <tr class="order-receipt">
+                <td>123456655</td>
+                <td>토끼 화분</td>
+                <td>가좌동코코넛도둑</td>
+                <td>배송완료</td>
+                <td>적용</td>
+                <td>카드</td>
+                <td>2</td>
+                <td>경남 진주시 가좌길 14-1 205호</td>
+                <td>10,000</td>
+                <td>
+                  <button class="button is-primary is-small" id="open-modal">
+                    상세
+                  </button>
+                  <button
+                    class="button is-danger is-small"
+                    style="margin-right: 12px"
+                  >
+                    삭제
+                  </button>
+                </td>
+              </tr>
+              <tr class="order-receipt">
+                <td>123556655</td>
+                <td>토끼</td>
+                <td>밥버거</td>
+                <td>배송시작</td>
+                <td>적용</td>
+                <td>무통장입금</td>
+                <td>1</td>
+                <td>경남 진주시 가좌길 14-1 206호</td>
+                <td>10,000</td>
+                <td>
+                  <button class="button is-primary is-small" id="open-modal">
+                    상세
+                  </button>
+                  <button
+                    class="button is-danger is-small"
+                    style="margin-right: 12px"
+                  >
+                    삭제
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="pagination">
+          <a href="#">&laquo;</a>
+          <a href="#">1</a>
+          <a class="active" href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#">5</a>
+          <a href="#">6</a>
+          <a href="#">&raquo;</a>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    fetch("/manager/manager-navbar/nav.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("nav-container").innerHTML = data;
+      });
+  </script>
+  <script src="/manager/order-management/orderModal.js"></script>
+</html>

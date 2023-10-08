@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mypage</title>
+    <link rel="stylesheet" href="mypage.css" />
+    <script
+      src="https://kit.fontawesome.com/def66b134a.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/common/header-footer.css" />
+    <script src="/common/header-footer.js" defer></script>
+  </head>
+
+  <body>
+    <div class="header-container"></div>
+    <div class="body_container">
+      <div class="body_left_container">
+        <div class="order_list">
+          <div class="order_list_title">주문 내역</div>
+          <div class="order_list_list">주문 내역이 없습니다.</div>
+        </div>
+        <div class="review">
+          <div class="review_title">내가 쓴 글</div>
+          <div class="review_list">내가 쓴 글이 없습니다.</div>
+        </div>
+        <div class="coupon">
+          <div class="coupon_title">쿠폰 내역</div>
+          <div class="coupon_list">쿠폰 내역이 없습니다.</div>
+        </div>
+        <div class="stack_list">
+          <div class="stack_list_title">적립금 내역</div>
+          <div class="stack_price">
+            <div class="stack_price_detail">보유 적립금 2,000원</div>
+            <div class="stack_price_text">(지급 후 365일 후 자동 소멸)</div>
+          </div>
+          <div class="stack_list_history">
+            <div class="history_header">
+              <div class="date">일자</div>
+              <div class="reason">사유</div>
+              <div class="price">적립금</div>
+              <div class="type">유형</div>
+            </div>
+            <div class="history_list">
+              <div class="date">23.10.05</div>
+              <div class="reason">회원 가입</div>
+              <div class="price">2,000원</div>
+              <div class="type">지급</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="body_right_container">
+        <div class="user_box">
+          <div class="user_box_title">회원 정보</div>
+          <div class="user_box_logout">로그아웃</div>
+          <div class="user_box_container">
+            <div class="id_box">
+              <div class="id_box_title">아이디</div>
+              <div class="id_box_insert">
+                <input
+                  type="text"
+                  name="user_id"
+                  placeholder="아이디를 입력하세요."
+                />
+              </div>
+            </div>
+            <div class="email_box">
+              <div class="email_box_title">이메일</div>
+              <div class="email_box_insert">
+                <input
+                  type="text"
+                  name="user_email"
+                  placeholder="이메일을 입력하세요."
+                />
+              </div>
+            </div>
+            <div class="name">
+              <div class="name_title">이름</div>
+              <div class="name_insert">
+                <input
+                  type="text"
+                  name="user_name"
+                  placeholder="이름을 입력하세요."
+                />
+              </div>
+            </div>
+            <div class="phone">
+              <div class="phone_title">휴대폰 번호</div>
+              <div class="phone_insert">
+                <input
+                  type="text"
+                  name="phone1"
+                  maxlength="3"
+                  size="3"
+                  onkeyup="moveFocus(3, this, document.getElementsByName('phone2')[0])"
+                />
+                -
+                <input
+                  type="text"
+                  name="phone2"
+                  maxlength="4"
+                  size="4"
+                  onkeyup="moveFocus(4, this, document.getElementsByName('phone3')[0])"
+                />
+                -
+                <input type="text" name="phone3" maxlength="4" size="4" />
+              </div>
+            </div>
+            <div class="postal">
+              <div class="postal_title">우편번호</div>
+              <div class="postal_insert">
+                <div class="postal_insert_left"></div>
+                <div class="postal_insert_right"></div>
+              </div>
+            </div>
+            <div class="address">
+              <div class="address_top"></div>
+              <div class="address_bottom"></div>
+            </div>
+            <div class="birth">
+              <div class="birth_title">생년월일</div>
+              <div class="birth_select">
+                <div class="birth_select_year"></div>
+                <div class="birth_select_month"></div>
+                <div class="birth_select_day"></div>
+              </div>
+            </div>
+            <div class="gender">
+              <div class="gender_male"></div>
+              <div class="gender_female"></div>
+            </div>
+            <div class="marketing">
+              <div class="marketing_email"></div>
+              <div class="marketing_message"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-container"></div>
+    <script>
+      function moveFocus(length, src, nextField) {
+        if (src.value.length == length) {
+          nextField.focus();
+        }
+      }
+    </script>
+  </body>
+</html>
