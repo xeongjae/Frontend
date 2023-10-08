@@ -39,7 +39,7 @@ html {
   display: flex;
   flex-direction: column;
 }
-.New {
+.Popular {
   margin-top: 140px;
 }
 
@@ -63,12 +63,12 @@ html {
   margin-top: 40px;
 }
 
-.New_Product {
+.Popular_Product {
   margin-left: 30px;
   cursor: pointer;
 }
 
-.New_Product div {
+.Popular_Product div {
   text-align: center;
 }
 

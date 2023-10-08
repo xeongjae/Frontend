@@ -10,6 +10,20 @@ html {
   margin: 13px;
   width: 65%;
 }
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Del-Btn {
+  padding: 5px 10px;
+  background-color: #e7e7e7;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.Del-Btn:hover {
+  background-color: #cccccc;
+}
 
 .cart-header {
   font-size: 25px;

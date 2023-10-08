@@ -104,7 +104,7 @@
     },
     {
       "id": 3,
-      "name": "GARDENING TOOLS",
+      "name": "GARDENING-TOOLS",
       "item": [
         {
           "name": "세라믹_7",
@@ -137,7 +137,7 @@
     },
     {
       "id": 4,
-      "name": "GARDENING KIT",
+      "name": "GARDENING-KIT",
       "item": [
         {
           "name": "세라믹_10",
@@ -164,6 +164,21 @@
           "main_image": [
             "/categories/img/Pot2.jpg",
             "/categories/img/Pot2_Hover.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Flower",
+      "item": [
+        {
+          "name": "세라믹_10",
+          "price": 39000,
+          "description": "아무노래나 일단 틀어",
+          "main_image": [
+            "/categories/img/Pot1_Img.jpg",
+            "/categories/img/Pot1_Hover.jpg"
           ]
         }
       ]
