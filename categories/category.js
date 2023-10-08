@@ -1,5 +1,3 @@
-const ProductColContainer = document.querySelector(".Product_Col_Container");
-
 fetch("/api/api.json")
   .then((res) => {
     if (!res.ok) {
@@ -8,13 +6,14 @@ fetch("/api/api.json")
     return res.json();
   })
   .then((data) => {
-    ItemCategory(data, ProductColContainer);
+    ItemCategory(data);
   })
   .catch((error) => {
     console.log(error);
   });
 
-function ItemCategory(data, container) {
+function ItemCategory(data) {
+  const ProductColContainer = document.querySelector(".Product_Col_Container");
   let ProductColCount = 0;
   let ProductCol = CreateProductCol();
   for (let j = 0; j < data.categories[0].item.length; j++) {
@@ -38,14 +37,14 @@ function ItemCategory(data, container) {
     });
 
     if (++ProductColCount === 3) {
-      container.appendChild(ProductCol); // 현재의 ProductCol을 문서에 추가
+      ProductColContainer.appendChild(ProductCol); // 현재의 ProductCol을 문서에 추가
       ProductCol = CreateProductCol(); // 새로운 ProductCol 생성
       ProductColCount = 0; // ProductCol 개수 초기화
     }
   }
 
   if (ProductColCount > 0) {
-    container.appendChild(ProductCol);
+    ProductColContainer.appendChild(ProductCol);
   }
 }
 

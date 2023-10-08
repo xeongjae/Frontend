@@ -34,7 +34,7 @@ function createHeader(data) {
   for (let i = 0; i < data.categories.length; i++) {
     const category = data.categories[i];
     const categoryLink = document.createElement("a");
-    categoryLink.href = `/categories/${category.name}.html`;
+    categoryLink.href = `/categories/category.html`;
     categoryLink.textContent = category.name;
     CategoriesContainer.appendChild(categoryLink);
   }
