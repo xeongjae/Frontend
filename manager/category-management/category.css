@@ -1,0 +1,24 @@
+.button-box-01,
+.button-box-02 {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  margin: 12px;
+  width: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: none;
+  box-shadow: 1px 1px 10px 1px #2a8c56;
+  border-radius: 12px;
+  background-color: #41b977;
+
+  transition-property: box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+.button-box-01:active,
+.button-box-02:active {
+  box-shadow: none;
+}
