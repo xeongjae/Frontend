@@ -1,7 +1,24 @@
+fetch("/api/api.json")
+  .then((res) => {
+    if (!res.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return res.json();
+  })
+  .then((data) => {
+    console.log(data);
+    createHeader(data);
+    createFooter(data);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
 // 헤더 UI 생성 함수
 function createHeader() {
-  const headerContainer = document.createElement("header");
-  headerContainer.innerHTML = `
+  for (let i = 0; i < data.length; i++) {
+    const headerContainer = document.createElement("header");
+    headerContainer.innerHTML = `
     <div class="Header">
       <a href="../main/index.html">
         <h1 class="Title"></h1>
@@ -24,12 +41,12 @@ function createHeader() {
     </div>
     `;
 
-  // customHeader에 헤더 UI를 삽입
-  const customHeader = document.querySelector(".header-container");
-  customHeader.appendChild(headerContainer);
+    // customHeader에 헤더 UI를 삽입
+    const customHeader = document.querySelector(".header-container");
+    customHeader.appendChild(headerContainer);
+  }
 }
 // createHeader 호출
-createHeader();
 
 function createFooter() {
   const footerContainer = document.createElement("footer");
@@ -62,6 +79,3 @@ function createFooter() {
   const customfooter = document.querySelector(".footer-container");
   customfooter.appendChild(footerContainer);
 }
-
-// createFooter 함수 호출
-createFooter();
