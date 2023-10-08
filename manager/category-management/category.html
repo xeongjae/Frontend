@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/manager/category-management/category.css" />
+    <title>manager</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!--관리자 페이지 사이드 nav바-->
+      <div class="container-wrapper">
+        <div id="nav-container"></div>
+      </div>
+      <!--카테고리 관리 페이지-->
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 50px;
+        "
+      >
+        <button class="button-box-01"></button>
+        <div
+          class="category-card"
+          style="width: 100px; height: 100px; background-color: white"
+        ></div>
+        <button class="button-box-02"></button>
+        <div
+          class="subomit-card"
+          style="width: 100px; height: 100px; background-color: white"
+        ></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    fetch("/manager/manager-navbar/nav.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("nav-container").innerHTML = data;
+      });
+  </script>
+</html>
