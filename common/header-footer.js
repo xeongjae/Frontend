@@ -1,22 +1,5 @@
-fetch("/api/api.json")
-  .then((res) => {
-    if (!res.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return res.json();
-  })
-  .then((data) => {
-    console.log(data);
-    createHeader(data);
-    createFooter(data);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-
 // 헤더 UI 생성 함수
 function createHeader() {
-  for (let i = 0; i < data.length; i++) {
     const headerContainer = document.createElement("header");
     headerContainer.innerHTML = `
     <div class="Header">
