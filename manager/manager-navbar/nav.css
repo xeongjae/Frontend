@@ -1,0 +1,81 @@
+/* nav.css */
+
+body {
+  display: block;
+  background-color: #3cb371;
+  height: 100vh;
+}
+
+.div-block-01 {
+  width: 100%;
+  height: 52px;
+}
+
+.div-block-02 {
+  width: 200px;
+  height: 52px;
+}
+
+.div-block-03 {
+  display: inline-flex;
+}
+
+/* 네비게이션 바 스타일 */
+.navbar {
+  background-color: #41b977;
+  color: white;
+  border-radius: 30px;
+  width: 400px;
+  box-shadow: 5px 5px 10px 5px #2a8c56;
+  justify-content: space-between;
+}
+
+/* 로고 스타일 */
+.title {
+  font-size: 1.2rem;
+  margin-top: 15px;
+  color: white;
+  margin-left: 30px;
+  text-align: center;
+  transition-property: color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.title:hover {
+  color: #065027;
+}
+
+/* 카테고리, 상품, 주문 링크 스타일 */
+.anchor-nav-category,
+.anchor-nav-item,
+.anchor-nav-order {
+  margin-right: 20px;
+  transition-property: font-size;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+.anchor-nav-category:hover,
+.anchor-nav-item:hover,
+.anchor-nav-order:hover {
+  font-size: 1.2rem;
+}
+
+.anchor-nav-category a,
+.anchor-nav-item a,
+.anchor-nav-order a {
+  color: white;
+  text-decoration: none;
+}
+
+.anchor-nav-category a:hover,
+.anchor-nav-item a:hover,
+.anchor-nav-order a:hover {
+  color: #f8f8f8;
+}
+
+/* .item-container 내부 요소 정렬 */
+.item-container nav {
+  display: flex;
+  align-items: center;
+}
