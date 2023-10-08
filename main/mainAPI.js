@@ -1,11 +1,4 @@
 fetch("/api/api.json")
-  //   `${SERVER_URI}/categories/`, {
-  //   method: "get",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify(data),
-  // })
   .then((res) => {
     if (!res.ok) {
       throw new Error("Network response was not ok");
