@@ -1,0 +1,57 @@
+.div-block-flex {
+  display: inline-flex;
+  padding: 12px;
+  padding-top: 20px;
+}
+.div-block-block {
+  width: 100px;
+  height: 100px;
+}
+
+.div-block {
+  width: 25%;
+  height: 360px;
+}
+
+.div-login-layout {
+  width: 500px;
+  height: 360px;
+  background-color: #41b977;
+  border-radius: 20px;
+  box-shadow: 2px 2px 30px 7px #2a8c56;
+  padding: 20px;
+}
+
+input {
+  width: 100%;
+  height: 34px;
+  font-size: 15px;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background-color: #d3ecde;
+  outline: none;
+  box-shadow: 2px 1px 10px #65746b inset;
+}
+
+.box-formargin {
+  margin: 6px;
+}
+
+.button-submit {
+  color: white;
+  border: none;
+  border-radius: 12px;
+  height: 45px;
+  background-color: #41b977;
+  transition-property: background-color, box-shadow, font-size;
+  transition-duration: 0.2s, 0.2s, 0.2s;
+  transition-timing-function: ease-in-out;
+  font-size: 25px;
+}
+
+.button-submit:hover {
+  background-color: #41b977;
+  box-shadow: 2px 2px 30px 7px #207e4a;
+  font-size: 27px;
+}
