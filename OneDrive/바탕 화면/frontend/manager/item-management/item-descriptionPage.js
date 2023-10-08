@@ -1,1 +1,1 @@
-const OpenButton = document.getElementById()
+const OpenButton = document.getElementById();

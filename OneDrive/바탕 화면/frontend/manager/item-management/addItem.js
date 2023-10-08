@@ -1,4 +1,4 @@
-const addButton = document.getElementById("addingButton"); 
+const addButton = document.getElementById("addingButton");
 const tableEl = document.getElementById("table");
 
 const itemForm = `
@@ -20,10 +20,9 @@ const itemForm = `
 </tr>
 `;
 
-function addingItemForm () {
+function addingItemForm() {
   tableEl.innerHTML = itemForm;
   document.body.prepend(tableEl);
 }
 
-
-addButton.addEventListener("click", addingItemForm)
+addButton.addEventListener("click", addingItemForm);

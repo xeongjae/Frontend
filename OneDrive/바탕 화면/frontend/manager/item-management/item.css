@@ -20,7 +20,6 @@ body {
   box-shadow: 2px 2px 2px 2px gray;
 }
 
-
 #nav-container {
   background-color: #f8f8f8;
 }
@@ -91,7 +90,6 @@ body {
   padding: 13px;
   flex-grow: 1;
 }
-
 
 /*item main*/
 .list-box {
@@ -196,7 +194,6 @@ table thead {
   background-color: #f8f8f8;
   padding: 13px;
 }
-
 
 .page-box {
   width: 100%;
