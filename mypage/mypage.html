@@ -11,7 +11,7 @@
     ></script>
     <link rel="stylesheet" href="/common/header-footer.css" />
     <script src="/common/header-footer.js" defer></script>
-    <script src="mypage.js"></script>
+    <script src="mypage.js" defer></script>
     <script
       src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"
       defer
@@ -30,55 +30,71 @@
             <li>로그아웃</li>
             <li>회원 탈퇴</li>
           </ul>
-          <div class="content-box">
-            <div class="content">
-              <h1 class="content-title">회원 정보 수정</h1>
-              <div class="sub-title-text">
-                <h4>기본정보</h4>
-                <h4>*필수</h4>
-              </div>
-              <div class="sub-title">
-                <h5>이메일*</h5>
-                <input type="text" placeholder="tmdwns489@gmail.com" disabled />
-              </div>
-              <div class="sub-title">
-                <h5>비밀번호*</h5>
-                <input
-                  type="password"
-                  placeholder="영문 대소문자/숫자/특수문자 2가지 이상 조합, 8자~16자"
-                />
-              </div>
-              <div class="sub-title">
-                <h5>비밀번호 확인*</h5>
-                <input
-                  type="password"
-                  placeholder="비밀번호를 다시 입력 해 주세요."
-                />
-              </div>
-              <div class="sub-title">
-                <h5>휴대폰 번호*</h5>
-                <input type="text" placeholder="010-8962-9828" />
-              </div>
-              <div class="sub-title">
-                <h5>주소*</h5>
-                <div class="address-box">
-                  <div class="address-num">
-                    <input type="text" />
-                    <button
-                    class="find-address-button button is-rounded"
-                    type="button"
-                  >
-                  검색하기
+          <form action="">
+            <div class="content-box">
+              <div class="content">
+                <h1 class="content-title">회원 정보 수정</h1>
+                <div class="sub-title-text">
+                  <h4>기본정보</h4>
+                  <h4>*필수</h4>
+                </div>
+                <div class="sub-title">
+                  <h5>이메일*</h5>
+                  <input
+                    type="text"
+                    class="email-input"
+                    placeholder="tmdwns489@gmail.com"
+                    disabled
+                  />
+                </div>
+                <div class="sub-title">
+                  <h5>비밀번호*</h5>
+                  <input
+                    type="password"
+                    class="pw-input"
+                    required
+                    placeholder="영문 대소문자/숫자/특수문자 2가지 이상 조합, 8자~16자"
+                  />
+                </div>
+                <div class="sub-title">
+                  <h5>비밀번호 확인*</h5>
+                  <input
+                    type="password"
+                    class="pw-check-input"
+                    required
+                    placeholder="비밀번호를 다시 입력 해 주세요."
+                  />
+                </div>
+                <div class="sub-title">
+                  <h5>휴대폰 번호*</h5>
+                  <input
+                    type="text"
+                    class="phone-input"
+                    placeholder="010-8964-9828"
+                    required
+                  />
+                </div>
+                <div class="sub-title">
+                  <h5>주소*</h5>
+                  <div class="address-box">
+                    <div class="address-num">
+                      <input type="text" class="address-input-first" disabled />
+                      <button
+                        class="find-address-button button is-rounded"
+                        type="button"
+                      >
+                        검색하기
+                      </button>
+                    </div>
+                    <input type="text" class="address-input-second" />
                   </div>
-                  <input type="text" />
-                  <input type="text" />
+                </div>
+                <div class="modify-box">
+                  <button class="modify-btn">변경 사항 저장하기</button>
                 </div>
               </div>
-              <div class="modify-box">
-                <button class="modify-btn">변경 사항 저장하기</button>
-              </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

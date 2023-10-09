@@ -1,4 +1,15 @@
 {
+  "user": [
+    {
+      "email": "helsasddal1@gmail.com",
+      "data": {
+        "password": "wzxcewsdds@",
+        "address": "서울특별시 구구rn ehd 동동",
+        "phone": "010-0000-0000",
+        "name": "asdaswd"
+      }
+    }
+  ],
   "categories": [
     {
       "id": 1,
