@@ -24,19 +24,19 @@ main {
   height: 100%;
   background-color: white;
 }
-#sign-up-btn {
+.sign-up-btn {
   display: block;
   margin: 60px auto 0 auto;
   width: 230px;
   background-color: #3cb371;
 }
-#go-to-login-btn {
+.go-to-login-btn {
   display: block;
   margin: 15px auto 0 auto;
   width: 230px;
   background-color: white;
 }
-.button:hover {
+.button:hover{
   filter: brightness(0.9);
 }
 .inp-area {
@@ -52,32 +52,34 @@ main {
   margin-right: auto;
   width: 450px;
 }
-#emailInput {
+.emailInput {
   width: 350px;
   margin-left: 98px;
   margin-right: auto;
   display: inline;
 }
-#id-duplicated-confilm-btn {
+.id-duplicated-confilm-btn.id-duplicated-confilm-btn{
   width: 92px;
   background-color: #f8f8f8;
   display: inline;
   margin: 0;
   border-radius: 5px;
+  text-align: center;
 }
-#addressInput {
+.addressInput {
   width: 355px;
   display: inline;
 }
-#detailAddressInput {
+.detailAddressInput {
   margin-top: 5px;
 }
-#find-address-btn {
+.find-address-btn.find-address-btn{
   margin-left: 95px;
   width: 87px;
   background-color: #f8f8f8;
   display: inline;
   border-radius: 5px;
+  text-align: center;
 }
 .id-inp-area {
   margin-top: 80px;
