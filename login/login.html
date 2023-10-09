@@ -6,7 +6,7 @@
     <title>log-in</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="../common/header-footer.css" />
+    <link rel="stylesheet" href="/common/header-footer.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap"
       rel="stylesheet"
@@ -17,7 +17,7 @@
     />
     <link rel="stylesheet" href="login.css" />
     <script src="login.js" defer></script>
-    <script src="../common/header-footer.js" defer></script>
+    <script src="/common/header-footer.js" defer></script>
     <script
       src="https://kit.fontawesome.com/def66b134a.js"
       crossorigin="anonymous"
@@ -30,11 +30,10 @@
       <div class="login-form-container">
         <form class="login-form" method="post">
           <h5 class="title">Login</h5>
-          <div class="inp-area id-inp-area">
+          <div class="inp-area email-inp-area">
             <label class="label" for="idInput">Email</label>
             <input
-              class="input"
-              id="idInput"
+              class="input emailInput"
               type="text"
               placeholder="이메일을 입력하세요"
               autocomplete="on"
@@ -44,8 +43,7 @@
           <div class="inp-area">
             <label class="label" for="passwordInput">Password</label>
             <input
-              class="input"
-              id="passwordInput"
+              class="input passwordInput"
               type="password"
               placeholder="비밀번호를 입력하세요"
             />
@@ -57,7 +55,7 @@
           </div>
           <div class="btn-area">
             <a
-              href="../sign-up/sign-up.html"
+              href="/sign-up/sign-up.html"
               class="sign-up-button button is-rounded"
               >회원가입</a
             >
