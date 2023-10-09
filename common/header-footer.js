@@ -82,7 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
       return res.json();
     })
     .then((data) => {
-      console.log(data.categories);
       createHeader(data);
       createFooter(data);
     })
