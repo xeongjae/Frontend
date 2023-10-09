@@ -4,11 +4,10 @@ const customHeader = document.querySelector(".header-container");
 function createHeader(data) {
   // data.categories 배열을 순회하면서 카테고리 추가
   const headerContainer = document.createElement("header");
-  console.log(data.categories[0].id);
 
   headerContainer.innerHTML = `
     <div class="Header">
-      <a href="../main/index.html">
+      <a href="/main/index.html">
         <h1 class="Title"></h1>
       </a>
       <div class="Header_Row">
@@ -17,7 +16,7 @@ function createHeader(data) {
           </div>
         </div>
         <div class="User">
-          <a class="far fa-user"></a>
+          <a class="far fa-user" href="/mypage/mypage.html"></a>
           <a class="fas fa-shopping-bag" href="/cart/cart.html"></a>
           <a class="fas fa-search"></a>
         </div>
@@ -36,14 +35,13 @@ function createHeader(data) {
     const category = data.categories[i];
     const categoryLink = document.createElement("a");
     categoryLink.href = `/categories/category.html?category=${category.id}`;
+    categoryLink.onclick = function (event) {
+      sessionStorage.setItem("selectedValue", category.id); //sessionStorage에 가게고유의 adminNo값 저장
+      window.location.href = `/categories/category.html?category=${category.id}`;
+    };
     categoryLink.textContent = category.name;
     CategoriesContainer.appendChild(categoryLink);
   }
-
-  Openstores.onclick = function (event) {
-    sessionStorage.setItem("selectedValue", adminNo); //sessionStorage에 가게고유의 adminNo값 저장
-    window.location.href = "/JoJinHyeong/Store_info/store.html";
-  };
 }
 
 function createFooter(data) {
