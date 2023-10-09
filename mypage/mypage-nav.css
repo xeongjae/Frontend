@@ -1,0 +1,41 @@
+/*전체 박스*/
+.mypage-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/*위에 마이페이지 제목*/
+.head-box {
+  width: 60%;
+  margin-top: 20px;
+}
+.title-text {
+  font-size: 35px;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+/*중간 메뉴 바*/
+.body-box {
+  display: flex;
+}
+.body-box ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0px 100px 0px 0px;
+}
+
+.body-box ul li {
+  list-style: none;
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 30px;
+  width: 100px;
+  cursor: pointer;
+}
+
+/*메인 내용*/
+.body-box ul li:hover {
+  color: #41b977;
+}

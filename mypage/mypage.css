@@ -1,47 +1,12 @@
-/*전체 박스*/
-.mypage-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-/*위에 마이페이지 제목*/
-.head-box {
-  width: 60%;
-  margin-top: 20px;
-}
-.title-text {
-  font-size: 35px;
-  font-weight: 700;
-  margin-bottom: 50px;
-}
-/*중간 메뉴 바*/
-.body-box {
-  display: flex;
-}
-.body-box ul {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  margin: 0px 100px 0px 0px;
+.info-item {
+  color: #41b977;
+  text-decoration: underline;
 }
 
-.body-box ul li {
-  list-style: none;
-  font-size: 20px;
-  font-weight: 600;
-  padding-bottom: 30px;
-  width: 100px;
-  cursor: pointer;
+.content-title {
+  margin-top: 0;
 }
-/*메인 내용*/
-.content-box {
-  background-color: white;
-  color: rgb(168, 168, 168);
-  width: 1000px;
-}
-.content {
-  padding: 40px 80px;
-}
+
 .sub-title-text {
   display: flex;
   font-weight: 700;
@@ -112,4 +77,13 @@
 .modify-btn:hover {
   background-color: #5a5a5a;
   border-color: #5a5a5a;
+}
+
+.content-box {
+  background-color: white;
+  color: rgb(168, 168, 168);
+  width: 1000px;
+}
+.content {
+  padding: 40px 80px;
 }

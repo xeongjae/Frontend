@@ -1,4 +1,7 @@
-fetch("/api/api.json")
+const uni1 = sessionStorage.getItem("selectedValue");
+
+const URL = "http://kdt-sw-6-team08.elicecoding.com";
+fetch(`${URL}/categories/${uni1}/items`)
   .then((res) => {
     if (!res.ok) {
       throw new Error("Network response was not ok");
@@ -6,6 +9,7 @@ fetch("/api/api.json")
     return res.json();
   })
   .then((data) => {
+    console.log(data);
     ItemCategory(data);
   })
   .catch((error) => {
@@ -16,18 +20,22 @@ function ItemCategory(data) {
   const ProductColContainer = document.querySelector(".Product_Col_Container");
   let ProductColCount = 0;
   let ProductCol = CreateProductCol();
-  for (let j = 0; j < data.categories[0].item.length; j++) {
-    let ItemInfo = data.categories[0].item[j];
+
+  // 클릭한 카테고리에 해당하는 상품 데이터를 가져온 데이터로 대체합니다.
+  const categoryItems = data.items;
+
+  for (let j = 0; j < categoryItems.length; j++) {
+    let ItemInfo = categoryItems[j];
 
     const Product = document.createElement("div");
     Product.innerHTML = `<div class="Product">
-    <div class="Product_Img" style="background-image: url(${ItemInfo.main_image[0]})"></div>
-    <div class="Product_Name">${ItemInfo.name}</div>
-    <div class="Product_Price">${ItemInfo.price} 원</div>
+      <div class="Product_Img" style="background-image: url(${ItemInfo.main_image[0]})"></div>
+      <div class="Product_Name">${ItemInfo.name}</div>
+      <div class="Product_Price">${ItemInfo.price} 원</div>
     </div>`;
     ProductCol.appendChild(Product);
 
-    //hover했을 때 hover이미지가 나오도록 구현
+    // hover했을 때 hover이미지가 나오도록 구현
     const ProductImg = Product.querySelector(".Product_Img");
     ProductImg.addEventListener("mouseenter", function () {
       ProductImg.style.backgroundImage = `url(${ItemInfo.main_image[1]})`;
@@ -41,6 +49,10 @@ function ItemCategory(data) {
       ProductCol = CreateProductCol(); // 새로운 ProductCol 생성
       ProductColCount = 0; // ProductCol 개수 초기화
     }
+
+    Product.onclick = function (event) {
+      window.location.href = "/detailpage/detailpage.html";
+    };
   }
 
   if (ProductColCount > 0) {
