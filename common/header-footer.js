@@ -4,6 +4,7 @@ const customHeader = document.querySelector(".header-container");
 function createHeader(data) {
   // data.categories 배열을 순회하면서 카테고리 추가
   const headerContainer = document.createElement("header");
+  console.log(data.categories[0].id);
 
   headerContainer.innerHTML = `
     <div class="Header">
@@ -34,10 +35,15 @@ function createHeader(data) {
   for (let i = 0; i < data.categories.length; i++) {
     const category = data.categories[i];
     const categoryLink = document.createElement("a");
-    categoryLink.href = `/categories/category.html`;
+    categoryLink.href = `/categories/category.html?category=${category.id}`;
     categoryLink.textContent = category.name;
     CategoriesContainer.appendChild(categoryLink);
   }
+
+  Openstores.onclick = function (event) {
+    sessionStorage.setItem("selectedValue", adminNo); //sessionStorage에 가게고유의 adminNo값 저장
+    window.location.href = "/JoJinHyeong/Store_info/store.html";
+  };
 }
 
 function createFooter(data) {
@@ -74,7 +80,10 @@ function createFooter(data) {
 
 // DOMContentLoaded 이벤트 리스너를 이동
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("/api/api.json")
+  const URL = "http://kdt-sw-6-team08.elicecoding.com";
+
+  // 카테고리 목록을 가져오는 요청을 보냅니다.
+  fetch(`${URL}/categories`)
     .then((res) => {
       if (!res.ok) {
         throw new Error("Network response was not ok");
