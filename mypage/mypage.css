@@ -54,7 +54,7 @@
   font-weight: 700;
   font-size: 20px;
   justify-content: space-between;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 .sub-title input {
   width: 70%;
@@ -67,7 +67,7 @@
 
 /* 주소 input 스타일 */
 .address-box {
-  width: 589px;
+  width: 630px;
 }
 .sub-title .address-box input {
   width: 100%;
