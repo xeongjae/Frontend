@@ -36,7 +36,7 @@ main {
   width: 230px;
   background-color: white;
 }
-.button:hover{
+.button:hover {
   filter: brightness(0.9);
 }
 .inp-area {
@@ -58,7 +58,7 @@ main {
   margin-right: auto;
   display: inline;
 }
-.id-duplicated-confilm-btn.id-duplicated-confilm-btn{
+.id-duplicated-confilm-btn.id-duplicated-confilm-btn {
   width: 92px;
   background-color: #f8f8f8;
   display: inline;
@@ -73,7 +73,7 @@ main {
 .detailAddressInput {
   margin-top: 5px;
 }
-.find-address-btn.find-address-btn{
+.find-address-btn.find-address-btn {
   margin-left: 95px;
   width: 87px;
   background-color: #f8f8f8;

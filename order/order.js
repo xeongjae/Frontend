@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Error:", error);
     });
 
-  // 주소 수정 기능
+  // 배송지 수정 기능
   document
     .querySelector(".findAddressBtn")
     .addEventListener("click", function () {
@@ -70,6 +70,10 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       }).open();
     });
-
+    
   // 주문 상품 목록, 총 결제 금액 (아직 구현되지 않음)
 });
+document.querySelector(".purchase-btn").addEventListener('click',function(){
+  window.location.href = "/order-completed/order-completed.html";
+  alert('주문이 완료 되었습니다!')
+})
