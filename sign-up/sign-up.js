@@ -71,6 +71,20 @@ document.querySelector('.find-address-btn').addEventListener('click', function()
 
 // 회원가입 처리
 const signUpButton = document.querySelector('.sign-up-btn');
+const phoneInput = document.querySelector('.phoneInput');
+
+phoneInput.addEventListener('input', function(e) {
+  let value = e.target.value;
+  value = value.replace(/[^0-9]/g, ''); // 숫자만 유지
+
+  if (value.length > 3 && value.length <= 6) {
+      value = value.slice(0, 3) + '-' + value.slice(3);
+  } else if (value.length > 6) {
+      value = value.slice(0, 3) + '-' + value.slice(3, 7) + '-' + value.slice(7);
+  }
+
+  e.target.value = value;
+});
 
 signUpButton.addEventListener("click", handleSignUp);
 

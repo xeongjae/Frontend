@@ -13,56 +13,49 @@ body {
   margin-top: 60px;
 }
 .sub-title {
+  display: inline-block;
   margin-bottom: 10px;
   font-weight: bold;
+  width: 170px;
 }
-.is-primary {
-  border-radius: 5px;
-  border: 3px solid white;
-  color: black;
-  margin-top: 30px;
-  margin-left: 50px;
-  margin-right: 50px;
-  padding: 30px;
-  box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.3);
+.container {
+  width: 1100px;
 }
 .container-box.container-box{
   background-color: white;
   color: black;
   margin-right: 100px;
   margin-left: 100px;
+  border-radius: 5px;
+  border: 3px solid white;
+  margin-top: 30px;
+  padding: 30px;
+  box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.3);
 }
 .addressInput{
-  display: block;
-  width: 528px;
+  width: 500px;
   height: 40px;
   margin-top: 10px;
 }
 .detailAddressInput{
-  width: 420px;
+  width: 500px;
   height: 40px;
   margin: 10px 0px 30px 0px;
-}
-.findAddressBtn{
-  width: 100px;
-  height: 40px;
-  background-color: #eee;
-  cursor: pointer;
-  border: black solid 0.5px;
-  border-radius: 5px;
 }
 .findAddressBtn:hover {
   filter: brightness(0.95);
 }
 .deliveryMsg {
   height: 40px;
-  width: 528px;
-  background-color: #eee;
+  width: 500px;
+  margin-top: 10px;
+  background-color: white;
+  border: rgb(66, 63, 63) solid 0.7px;
   cursor: pointer;
-  border-radius: 5px;
+
 }
 .deliveryMsg:hover {
-  filter: brightness(0.95);
+  filter: brightness(0.97);
 }
 .btn-container {
   text-align: center;
@@ -75,8 +68,23 @@ body {
   height: 50px;
   color: white;
 }
-.empty-area {
-  height: 50px;
+.edit-btn {
+  width: 100px;
+  height: 40px;
+  color: white;
+  background-color: rgb(33, 29, 29);
+  cursor: pointer;
+  border: black solid 0.5px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+.edit-btn:hover {
+  filter: brightness(0.7);
+}
+.empty-input {
+  height: 40px;
+  width: 500px;
+  margin: 10px 0px 30px 0px;
 }
 .go-to-cart-btn.go-to-cart-btn{
   background-color: gray;
@@ -91,4 +99,8 @@ body {
   padding: 0px;
   margin: 0px;
   height: 100px;
+}
+input[readonly] {
+  background-color: #f3f3f3;
+  border: rgb(66, 63, 63) solid 0.7px;
 }
