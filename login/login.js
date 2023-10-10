@@ -2,8 +2,8 @@
 document.querySelector('.login-form').addEventListener('submit', async function(e) {
   e.preventDefault();
 
-  const email = document.getElementById('idInput').value;
-  const password = document.getElementById('passwordInput').value;
+  const email = document.querySelector('.emailInput').value;
+  const password = document.querySelector('.passwordInput').value;
   const apiUrl = 'http://kdt-sw-6-team08.elicecoding.com/login';
 
   if (!email) {
@@ -42,7 +42,7 @@ document.querySelector('.login-form').addEventListener('submit', async function(
             localStorage.setItem("token", responseData.token);
             window.location.href = '/main/index.html';
         } else {
-            alert("로그인 정보를 확인하세요");
+            alert(responseData.message || "로그인 정보를 확인하세요");
         }
 
     } catch (error) {

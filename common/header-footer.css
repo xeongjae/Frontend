@@ -30,8 +30,6 @@ body {
   background: url(./Casa\ Verde-logo.png) no-repeat center center;
   background-size: cover;
 }
-.Title a {
-}
 
 /*로고 밑에 카테고리 작업*/
 .categories {
@@ -80,4 +78,15 @@ html {
 }
 .Producer li {
   margin-left: 30px;
+}
+
+.fa-user,
+.fa-shopping-bag,
+.fa-search {
+  cursor: pointer;
+}
+.fa-user:hover,
+.fa-shopping-bag:hover,
+.fa-search:hover {
+  color: #959595;
 }

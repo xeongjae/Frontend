@@ -1,37 +1,50 @@
+const customHeader = document.querySelector(".header-container");
+
 // 헤더 UI 생성 함수
-function createHeader() {
-    const headerContainer = document.createElement("header");
-    headerContainer.innerHTML = `
+function createHeader(data) {
+  // data.categories 배열을 순회하면서 카테고리 추가
+  const headerContainer = document.createElement("header");
+
+  headerContainer.innerHTML = `
     <div class="Header">
-      <a href="../main/index.html">
+      <a href="/main/index.html">
         <h1 class="Title"></h1>
       </a>
       <div class="Header_Row">
         <div class="Middle_Container">
           <div class="categories">
-            <a href="/categories/plant.html">PLANT</a>
-            <a href="/categories/pot.html">POT</a>
-            <a href="/categories/gardening-tools.html">GARDENING TOOLS</a>
-            <a href="/categories/gardening-kit.html">GARDENING KIT</a>
           </div>
         </div>
         <div class="User">
-          <a class="far fa-user"></a>
+          <a class="far fa-user" href="/mypage/mypage.html"></a>
           <a class="fas fa-shopping-bag" href="/cart/cart.html"></a>
           <a class="fas fa-search"></a>
         </div>
       </div>
     </div>
-    `;
+  `;
 
-    // customHeader에 헤더 UI를 삽입
-    const customHeader = document.querySelector(".header-container");
-    customHeader.appendChild(headerContainer);
+  // customHeader에 헤더 UI를 삽입
+  customHeader.appendChild(headerContainer);
+
+  // 카테고리 추가 작업을 위한 CategoriesContainer 찾기
+  const CategoriesContainer = document.querySelector(".categories");
+
+  // data.categories 배열을 순회하면서 각 카테고리를 추가
+  for (let i = 0; i < data.categories.length; i++) {
+    const category = data.categories[i];
+    const categoryLink = document.createElement("a");
+    categoryLink.href = `/categories/category.html?category=${category.id}`;
+    categoryLink.onclick = function (event) {
+      sessionStorage.setItem("selectedCategoryValue", category.id); //sessionStorage에 가게고유의 adminNo값 저장
+      window.location.href = `/categories/category.html?category=${category.id}`;
+    };
+    categoryLink.textContent = category.name;
+    CategoriesContainer.appendChild(categoryLink);
   }
 }
-// createHeader 호출
 
-function createFooter() {
+function createFooter(data) {
   const footerContainer = document.createElement("footer");
   footerContainer.innerHTML = `
     <div class="Footer_Container">
@@ -62,3 +75,24 @@ function createFooter() {
   const customfooter = document.querySelector(".footer-container");
   customfooter.appendChild(footerContainer);
 }
+
+// DOMContentLoaded 이벤트 리스너를 이동
+document.addEventListener("DOMContentLoaded", function () {
+  const URL = "http://kdt-sw-6-team08.elicecoding.com";
+
+  // 카테고리 목록을 가져오는 요청을 보냅니다.
+  fetch(`${URL}/categories`)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return res.json();
+    })
+    .then((data) => {
+      createHeader(data);
+      createFooter(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});

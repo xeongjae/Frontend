@@ -6,7 +6,6 @@
     <title>order</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="../common/header-footer.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap"
       rel="stylesheet"
@@ -15,12 +14,15 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
+    <link rel="stylesheet" href="/common/header-footer.css" />
     <link rel="stylesheet" href="order.css" defer />
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="/common/header-footer.js" defer></script>
     <script
       src="https://kit.fontawesome.com/def66b134a.js"
       crossorigin="anonymous"
     ></script>
+    <script src="order.js" defer></script>
   </head>
 
   <body>
@@ -29,32 +31,38 @@
       <h1 class="title">주문/결제</h1>
 
       <div class="container">
-        <div class="notification is-primary">
-          <p>주문자</p>
-          <span class="orderer-area"></span>
-          <p>배송지</p>
-          <span class="ordered-address-area"></span>
-          <p>배송메세지</p>
-          <select class="deliveryMsg">
-            <option name="msg">배송메세지를 선택하세요.</option>
-            <option name="msg">도착전 전화해주세요.</option>
-            <option name="msg">부재시 문자남겨주세요.</option>
-            <option name="msg">경비실에 맡겨주세요.</option>
-          </select>
+        <div class="notification is-primary container-box">
+          <p class="sub-title">이름</p>
+          <div class="orderer-area empty-area"></div>
+          <label for="addressInput" class="sub-title">배송지 주소</label>
+          <input type="text" id="addressInput" class="addressInput" readonly />
+          <input type="text" class="detailAddressInput" />
+          <button type="button" class="findAddressBtn">배송지 변경
+          </button>
+          <div>
+            <select class="deliveryMsg">
+              <option name="msg">배송메세지를 선택하세요.</option>
+              <option name="msg">도착전 문자남겨주세요.</option>
+              <option name="msg">부재 시 택배함에 넣어주세요.</option>
+              <option name="msg">부재 시 경비실에 맡겨주세요.</option>
+              <option name="msg">부재 시 집 앞에 놔주세요.</option>
+              <option name="msg">파손의 위험이 있는 상품입니다. 배송 시 주의해 주세요.</option>
+            </select>
+          </div>
         </div>
       </div>
-        <div class="container"> 
-        <div class="notification is-primary">
-          <p>주문상품</p>
+      <div class="container">
+        <div class="notification is-primary container-box">
+          <p class="sub-title">주문상품</p>
           <span class="ordered-products-area"></span>
         </div>
       </div>
 
       <div class="container">
-        <div class="notification is-primary">
-          <p class="priceTitle">결제금액</p>
-          <p class="totalPrice"></p>
-          <h2 class="cardOrcashTitle">결제수단</h2>
+        <div class="notification is-primary container-box">
+          <p class="priceTitle sub-title">결제금액</p>
+          <div class="totalPrice empty-area"></div>
+          <h2 class="cardOrcashTitle sub-title">결제수단</h2>
           <div class="cardOrcashBtnGroup">
             <div class="cardOrcashBtn">
               <input type="radio" class="card" name="radio" checked />
@@ -70,11 +78,11 @@
       </div>
 
       <div class="btn-container">
-        <button class="button is-success is-rounded" id="purchase-btn">
+        <button type="button" class="button is-rounded purchase-btn">
           결제하기
         </button>
-        <a href=../cart/cart.html class="button is-success is-rounded"
-        id="go-to-cart-btn"> 장바구니로 돌아가기
+        <a href=/cart/cart.html class="go-to-cart-btn button
+        is-rounded"> 장바구니로 돌아가기
         <a />
       </div>
     </main>
