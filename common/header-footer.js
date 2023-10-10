@@ -36,7 +36,7 @@ function createHeader(data) {
     const categoryLink = document.createElement("a");
     categoryLink.href = `/categories/category.html?category=${category.id}`;
     categoryLink.onclick = function (event) {
-      sessionStorage.setItem("selectedValue", category.id); //sessionStorage에 가게고유의 adminNo값 저장
+      sessionStorage.setItem("selectedCategoryValue", category.id); //sessionStorage에 가게고유의 adminNo값 저장
       window.location.href = `/categories/category.html?category=${category.id}`;
     };
     categoryLink.textContent = category.name;

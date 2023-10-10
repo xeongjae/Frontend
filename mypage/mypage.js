@@ -6,7 +6,7 @@ const Address_1 = document.querySelector(".address-input-first");
 const Address_2 = document.querySelector(".address-input-second");
 const ModifyBtn = document.querySelector(".modify-btn");
 
-fetch("/api/api.json")
+fetch(`/api/api.json`)
   .then((res) => {
     if (!res.ok) {
       throw new Error("Network response was not ok");
@@ -14,7 +14,6 @@ fetch("/api/api.json")
     return res.json();
   })
   .then((data) => {
-    console.log(data);
     EmailInput.value = data.user[0].email;
     PhoneInput.value = data.user[0].data.phone;
     Address_1.value = data.user[0].data.address;
