@@ -1,26 +1,52 @@
 const URL = "http://kdt-sw-6-team08.elicecoding.com";
-
-// 카테고리 목록을 가져오는 요청을 보냅니다.
-fetch(`${URL}/user`)
-  .then((res) => {
-    if (!res.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return res.json();
-  })
-  .then((data) => {
-    createHeader(data);
-    createFooter(data);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-
-// 페이지 제목 생성
-const pageTitle = "마이페이지 (조승준 님)";
 const titleElement = document.createElement("h1");
-titleElement.innerHTML = pageTitle;
-titleElement.classList.add("title-text"); // title-text 클래스 추가
+
+// 쿠키에서 토큰을 가져오는 함수
+function getTokenFromCookie() {
+  const cookieName = "token"; // 쿠키 이름
+  const cookies = document.cookie.split(";");
+
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i].trim();
+    if (cookie.startsWith(cookieName + "=")) {
+      return cookie.substring(cookieName.length + 1);
+    }
+  }
+  return null; // 쿠키에서 토큰을 찾지 못한 경우
+}
+
+// 쿠키에서 토큰을 가져옵니다.
+const token = getTokenFromCookie();
+
+if (token) {
+  // 토큰이 있는 경우, 서버에 요청을 보내서 로그인 정보를 가져옵니다.
+  fetch(`${URL}/users/`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`, // 토큰을 헤더에 추가
+    },
+  })
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        throw new Error("서버에서 로그인 정보를 가져오지 못했습니다.");
+      }
+    })
+    .then((data) => {
+      // 서버에서 반환된 로그인 정보를 data 변수에 저장
+      console.log("로그인 정보:", data);
+      // 여기에 로그인 정보를 사용하는 로직을 추가하세요.
+    })
+    .catch((error) => {
+      console.error("로그인 정보를 가져오지 못했습니다.", error);
+    });
+} else {
+  console.log(
+    "토큰이 없습니다. 로그인되지 않았거나 토큰이 만료되었을 수 있습니다."
+  );
+  // 토큰이 없는 경우 처리할 로직을 추가하세요.
+}
 
 // 메뉴 항목 생성
 const menuItems = [

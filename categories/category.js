@@ -1,4 +1,4 @@
-const uni1 = sessionStorage.getItem("selectedValue");
+const uni1 = sessionStorage.getItem("selectedCategoryValue");
 
 const URL = "http://kdt-sw-6-team08.elicecoding.com";
 fetch(`${URL}/categories/${uni1}/items`)
@@ -9,7 +9,6 @@ fetch(`${URL}/categories/${uni1}/items`)
     return res.json();
   })
   .then((data) => {
-    console.log(data);
     ItemCategory(data);
   })
   .catch((error) => {
@@ -26,6 +25,7 @@ function ItemCategory(data) {
 
   for (let j = 0; j < categoryItems.length; j++) {
     let ItemInfo = categoryItems[j];
+    console.log(ItemInfo);
 
     const Product = document.createElement("div");
     Product.innerHTML = `<div class="Product">
@@ -51,7 +51,8 @@ function ItemCategory(data) {
     }
 
     Product.onclick = function (event) {
-      window.location.href = "/detailpage/detailpage.html";
+      sessionStorage.setItem("selectedItemValue", ItemInfo.id);
+      window.location.href = `/detailpage/detailpage.html?category=${uni1}&ItemInfo=${ItemInfo.id}`;
     };
   }
 
