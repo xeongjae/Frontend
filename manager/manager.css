@@ -39,19 +39,25 @@ input {
 }
 
 .button-submit {
+  background-color: #41b977;
+  box-shadow: 2px 2px 30px 7px #207e4a;
+  font-size: 25px;
   color: white;
   border: none;
   border-radius: 12px;
   height: 45px;
   background-color: #41b977;
-  transition-property: background-color, box-shadow, font-size;
-  transition-duration: 0.2s, 0.2s, 0.2s;
+  transition-property: background-color, box-shadow;
+  transition-duration: 0.2s, 90ms;
   transition-timing-function: ease-in-out;
-  font-size: 25px;
+  
 }
 
 .button-submit:hover {
-  background-color: #41b977;
-  box-shadow: 2px 2px 30px 7px #207e4a;
-  font-size: 27px;
+  background-color: #2a8c56;
+  
+}
+
+.button-submit:active {
+  box-shadow: none;
 }

@@ -1,0 +1,60 @@
+
+
+.button-box-01,
+.button-box-02 {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  margin: 12px;
+  width: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: none;
+  box-shadow: 1px 1px 10px 1px #2a8c56;
+  border-radius: 30px;
+  background-color: #41b977;
+
+  transition-property: box-shadow;
+  transition-duration: 100ms;
+  transition-timing-function: ease-in-out;
+  height: 700px; 
+  width: 30px;
+}
+
+.button-box-01:active,
+.button-box-02:active {
+  box-shadow: none;
+}
+
+.category-card,
+.submit-card {
+  border-radius: 12px;
+  background-color: #f8f8f8;
+  box-shadow: 1px 1px 10px 5px #9a9999 inset;
+  border: none;
+  display: block;
+  
+}
+
+.category-card {
+  width: 900px;
+  height: 700px;
+}
+
+.submit-card {
+  width: 500px; 
+  height: 700px;
+}
+
+
+.submit-card::-webkit-scrollbar {
+  width: 5px;
+}
+
+.submit-card::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: #2a8c56; /* 스크롤바의 색상 */
+  
+  border-radius: 10px;
+}
