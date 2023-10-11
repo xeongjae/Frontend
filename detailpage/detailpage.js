@@ -53,6 +53,8 @@ fetch(`${URL}/categories/${categoryId}/items/${ItemId}`, {
         image: ItemInfo.main_image[0],
         name: ItemInfo.name,
         price: ItemInfo.price,
+        category: categoryId,
+        Item: ItemId,
       };
 
       // 이전 항목들과 현재 항목을 합친 후 다시 로컬 스토리지에 저장합니다.
