@@ -7,12 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch("API", {
     method: "GET",
     headers: {
-      Authorization: "검증된 겁근 토큰",
+      //Authorization: "검증된 겁근 토큰",
       "Content-Type": "application/json",
     },
   })
     .then((response) => {
-      if (!response.ok) {
+      if (!response.ok) { //.status !!
         throw new Error("네트워크 오류");
       }
       return response.json();

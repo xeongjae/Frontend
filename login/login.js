@@ -3,16 +3,15 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector(".member").addEventListener("click", function () {
     document.querySelector(".member-form-container").style.display = "block";
     document.querySelector(".guest-form-container").style.display = "none";
-    document.querySelector(".member").classList.add('method-select-click');
-    document.querySelector(".guest").classList.remove('method-select-click');
-
+    document.querySelector(".member").classList.add("method-select-click");
+    document.querySelector(".guest").classList.remove("method-select-click");
   });
 
   document.querySelector(".guest").addEventListener("click", function () {
     document.querySelector(".guest-form-container").style.display = "block";
     document.querySelector(".member-form-container").style.display = "none";
-    document.querySelector(".member").classList.remove('method-select-click');
-    document.querySelector(".guest").classList.add('method-select-click');
+    document.querySelector(".member").classList.remove("method-select-click");
+    document.querySelector(".guest").classList.add("method-select-click");
   });
 });
 //로그인기능
@@ -44,22 +43,26 @@ document
     };
 
     //로그인 요청 (Fetch API)
+    const api = "http://kdt-sw-6-team08.elicecoding.com";
     try {
-      const response = await fetch(apiUrl, {
+      const res = await fetch(`${api}/login`, {
         method: "POST",
         headers: {
+          Origin: "http://localhost:3000",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(loginData),
+        credentials: "include",
+        body: JSON.stringify(data),
       });
 
-      const responseData = await response.json();
+      const resData = await res.json();
 
-      if (response.ok) {
-        localStorage.setItem("token", responseData.token); //쿠키에 저장되게 설정해놓으심
+      if (res.status === 200) {
+        //respons.ok .status 둘다 console로 확인
+        //localStorage.setItem("token", responseData.token); //쿠키에 저장되게 설정해놓으심
         window.location.href = "/main/index.html";
       } else {
-        alert(responseData.message || "로그인 정보를 확인하세요");
+        alert(resData.message || "로그인 정보를 확인하세요");
       }
     } catch (error) {
       console.error("Error:", error);
