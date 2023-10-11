@@ -70,9 +70,7 @@ html {
   flex-direction: column;
   justify-content: center;
 }
-#ul1 {
-  border-top: 1px solid #969696;
-}
+
 .cart-container ul {
   width: 100%;
   list-style: none;
