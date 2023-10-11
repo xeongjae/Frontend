@@ -4,7 +4,7 @@ qs.get("item");
 const categoryId = qs.get("category");
 const ItemId = qs.get("item");
 
-const URL = "http://kdt-sw-6-team08.elicecoding.com";
+const URL = "/api";
 fetch(`${URL}/categories/${categoryId}/items`, {
   method: "GET",
   headers: {
