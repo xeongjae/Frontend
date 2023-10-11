@@ -16,7 +16,7 @@
 .div-login-layout {
   width: 500px;
   height: 360px;
-  background-color: #41b977;
+  background-color: #F8F8F8;
   border-radius: 20px;
   box-shadow: 2px 2px 30px 7px #2a8c56;
   padding: 20px;
@@ -40,13 +40,13 @@ input {
 
 .button-submit {
   background-color: #41b977;
-  box-shadow: 2px 2px 30px 7px #207e4a;
+  box-shadow: none;
   font-size: 25px;
-  color: white;
+  color: #3CB371;
   border: none;
   border-radius: 12px;
   height: 45px;
-  background-color: #41b977;
+  background-color: rgb(213, 211, 211);
   transition-property: background-color, box-shadow;
   transition-duration: 0.2s, 90ms;
   transition-timing-function: ease-in-out;
@@ -54,8 +54,8 @@ input {
 }
 
 .button-submit:hover {
-  background-color: #2a8c56;
-  
+  background-color: rgb(231, 229, 229);
+  box-shadow: 1px 1px 10px 1px gray;
 }
 
 .button-submit:active {
