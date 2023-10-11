@@ -77,7 +77,7 @@ function PopularItem(data) {
       Product.classList.add("Popular_Product");
       Product.innerHTML = `
       <div class="Product_Img">
-        <img src="${Item.main_image[0]}" alt="" />
+        <img src="${Item.main_images[0]}" alt="" />
       </div>
       <div class="Product_Name">${Item.name}</div>
       <div class="Product_Price">${Item.price} 원</div>
@@ -89,10 +89,10 @@ function PopularItem(data) {
       // hover했을 때 hover이미지가 나오도록 구현
       const ProductImg = Product.querySelector(".Product_Img img");
       ProductImg.addEventListener("mouseenter", function () {
-        ProductImg.src = `${Item.main_image[1]}`;
+        ProductImg.src = `${Item.main_images[1]}`;
       });
       ProductImg.addEventListener("mouseleave", function () {
-        ProductImg.src = `${Item.main_image[0]}`;
+        ProductImg.src = `${Item.main_images[0]}`;
       });
     }
 

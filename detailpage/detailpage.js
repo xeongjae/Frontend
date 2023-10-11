@@ -3,6 +3,7 @@ const PlusBtn = document.querySelector(".btn-plus");
 const Qty = document.querySelector(".input-count");
 const Price = document.querySelector(".item-price");
 const CartBtn = document.querySelector(".order_save_button");
+const ContainerImage = document.querySelector(".container_image");
 
 const ProductName = document.querySelector(".product_name");
 const ProductPrice = document.querySelector(".product_price");
@@ -37,12 +38,16 @@ fetch(`${URL}/categories/${categoryId}/items/${ItemId}`, {
   })
   .then((data) => {
     const ItemInfo = data.item;
-    console.log(ItemInfo);
+    console.log(ItemInfo.images.length);
     // const targetItemId = items.id; // 원하는 id
     ProductName.textContent = `${ItemInfo.name}`;
     ProductPrice.textContent = `${ItemInfo.price} 원`;
     Description.textContent = `${ItemInfo.description}`;
     TotalPrice.textContent = `${ItemInfo.price} 원`;
+
+    for (let i = 0; i < ItemInfo.images.length; i++) {
+      ContainerImage.innerHTML = `<img src="${ItemInfo.images[i]}" alt="" />`;
+    }
 
     CartBtn.addEventListener("click", function () {
       const storedCartItems =
@@ -50,7 +55,7 @@ fetch(`${URL}/categories/${categoryId}/items/${ItemId}`, {
 
       // 현재 상품 정보를 담을 객체 생성
       const itemInfo = {
-        image: ItemInfo.main_image[0],
+        image: ItemInfo.main_images[0],
         name: ItemInfo.name,
         price: ItemInfo.price,
         category: categoryId,

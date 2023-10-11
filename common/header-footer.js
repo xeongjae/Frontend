@@ -34,9 +34,9 @@ function createHeader(data) {
   for (let i = 0; i < data.categories.length; i++) {
     const category = data.categories[i];
     const categoryLink = document.createElement("a");
-    categoryLink.href = `/categories/category.html?category=${category.id}`;
+    categoryLink.href = `/categories?category=${category.id}`;
     categoryLink.onclick = function (event) {
-      window.location.href = `/categories/category.html?category=${category.id}`;
+      window.location.href = `/categories?category=${category.id}`;
     };
     categoryLink.textContent = category.name;
     CategoriesContainer.appendChild(categoryLink);
