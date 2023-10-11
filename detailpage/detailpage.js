@@ -57,8 +57,25 @@ fetch(`${URL}/categories/${categoryId}/items/${ItemId}`, {
         Item: ItemId,
       };
 
-      // 이전 항목들과 현재 항목을 합친 후 다시 로컬 스토리지에 저장합니다.
-      storedCartItems.push(itemInfo);
+      // 이미 장바구니에 같은 상품이 있는지 확인
+      const existingItemIndex = storedCartItems.findIndex((cartItem) => {
+        return (
+          cartItem.name === itemInfo.name &&
+          cartItem.category === categoryId &&
+          cartItem.Item === ItemId
+        );
+      });
+
+      if (existingItemIndex !== -1) {
+        // 이미 장바구니에 같은 상품이 있는 경우, 수량 증가 또는 다른 조치를 취할 수 있음
+        alert("이미 장바구니에 있는 제품입니다.");
+      } else {
+        // 이미 장바구니에 같은 상품이 없는 경우, 새로운 상품 추가
+        itemInfo.quantity = 1;
+        storedCartItems.push(itemInfo);
+      }
+
+      // 다시 로컬 스토리지에 저장
       localStorage.setItem("cartItems", JSON.stringify(storedCartItems));
 
       // 저장 완료 메시지 또는 원하는 작업을 수행할 수 있습니다.

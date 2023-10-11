@@ -126,7 +126,7 @@ function createCartItemElement(item) {
       <img class="img-items" src="${item.image}" alt="" />
     </div>
     <div class="item-info">
-      <a class="item-name" href="/detailpage/detailpage.html">${item.name}</a>
+      <a class="item-name" href="#" data-category="${item.category}" data-item="${item.Item}">${item.name}</a>
       <div class="count-box">
         <button class="btn-minus" id="btn-minus">
           <img class="img-minus" src="./img/minus.png" alt="" />
@@ -137,10 +137,11 @@ function createCartItemElement(item) {
         </button>
       </div>
       <p class="item-price" data-price="${item.price}">${item.price}원</p>
-
     </div>
     <span class="delete-btn">X</span>
   `;
+
+  // 삭제 이벤트
   const deleteBtn = cartItem.querySelector(".delete-btn");
   deleteBtn.addEventListener("click", function () {
     // 장바구니에서 해당 항목을 삭제하고 로컬 스토리지를 업데이트
@@ -153,6 +154,17 @@ function createCartItemElement(item) {
     // UI에서 해당 항목을 제거
     const cartContainer = document.querySelector(".cart-container");
     cartContainer.removeChild(cartItem.parentElement.parentElement); // <ul> 요소를 제거
+  });
+
+  // 링크 이동 이벤트
+  const itemNameLink = cartItem.querySelector(".item-name");
+  // 클릭 이벤트 리스너를 추가
+  itemNameLink.addEventListener("click", function (e) {
+    e.preventDefault(); // 기본 동작 방지
+    const categoryId = itemNameLink.getAttribute("data-category");
+    const itemId = itemNameLink.getAttribute("data-item");
+    const detailPageURL = `/detailpage/detailpage.html?category=${categoryId}&item=${itemId}`;
+    window.location.href = detailPageURL;
   });
 
   return cartItem;
