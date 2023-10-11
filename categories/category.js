@@ -1,7 +1,18 @@
-const uni1 = sessionStorage.getItem("selectedCategoryValue");
+const qs = new URLSearchParams(window.location.search);
+qs.get("category");
+qs.get("item");
+const categoryId = qs.get("category");
+const ItemId = qs.get("item");
 
 const URL = "http://kdt-sw-6-team08.elicecoding.com";
-fetch(`${URL}/categories/${uni1}/items`)
+fetch(`${URL}/categories/${categoryId}/items`, {
+  method: "GET",
+  headers: {
+    Origin: `${URL}`, // 클라이언트의 도메인
+    // 기타 헤더 설정
+  },
+  credentials: "include", // credentials 옵션을 include로 설정
+})
   .then((res) => {
     if (!res.ok) {
       throw new Error("Network response was not ok");
@@ -51,8 +62,7 @@ function ItemCategory(data) {
     }
 
     Product.onclick = function (event) {
-      sessionStorage.setItem("selectedItemValue", ItemInfo.id);
-      window.location.href = `/detailpage/detailpage.html?category=${uni1}&ItemInfo=${ItemInfo.id}`;
+      window.location.href = `/detailpage/detailpage.html?category=${categoryId}&ItemInfo=${ItemId}`;
     };
   }
 
