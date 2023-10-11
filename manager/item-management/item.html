@@ -14,211 +14,187 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/manager/item-management/item.css" />
+    <link rel="stylesheet" href="/manager/style/layout-style.css" />
     <title>manager</title>
   </head>
-  
+
   <body>
     <div class="wrapper">
       <!--관리자 페이지 사이드 nav바-->
       <div class="container-wrapper">
         <div id="nav-container"></div>
       </div>
-      <!--상품 관리 페이지-->
-      <div class="content-box">
-          <div class="title-box">
-            <h3>상품 수정</h3>
+      <!--카테고리 관리 페이지-->
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 50px;
+        "
+      >
+        <button class="button-box-01"></button>
+        <div class="category-card">
+          <div class="item-box" id="item-box" data-id="i123123">
+            <div class="block-box">
+              <p class="name">상품이름:</p>
+              <p class="item-name">가나다라</p>
+            </div>
+            <div class="block-box">
+              <p class="id">제품ID:</p>
+              <p class="item-id">i123123</p>
+
+            </div>
+            <div class="block-box">
+              <p class="price">가격:</p>
+              <p class="item-price">10,000</p>
+            </div>
+            <div class="block-box">
+              <p class="category">카테고리:</p>
+              <p class="item-category">Plant</p>
+            </div>
           </div>
-            <div class="list-box">
-              <table>
-                <thead>
-                  <tr class="table-header">
-                    <td>상품 사진</td>
-                    <td>카테고리</td>
-                    <td>상품</td>
-                    <td>상품번호</td>
-                    <td>상품단가</td>
-                  </tr>
-                </thead>
-                <div id="table">
-                <tr>
-                  <td><input type="file" name="image" id="image-input"></td>
-                  <td><select name="category-selector" id="">
-                    <option value="">Plant</option>
-                    <option value="">Pot</option>
-                    <option value="">Gardening Tool</option>
-                    <option value="">Gardening Kit</option>
-                  </select></td>
-                  <td><input type="text" placeholder="상품이름"></td>
-                  <td><input type="text" placeholder="상품번호"></td>
-                  <td><input type="text" placeholder="단가"></td>
-                  <td align="right">
-                    <button class="button-description">상세</button>
-                    <button class="button-delete">삭제</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="file" name="image" id="image-input"></td>
-                  <td><select name="category-selector" id="">
-                    <option value="">Plant</option>
-                    <option value="">Pot</option>
-                    <option value="">Gardening Tool</option>
-                    <option value="">Gardening Kit</option>
-                  </select></td>
-                  <td><input type="text" placeholder="상품이름"></td>
-                  <td><input type="text" placeholder="상품번호"></td>
-                  <td><input type="text" placeholder="단가"></td>
-                  <td align="right">
-                    <button class="button-description">상세</button>
-                    <button class="button-delete">삭제</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="file" name="image" id="image-input"></td>
-                  <td><select name="category-selector" id="">
-                    <option value="">Plant</option>
-                    <option value="">Pot</option>
-                    <option value="">Gardening Tool</option>
-                    <option value="">Gardening Kit</option>
-                  </select></td>
-                  <td><input type="text" placeholder="상품이름"></td>
-                  <td><input type="text" placeholder="상품번호"></td>
-                  <td><input type="text" placeholder="단가"></td>
-                  <td align="right">
-                    <button class="button-description">상세</button>
-                    <button class="button-delete">삭제</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="file" name="image" id="image-input"></td>
-                  <td><select name="category-selector" id="">
-                    <option value="">Plant</option>
-                    <option value="">Pot</option>
-                    <option value="">Gardening Tool</option>
-                    <option value="">Gardening Kit</option>
-                  </select></td>
-                  <td><input type="text" placeholder="상품이름"></td>
-                  <td><input type="text" placeholder="상품번호"></td>
-                  <td><input type="text" placeholder="단가"></td>
-                  <td align="right">
-                    <button class="button-description">상세</button>
-                    <button class="button-delete">삭제</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="file" name="image" id="image-input"></td>
-                  <td><select name="category-selector" id="">
-                    <option value="">Plant</option>
-                    <option value="">Pot</option>
-                    <option value="">Gardening Tool</option>
-                    <option value="">Gardening Kit</option>
-                  </select></td>
-                  <td><input type="text" placeholder="상품이름"></td>
-                  <td><input type="text" placeholder="상품번호"></td>
-                  <td><input type="text" placeholder="단가"></td>
-                  <td align="right">
-                    <button class="button-description">상세</button>
-                    <button class="button-delete">삭제</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="file" name="image" id="image-input"></td>
-                  <td><select name="category-selector" id="">
-                    <option value="">Plant</option>
-                    <option value="">Pot</option>
-                    <option value="">Gardening Tool</option>
-                    <option value="">Gardening Kit</option>
-                  </select></td>
-                  <td><input type="text" placeholder="상품이름"></td>
-                  <td><input type="text" placeholder="상품번호"></td>
-                  <td><input type="text" placeholder="단가"></td>
-                  <td align="right">
-                    <button class="button-description">상세</button>
-                    <button class="button-delete">삭제</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="file" name="image" id="image-input"></td>
-                  <td><select name="category-selector" id="">
-                    <option value="">Plant</option>
-                    <option value="">Pot</option>
-                    <option value="">Gardening Tool</option>
-                    <option value="">Gardening Kit</option>
-                  </select></td>
-                  <td><input type="text" placeholder="상품이름"></td>
-                  <td><input type="text" placeholder="상품번호"></td>
-                  <td><input type="text" placeholder="단가"></td>
-                  <td align="right">
-                    <button class="button-description">상세</button>
-                    <button class="button-delete">삭제</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="file" name="image" id="image-input"></td>
-                  <td><select name="category-selector" id="">
-                    <option value="">Plant</option>
-                    <option value="">Pot</option>
-                    <option value="">Gardening Tool</option>
-                    <option value="">Gardening Kit</option>
-                  </select></td>
-                  <td><input type="text" placeholder="상품이름"></td>
-                  <td><input type="text" placeholder="상품번호"></td>
-                  <td><input type="text" placeholder="단가"></td>
-                  <td align="right">
-                    <button class="button-description">상세</button>
-                    <button class="button-delete">삭제</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="file" name="image" id="image-input"></td>
-                  <td><select name="category-selector" id="">
-                    <option value="">Plant</option>
-                    <option value="">Pot</option>
-                    <option value="">Gardening Tool</option>
-                    <option value="">Gardening Kit</option>
-                  </select></td>
-                  <td><input type="text" placeholder="상품이름"></td>
-                  <td><input type="text" placeholder="상품번호"></td>
-                  <td><input type="text" placeholder="단가"></td>
-                  <td align="right">
-                    <button class="button-description">상세</button>
-                    <button class="button-delete">삭제</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="file" name="image" id="image-input"></td>
-                  <td><select name="category-selector" id="">
-                    <option value="">Plant</option>
-                    <option value="">Pot</option>
-                    <option value="">Gardening Tool</option>
-                    <option value="">Gardening Kit</option>
-                  </select></td>
-                  <td><input type="text" placeholder="상품이름"></td>
-                  <td><input type="text" placeholder="상품번호"></td>
-                  <td><input type="text" placeholder="단가"></td>
-                  <td align="right">
-                    <button class="button-description">상세</button>
-                    <button class="button-delete">삭제</button>
-                  </td>
-                </tr>
-              </div>
-              </table>
-              <div>
-                <button class="button is-primary" id="addingButton">추가</button>
-              </div>
+          <div class="item-box" id="item-box" data-id="i123">
+            <div class="block-box">
+              <p class="name">상품이름:</p>
+              <p class="item-name">마바사</p>
             </div>
-            <div class="input-box">
-              <button class="button is-primary is-small">저장</button>
+            <div class="block-box">
+              <p class="id">제품ID:</p>
+              <p class="item-id">i123</p>
+
             </div>
-        <div class="pagination">
-          <a href="#">&laquo;</a>
-          <a href="#">1</a>
-          <a class="active" href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <a href="#">5</a>
-          <a href="#">6</a>
-          <a href="#">&raquo;</a>
-        
+            <div class="block-box">
+              <p class="price">가격:</p>
+              <p class="item-price">10,001</p>
+            </div>
+            <div class="block-box">
+              <p class="category">카테고리:</p>
+              <p class="item-category">Pot</p>
+            </div>
+          </div>
+        </div>
+        <button class="button-box-02"></button>
+        <div class="submit-card">
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              margin: 50px;
+            "
+          >
+            <form style="display: block">
+              <div style="display: flex; width: 400px">
+                <label className="input-file-button" for="input-file">
+                  <img
+                    src="/cart/img/IMG_7247.jpg"
+                    alt=""
+                    class="photo-description-01"
+                  />
+                </label>
+                <input type="file" id="input-file" style="display: none" />
+
+                <label className="input-file-button" for="input-file">
+                  <img src="/.jpg" alt="" class="photo-description-02" />
+                </label>
+                <input type="file" id="input-file" style="display: none" />
+              </div>
+              <div style="display: flex; width: 400px">
+                <label className="input-file-button" for="input-file">
+                  <img src="/.jpg" alt="" class="photo-description-02" />
+                </label>
+                <input type="file" id="input-file" style="display: none" />
+                <label className="input-file-button" for="input-file">
+                  <img src="/.jpg" alt="" class="photo-description-02" />
+                </label>
+                <input type="file" id="input-file" style="display: none" />
+                <label className="input-file-button" for="input-file">
+                  <img src="/.jpg" alt="" class="photo-description-02" />
+                </label>
+                <input type="file" id="input-file" style="display: none" />
+              </div>
+
+              <div
+                class="input-box"
+                style="
+                  display: flex;
+                  width: 400px;
+                  border: 0.5px dashed #2a8c56;
+                "
+              >
+                <input type="text" placeholder="상품이름" class="input-name" id="input-name" value=""/>
+              </div>
+              <div
+                class="input-box"
+                style="
+                  display: flex;
+                  width: 400px;
+                  border: 0.5px dashed #2a8c56;
+                "
+              >
+                <input type="text" placeholder="상품id" class="input-id"  id="input-id" value=""/>
+              </div>
+              <div
+                class="input-box"
+                style="
+                  display: flex;
+                  width: 400px;
+                  border: 0.5px dashed #2a8c56;
+                "
+              >
+                <input type="text" placeholder="가격" class="input-price" id="input-price" value=""/>
+              </div>
+              <div
+                class="input-box"
+                style="
+                  display: flex;
+                  width: 400px;
+                  border: 0.5px dashed #2a8c56;
+                "
+              >
+                <input type="text" placeholder="색깔" class="input-color" id="input-color" value=""/>
+              </div>
+              <div
+                class="input-box"
+                style="
+                  display: flex;
+                  width: 400px;
+                  border: 0.5px dashed #2a8c56;
+                "
+              >
+                <select
+                  type="text"
+                  placeholder="카테고리 변경"
+                  class="input-category-amend"
+                >
+                  <option value="Plant" id="Plant">Plant</option>
+                  <option value="Pot" id="Pot">Pot</option>
+                  <option value="Gardening Tool" id="Gardening-Tool">Gardening Tool</option>
+                  <option value="Gardening Kit" id="Gardening-Kit">Gardening Kit</option>
+                </select>
+              </div>
+              <div
+                class="input-box"
+                style="
+                  display: flex;
+                  width: 400px;
+                  border: 0.5px dashed #2a8c56;
+                "
+              >
+                <input
+                  type="text"
+                  placeholder="상세 설명"
+                  class="input-description"
+                />
+              </div>
+            </form>
+            <button class="button-submit-category" type="submit">제출</button>
+            <button class="button-delete-item" type="submit">삭제</button>
+
+          </div>
+        </div>
       </div>
     </div>
   </body>
@@ -229,4 +205,6 @@
         document.getElementById("nav-container").innerHTML = data;
       });
   </script>
-</html>
+  <script src="/manager/item-management/item-descriptionPage.js"></script>
+  <script src="/manager/category-management/addCategory.js"></script>
+  </html>

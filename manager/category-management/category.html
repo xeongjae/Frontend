@@ -14,6 +14,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/manager/category-management/category.css" />
+    <link rel="stylesheet" href="/manager/style/layout-style.css" />
     <title>manager</title>
   </head>
 
@@ -33,15 +34,39 @@
         "
       >
         <button class="button-box-01"></button>
-        <div
-          class="category-card"
-          style="width: 100px; height: 100px; background-color: white"
-        ></div>
+        <div class="category-card">
+          <div class="item-box" data-id="Plant">
+            <p>Plant</p>
+            <button class="button-delete" data-id="Plant">삭제</button>
+          </div>
+        </div>
         <button class="button-box-02"></button>
-        <div
-          class="subomit-card"
-          style="width: 100px; height: 100px; background-color: white"
-        ></div>
+        <form class="submit-card" id="form">
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              margin: 50px;
+            "
+          >
+            <input
+              id="input-value"
+              class="input-category"
+              type="text"
+              placeholder="추가할 카테고리를 입력하세요"
+            />
+            <div style="height: 500px"></div>
+            <button
+              id="btn-submit"
+              class="button-submit-category"
+              type="submit"
+            >
+              제출
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </body>
@@ -52,4 +77,6 @@
         document.getElementById("nav-container").innerHTML = data;
       });
   </script>
+  <script src="/manager/category-management/addCategory.js"></script>
+  <script src="/manager/category-management/deleteCategory.js"></script>
 </html>

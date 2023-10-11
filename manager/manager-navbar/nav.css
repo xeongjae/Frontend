@@ -22,8 +22,8 @@ body {
 
 /* 네비게이션 바 스타일 */
 .navbar {
-  background-color: #41b977;
-  color: white;
+  background-color: F8F8F8;
+  color: #41b977;
   border-radius: 30px;
   width: 400px;
   box-shadow: 5px 5px 10px 5px #2a8c56;
@@ -34,7 +34,7 @@ body {
 .title {
   font-size: 1.2rem;
   margin-top: 15px;
-  color: white;
+  color: #41b977;
   margin-left: 30px;
   text-align: center;
   transition-property: color;
@@ -64,18 +64,22 @@ body {
 .anchor-nav-category a,
 .anchor-nav-item a,
 .anchor-nav-order a {
-  color: white;
+  color: #41b977;
   text-decoration: none;
 }
 
 .anchor-nav-category a:hover,
 .anchor-nav-item a:hover,
 .anchor-nav-order a:hover {
-  color: #f8f8f8;
+  color: #065027;
 }
 
 /* .item-container 내부 요소 정렬 */
 .item-container nav {
   display: flex;
   align-items: center;
+}
+
+#active-page {
+  color: red;
 }
