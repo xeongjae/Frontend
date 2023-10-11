@@ -16,9 +16,12 @@ qs.get("item");
 const categoryId = qs.get("category");
 const ItemId = qs.get("item");
 const URL = "/api";
+console.log(categoryId, ItemId);
+
+const savedProductInfo = JSON.parse(localStorage.getItem("productInfo")) || {};
 
 // 카테고리 목록을 가져오는 요청을 보냅니다.
-fetch(`${URL}/categories/${categoryId}/items`, {
+fetch(`${URL}/categories/${categoryId}/items/${ItemId}`, {
   method: "GET",
   headers: {
     Origin: `${URL}`, // 클라이언트의 도메인
@@ -33,45 +36,36 @@ fetch(`${URL}/categories/${categoryId}/items`, {
     return res.json();
   })
   .then((data) => {
-    const items = data.items; // items 배열 가져오기
-    const targetItemId = "gmnj7j-NTE1AjEVjnrr40"; // 원하는 id
+    const ItemInfo = data.item;
+    console.log(ItemInfo);
+    // const targetItemId = items.id; // 원하는 id
+    ProductName.textContent = `${ItemInfo.name}`;
+    ProductPrice.textContent = `${ItemInfo.price} 원`;
+    Description.textContent = `${ItemInfo.description}`;
+    TotalPrice.textContent = `${ItemInfo.price} 원`;
 
-    // id가 일치하는 아이템을 찾기
-    const targetItem = items.find((item) => item.id === targetItemId);
-    console.log(targetItem);
+    CartBtn.addEventListener("click", function () {
+      const storedCartItems =
+        JSON.parse(localStorage.getItem("cartItems")) || [];
 
-    if (targetItem) {
+      // 현재 상품 정보를 담을 객체 생성
       const itemInfo = {
-        name: targetItem.name,
-        price: targetItem.price,
-        description: targetItem.description,
+        image: ItemInfo.main_image[0],
+        name: ItemInfo.name,
+        price: ItemInfo.price,
       };
 
-      ProductName.textContent = `${itemInfo.name}`;
-      ProductPrice.textContent = `${itemInfo.price} 원`;
-      Description.textContent = `${itemInfo.description}`;
-      TotalPrice.textContent = `${itemInfo.price} 원`;
+      // 이전 항목들과 현재 항목을 합친 후 다시 로컬 스토리지에 저장합니다.
+      storedCartItems.push(itemInfo);
+      localStorage.setItem("cartItems", JSON.stringify(storedCartItems));
 
-      CartBtn.addEventListener("click", function () {
-        localStorage.setItem("productName", itemInfo.name);
-        localStorage.setItem("productPrice", itemInfo.price);
-
-        // 저장 완료 메시지 또는 원하는 작업을 수행할 수 있습니다.
-        console.log("상품 정보가 저장되었습니다.");
-      });
-
-      console.log(itemInfo);
-    } else {
-      console.log("일치하는 아이템을 찾을 수 없습니다.");
-    }
+      // 저장 완료 메시지 또는 원하는 작업을 수행할 수 있습니다.
+      console.log("상품 정보가 장바구니에 추가되었습니다.");
+    });
   })
   .catch((error) => {
     console.log(error);
   });
-
-CartBtn.addEventListener("click", function () {
-  console.log(CartBtn);
-});
 
 // 현재 수량을 가져오는 함수
 function getCurrentQuantity() {
@@ -92,10 +86,4 @@ MinusBtn.addEventListener("click", function () {
   if (currentQty > 1) {
     Qty.textContent = currentQty - 1;
   }
-});
-
-CartBtn.addEventListener("click", function () {
-  const data = dataInput.value;
-  // 로컬 스토리지에 데이터를 저장합니다.
-  localStorage.setItem("savedData", data);
 });
