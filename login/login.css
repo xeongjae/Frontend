@@ -22,21 +22,40 @@ main {
   width: 40rem;
   height: 100%;
 }
-.login-button {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 300px;
-  margin-top: 60px;
-  margin-bottom: 10px;
-  background-color: #3cb371;
+.btn-area {
+  margin-top: 10px;
 }
-
-.sign-up-button {
+.login-button.login-button {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 300px;
+  margin-top: 40px;
+  background-color: black;
+}
+.login-button.login-button:hover {
+  background-color: black;
+  filter: brightness(0.7);
+}
+.sign-up-button {
+  background-color: #c4c4c4;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
+.google-btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
+.naver-btn {
+  background-color: #03C75A;
+  color: white
+}
+.kakao-btn {
+  background-color: #FEE500;
 }
 .button:hover {
   filter: brightness(0.9);
@@ -45,7 +64,7 @@ main {
   margin-top: 15px;
 }
 .email-inp-area {
-  margin-top: 55px;
+  margin-top: 15px;
 }
 .label {
   margin-left: 130px;
@@ -55,4 +74,50 @@ main {
   margin-left: auto;
   margin-right: auto;
   width: 400px;
+}
+.method-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 70px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.member {
+  width: 200px;
+  color: gray;
+  letter-spacing: 3px;
+  border-bottom: rgb(168, 165, 165) solid 2px;
+  cursor: pointer;
+}
+.guest {
+  width: 200px;
+  color: gray;
+  letter-spacing: 0.5px;
+  border-bottom: rgb(168, 165, 165) solid 2px;
+  cursor: pointer;
+}
+.ordered-list-btn.ordered-list-btn {
+  display: block;
+  background-color: black;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  width: 300px;
+}
+.ordered-list-btn.ordered-list-btn:hover {
+  background-color: black;
+  filter: brightness(0.7);
+}
+.member-form-container{
+  display: block;
+}
+.guest-form-container{
+  display: none;
+}
+.method-select-click {
+  color: black;
+  border-bottom: black solid 3px;
 }

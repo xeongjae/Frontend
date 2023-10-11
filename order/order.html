@@ -31,15 +31,33 @@
       <h1 class="title">주문/결제</h1>
 
       <div class="container">
-        <div class="notification is-primary container-box">
-          <p class="sub-title">이름</p>
-          <div class="orderer-area empty-area"></div>
-          <label for="addressInput" class="sub-title">배송지 주소</label>
-          <input type="text" id="addressInput" class="addressInput" readonly />
-          <input type="text" class="detailAddressInput" />
-          <button type="button" class="findAddressBtn">배송지 변경
-          </button>
+        <div class="container-box">
           <div>
+            <p class="sub-title">이름</p>
+            <input class="ordererInput empty-input" readonly/>
+            <button class="edit-name-btn edit-btn">이름 변경</button>
+          </div>
+
+          <div>
+            <p class="sub-title">전화번호</p>
+            <input class="phoneNumberInput empty-input" readonly/>
+            <button class="edit-phone-btn edit-btn">전화번호 변경</button>
+          </div>
+
+          <div>
+            <P class="sub-title">배송지 주소</p>
+            <input type="text" id="addressInput" class="addressInput ads-input" readonly/>
+            <button type="button" class="findAddressBtn edit-btn">배송지 변경
+          </div>
+
+          <div>
+            <P class="sub-title">상세 주소</p>
+            <input type="text" class="detailAddressInput ads-input" readonly/>
+            </button>
+          </div>
+          
+          <div>
+            <p class="sub-title"></p>
             <select class="deliveryMsg">
               <option name="msg">배송메세지를 선택하세요.</option>
               <option name="msg">도착전 문자남겨주세요.</option>
@@ -52,14 +70,14 @@
         </div>
       </div>
       <div class="container">
-        <div class="notification is-primary container-box">
+        <div class="container-box">
           <p class="sub-title">주문상품</p>
           <span class="ordered-products-area"></span>
         </div>
       </div>
 
       <div class="container">
-        <div class="notification is-primary container-box">
+        <div class="container-box">
           <p class="priceTitle sub-title">결제금액</p>
           <div class="totalPrice empty-area"></div>
           <h2 class="cardOrcashTitle sub-title">결제수단</h2>
@@ -83,7 +101,7 @@
         </button>
         <a href=/cart/cart.html class="go-to-cart-btn button
         is-rounded"> 장바구니로 돌아가기
-        <a />
+      </a>
       </div>
     </main>
     <div class="footer-container"></div>

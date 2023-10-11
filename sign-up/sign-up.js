@@ -1,21 +1,25 @@
 // 이메일 중복검사
-document.querySelector('.id-duplicated-confilm-btn').addEventListener('click', function(e) {
-  e.preventDefault();
+document
+  .querySelector(".id-duplicated-confilm-btn")
+  .addEventListener("click", function (e) {
+    e.preventDefault();
 
-  const email = document.querySelector('.emailInput').value;
+    const email = document.querySelector(".emailInput").value;
 
-  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  if (!emailRegex.test(email)) {
-      return alert('올바른 이메일 형식을 입력하세요.');
-  }
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailRegex.test(email)) {
+      return alert("올바른 이메일 형식을 입력하세요.");
+    }
 
-  const apiUrl = 'API 엔트포인트';
-  
-  fetch(apiUrl, {
-      method: 'POST',
+    const apiUrl = "http://kdt-sw-6-team08.elicecoding.com";
+
+    fetch(`${apiUrl}/check-email-duplicate`, {
+      method: "POST",
       headers: {
+        Origin: "http://localhost:3000",
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({ email: email }),
     })
       .then((response) => response.json())
@@ -33,21 +37,22 @@ document.querySelector('.id-duplicated-confilm-btn').addEventListener('click', f
   });
 
 //daum 주소찾기 API
-document.querySelector('.find-address-btn').addEventListener('click', function() {
-  new daum.Postcode({
-    oncomplete: function(data) {
-      let addr = '';
-      let extraAddr = '';
+document
+  .querySelector(".find-address-btn")
+  .addEventListener("click", function () {
+    new daum.Postcode({
+      oncomplete: function (data) {
+        let addr = "";
+        let extraAddr = "";
 
-      const address1Input = document.querySelector('.addressInput');
-      const address2Input = document.querySelector('.detailAddressInput');
-      
+        const address1Input = document.querySelector(".addressInput");
+        const address2Input = document.querySelector(".detailAddressInput");
 
-      if (data.userSelectedType === 'R') {
-        addr = data.roadAddress;
-      } else {
-        addr = data.jibunAddress;
-      }
+        if (data.userSelectedType === "R") {
+          addr = data.roadAddress;
+        } else {
+          addr = data.jibunAddress;
+        }
 
         if (data.userSelectedType === "R") {
           if (data.bname !== "" && /[동|로|가]$/g.test(data.bname)) {
@@ -70,20 +75,34 @@ document.querySelector('.find-address-btn').addEventListener('click', function()
   });
 
 // 회원가입 처리
-const signUpButton = document.querySelector('.sign-up-btn');
+const signUpButton = document.querySelector(".sign-up-btn");
+const phoneInput = document.querySelector(".phoneInput");
+
+phoneInput.addEventListener("input", function (e) {
+  let value = e.target.value;
+  value = value.replace(/[^0-9]/g, ""); // 숫자만 유지
+
+  if (value.length > 3 && value.length <= 6) {
+    value = value.slice(0, 3) + "-" + value.slice(3);
+  } else if (value.length > 6) {
+    value = value.slice(0, 3) + "-" + value.slice(3, 7) + "-" + value.slice(7);
+  }
+
+  e.target.value = value;
+});
 
 signUpButton.addEventListener("click", handleSignUp);
 
 async function handleSignUp(e) {
   e.preventDefault();
 
-  const email = document.querySelector('.emailInput').value;
-  const password = document.querySelector('.passwordInput').value;
-  const passwordConfirm = document.querySelector('.passwordConfirmInput').value;
-  const name = document.querySelector('.nameInput').value;
-  const phone = document.querySelector('.phoneInput').value;
-  const address = document.querySelector('.addressInput').value;
-  const detailAddress = document.querySelector('.detailAddressInput').value;
+  const email = document.querySelector(".emailInput").value;
+  const password = document.querySelector(".passwordInput").value;
+  const passwordConfirm = document.querySelector(".passwordConfirmInput").value;
+  const name = document.querySelector(".nameInput").value;
+  const phone = document.querySelector(".phoneInput").value;
+  const address = document.querySelector(".addressInput").value;
+  const detailAddress = document.querySelector(".detailAddressInput").value;
 
   if (!email) {
     return alert("이메일을 입력하세요.");
@@ -138,20 +157,22 @@ async function handleSignUp(e) {
     detailAddress,
   };
 
-  const apiUrl = 'API 엔트포인트';
+  const apiUrl = "http://kdt-sw-6-team08.elicecoding.com";
   try {
-    const res = await fetch(apiUrl, {
+    const res = await fetch(`${apiUrl}/sign-up`, {
       method: "POST",
       headers: {
+        Origin: "http://localhost:3000",
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify(data),
     });
     if (res.status === 200) {
       alert("회원가입에 성공하였습니다!");
       window.location.href = "/login/login.html";
     } else {
-      alert(responseData.message || '회원가입에 실패하였습니다');
+      alert(responseData.message || "회원가입에 실패하였습니다");
     }
   } catch (error) {
     alert("네트워크 오류가 발생했습니다.");
