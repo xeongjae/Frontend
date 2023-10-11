@@ -7,7 +7,7 @@ function createHeader(data) {
 
   headerContainer.innerHTML = `
     <div class="Header">
-      <a href="/main/index.html">
+      <a href="/">
         <h1 class="Title"></h1>
       </a>
       <div class="Header_Row">
@@ -16,7 +16,7 @@ function createHeader(data) {
           </div>
         </div>
         <div class="User">
-          <a class="far fa-user" href="/mypage/mypage.html"></a>
+          <a class="far fa-user" href="/login/login.html"></a>
           <a class="fas fa-shopping-bag" href="/cart/cart.html"></a>
           <a class="fas fa-search"></a>
         </div>
@@ -77,7 +77,7 @@ function createFooter(data) {
 
 // DOMContentLoaded 이벤트 리스너를 이동
 document.addEventListener("DOMContentLoaded", function () {
-  const URL = "http://kdt-sw-6-team08.elicecoding.com";
+  const URL = "/api";
 
   // 카테고리 목록을 가져오는 요청을 보냅니다.
   fetch(`${URL}/categories`, {
