@@ -26,12 +26,21 @@ function createHeader(data) {
   const UserBtn = headerContainer.querySelector(".fa-user");
 
   function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(";").shift();
+    const cookies = document.cookie.split(";");
+    const foundCookie = cookies.find((cookie) =>
+      cookie.trim().startsWith(name + "=")
+    );
+
+    if (foundCookie) {
+      return foundCookie.split("=")[1].trim();
+    }
+
+    return null; // 해당 쿠키 이름을 찾지 못한 경우 null 반환
   }
 
   const userToken = getCookie("token");
+
+  console.log(userToken);
 
   // 2. 토큰 유무에 따라 페이지 리다이렉트
   if (userToken) {

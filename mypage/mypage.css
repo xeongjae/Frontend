@@ -21,6 +21,9 @@
   justify-content: space-between;
   margin-bottom: 40px;
 }
+.address-input-second {
+  width: 100%;
+}
 .sub-title input {
   width: 70%;
   border: 1px rgb(168, 168, 168) solid;
@@ -34,8 +37,8 @@
 .address-box {
   width: 630px;
 }
-.sub-title .address-box input {
-  width: 100%;
+.address-input-first,
+.address-input-second {
   height: 30px;
   margin-top: 10px;
   border: 1px rgb(168, 168, 168) solid;
@@ -44,6 +47,7 @@
   font-size: 18px;
   box-sizing: border-box;
 }
+
 .address-num {
   display: flex;
 }
