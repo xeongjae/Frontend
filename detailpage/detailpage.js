@@ -2,17 +2,30 @@ const MinusBtn = document.querySelector(".btn-minus");
 const PlusBtn = document.querySelector(".btn-plus");
 const Qty = document.querySelector(".input-count");
 const Price = document.querySelector(".item-price");
+const CartBtn = document.querySelector(".order_save_button");
 
 const ProductName = document.querySelector(".product_name");
 const ProductPrice = document.querySelector(".product_price");
 const Description = document.querySelector(".company_mindset_text");
+const TotalPrice = document.querySelector(".item-price");
 
-const uni1 = sessionStorage.getItem("selectedCategoryValue");
-const uni2 = sessionStorage.getItem("selectedItemValue");
+const qs = new URLSearchParams(window.location.search);
+
+qs.get("category");
+qs.get("item");
+const categoryId = qs.get("category");
+const ItemId = qs.get("item");
 const URL = "http://kdt-sw-6-team08.elicecoding.com";
 
 // 카테고리 목록을 가져오는 요청을 보냅니다.
-fetch(`${URL}/categories/${uni1}/items`)
+fetch(`${URL}/categories/${categoryId}/items`, {
+  method: "GET",
+  headers: {
+    Origin: `${URL}`, // 클라이언트의 도메인
+    // 기타 헤더 설정
+  },
+  credentials: "include", // credentials 옵션을 include로 설정
+})
   .then((res) => {
     if (!res.ok) {
       throw new Error("Network response was not ok");
@@ -33,6 +46,20 @@ fetch(`${URL}/categories/${uni1}/items`)
         price: targetItem.price,
         description: targetItem.description,
       };
+
+      ProductName.textContent = `${itemInfo.name}`;
+      ProductPrice.textContent = `${itemInfo.price} 원`;
+      Description.textContent = `${itemInfo.description}`;
+      TotalPrice.textContent = `${itemInfo.price} 원`;
+
+      CartBtn.addEventListener("click", function () {
+        localStorage.setItem("productName", itemInfo.name);
+        localStorage.setItem("productPrice", itemInfo.price);
+
+        // 저장 완료 메시지 또는 원하는 작업을 수행할 수 있습니다.
+        console.log("상품 정보가 저장되었습니다.");
+      });
+
       console.log(itemInfo);
     } else {
       console.log("일치하는 아이템을 찾을 수 없습니다.");
@@ -61,4 +88,10 @@ MinusBtn.addEventListener("click", function () {
   if (currentQty > 1) {
     Qty.textContent = currentQty - 1;
   }
+});
+
+CartBtn.addEventListener("click", function () {
+  const data = dataInput.value;
+  // 로컬 스토리지에 데이터를 저장합니다.
+  localStorage.setItem("savedData", data);
 });

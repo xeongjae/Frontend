@@ -36,7 +36,6 @@ function createHeader(data) {
     const categoryLink = document.createElement("a");
     categoryLink.href = `/categories/category.html?category=${category.id}`;
     categoryLink.onclick = function (event) {
-      sessionStorage.setItem("selectedCategoryValue", category.id); //sessionStorage에 가게고유의 adminNo값 저장
       window.location.href = `/categories/category.html?category=${category.id}`;
     };
     categoryLink.textContent = category.name;
@@ -81,7 +80,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const URL = "http://kdt-sw-6-team08.elicecoding.com";
 
   // 카테고리 목록을 가져오는 요청을 보냅니다.
-  fetch(`${URL}/categories`)
+  fetch(`${URL}/categories`, {
+    method: "GET",
+    headers: {
+      Origin: `${URL}`, // 클라이언트의 도메인
+      // 기타 헤더 설정
+    },
+    credentials: "include", // credentials 옵션을 include로 설정
+  })
     .then((res) => {
       if (!res.ok) {
         throw new Error("Network response was not ok");
