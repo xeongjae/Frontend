@@ -181,3 +181,9 @@
   overflow: scroll;
 }
 
+#select-category {
+  border-radius: 12px;
+  border: none;
+  background-color: #bbe3cd00;
+  outline: none;
+}
