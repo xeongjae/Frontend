@@ -11,20 +11,16 @@ document
       return alert("올바른 이메일 형식을 입력하세요.");
     }
 
-    const apiUrl = "http://kdt-sw-6-team08.elicecoding.com";
-
-    fetch(`${apiUrl}/check-email-duplicate`, {
+    fetch("/api/check-email-duplicate", {
       method: "POST",
       headers: {
-        Origin: "http://localhost:3000",
         "Content-Type": "application/json",
       },
-      credentials: "include",
       body: JSON.stringify({ email: email }),
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data.isDuplicate) {
+        if (data.status !== 200) {
           return alert("이미 사용중인 이메일입니다.");
         } else {
           return alert("사용 가능한 이메일입니다.");
@@ -102,7 +98,7 @@ async function handleSignUp(e) {
   const name = document.querySelector(".nameInput").value;
   const phone = document.querySelector(".phoneInput").value;
   const address = document.querySelector(".addressInput").value;
-  const detailAddress = document.querySelector(".detailAddressInput").value;
+  const detail_address = document.querySelector(".detailAddressInput").value;
 
   if (!email) {
     return alert("이메일을 입력하세요.");
@@ -154,23 +150,24 @@ async function handleSignUp(e) {
     name,
     phone,
     address,
-    detailAddress,
+    detail_address,
   };
+  console.log(data);
 
-  const apiUrl = "http://kdt-sw-6-team08.elicecoding.com";
   try {
-    const res = await fetch(`${apiUrl}/sign-up`, {
+    const res = await fetch("/api/sign-up", {
       method: "POST",
       headers: {
-        Origin: "http://localhost:3000",
         "Content-Type": "application/json",
       },
-      credentials: "include",
       body: JSON.stringify(data),
     });
-    if (res.status === 200) {
+    
+    const responseData = await res.json();
+
+    if (responseData.status === 200) {
       alert("회원가입에 성공하였습니다!");
-      window.location.href = "/login/login.html";
+      window.location.href = "/login";
     } else {
       alert(responseData.message || "회원가입에 실패하였습니다");
     }
