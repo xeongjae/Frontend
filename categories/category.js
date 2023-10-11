@@ -62,7 +62,11 @@ function ItemCategory(data) {
     }
 
     Product.onclick = function (event) {
-      window.location.href = `/detailpage/detailpage.html?category=${categoryId}&ItemInfo=${ItemId}`;
+      // 클릭한 Product의 id 값을 가져옵니다.
+      const clickedItemId = ItemInfo.id;
+
+      // 클릭한 Product의 id를 사용하여 상세 페이지로 이동할 URL을 생성합니다.
+      window.location.href = `/detailpage/detailpage.html?category=${categoryId}&item=${clickedItemId}`;
     };
   }
 
