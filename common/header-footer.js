@@ -16,13 +16,37 @@ function createHeader(data) {
           </div>
         </div>
         <div class="User">
-          <a class="far fa-user" href="/login/login.html"></a>
+          <a class="far fa-user"></a>
           <a class="fas fa-shopping-bag" href="/cart/cart.html"></a>
           <a class="fas fa-search"></a>
         </div>
       </div>
     </div>
   `;
+  const UserBtn = headerContainer.querySelector(".fa-user");
+
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+  }
+
+  const userToken = getCookie("token");
+
+  // 2. 토큰 유무에 따라 페이지 리다이렉트
+  if (userToken) {
+    // 토큰이 있을 경우, 로그인한 사용자로 간주하고 다른 페이지로 리다이렉트
+    console.log("토큰이 있습니다.");
+    UserBtn.onclick = function (event) {
+      window.location.href = "/mypage/"; // 로그인한 사용자를 대시보드 페이지로 리다이렉트
+    };
+  } else if (!userToken) {
+    // 토큰이 없을 경우, 로그인이 필요한 페이지로 리다이렉트
+    console.log("토큰이 없습니다.");
+    UserBtn.onclick = function (event) {
+      window.location.href = "/login/"; // 로그인 페이지로 리다이렉트
+    };
+  }
 
   // customHeader에 헤더 UI를 삽입
   customHeader.appendChild(headerContainer);
