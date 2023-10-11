@@ -6,17 +6,47 @@ const Address_1 = document.querySelector(".address-input-first");
 const Address_2 = document.querySelector(".address-input-second");
 const ModifyBtn = document.querySelector(".modify-btn");
 
-fetch(`/api/api.json`)
-  .then((res) => {
-    if (!res.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return res.json();
-  })
+// 첫 번째 fetch 요청 - 로그인
+fetch(`${URL}/login`, {
+  method: "GET",
+  headers: {
+    Origin: `${URL}`,
+    // 기타 헤더 설정
+  },
+  credentials: "include",
+})
+  .then((response) => response.json()) // JSON 형식의 응답을 파싱
   .then((data) => {
-    EmailInput.value = data.user[0].email;
-    PhoneInput.value = data.user[0].data.phone;
-    Address_1.value = data.user[0].data.address;
+    console.log(data);
+    const uuid = data.data.uuid; // 로그인 후 반환된 UUID
+
+    // 두 번째 fetch 요청 - 사용자 정보 가져오기
+    fetch(`${URL}/users/${uuid}`, {
+      method: "GET",
+      headers: {
+        Origin: `${URL}`,
+        // 기타 헤더 설정
+      },
+      credentials: "include",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        const UserInfo = data.data;
+        // 사용자 정보를 처리하는 코드
+        EmailInput.value = UserInfo.email;
+        PhoneInput.value = UserInfo.phone;
+        Address_1.value = UserInfo.address;
+        Address_2.value = UserInfo.detail_address;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   })
   .catch((error) => {
     console.log(error);
@@ -82,4 +112,62 @@ ModifyBtn.addEventListener("click", function (e) {
     e.preventDefault();
     alert("비밀번호를 다시 확인해주세요");
   }
+});
+
+document.querySelector("form").addEventListener("submit", function (event) {
+  event.preventDefault(); // 폼 제출 기본 동작을 막습니다.
+
+  // 사용자가 입력한 데이터 수집
+  const phoneNumber = document.querySelector(".phone-input").value;
+  const addressInputFirst = document.querySelector(
+    ".address-input-first"
+  ).value;
+  const addressInputSecond = document.querySelector(
+    ".address-input-second"
+  ).value;
+
+  // PATCH 요청을 위한 데이터 생성
+  const userData = {
+    phoneNumber: phoneNumber,
+    address: addressInputFirst,
+    detail_address: addressInputSecond,
+  };
+
+  // 첫 번째 fetch 요청 - 로그인
+  fetch(`${URL}/login`, {
+    method: "GET",
+    headers: {
+      Origin: `${URL}`,
+      // 기타 헤더 설정
+    },
+    credentials: "include",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const uuid = data.data.uuid;
+
+      // 두 번째 fetch 요청
+      fetch(`${URL}/users/${uuid}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Origin: `${URL}`,
+        },
+        credentials: "include",
+        body: JSON.stringify(userData),
+      })
+        .then((response) => {
+          if (response.ok) {
+            console.log("사용자 정보 업데이트 성공");
+          } else {
+            console.error("사용자 정보 업데이트 실패");
+          }
+        })
+        .catch((error) => {
+          console.error("오류 발생: ", error);
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 });
