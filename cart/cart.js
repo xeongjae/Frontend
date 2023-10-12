@@ -1,32 +1,10 @@
-// Imgs.forEach(function (Img) {
-//   Img.addEventListener("click", function () {
-//     Modal.style.display = "flex";
-//     ModalImg.src = this.src;
-//   });
-// });
-
-// CloseModal.addEventListener("click", function () {
-//   Modal.style.display = "none";
-// });
-
-// function handleEscKey(event) {
-//   if (event.key === "Escape") {
-//     Modal.style.display = "none";
-//   }
-// }
-// document.addEventListener("keydown", handleEscKey);
-
-// // 모달 외부 클릭 시 모달 닫기
-// window.onclick = function (event) {
-//   if (event.target == Modal) {
-//     Modal.style.display = "none";
-//   }
-// };
-
 const AllDelBtn = document.querySelector(".Del-Btn");
 const cartContainer = document.querySelector(".cart-container");
 const MinusBtn = document.querySelectorAll(".btn-minus");
 const PlusBtn = document.querySelectorAll(".btn-plus");
+const CloseModal = document.querySelector(".close-modal");
+const Modal = document.querySelector(".modal");
+const ModalImg = document.querySelector(".modal-content");
 
 function updateCartItemQuantity() {
   const cartContainer = document.querySelector(".cart-container");
@@ -123,7 +101,7 @@ function createCartItemElement(item) {
 
   cartItem.innerHTML = `
     <div class="img-box">
-      <img class="img-items" src="${item.image}" alt="" />
+      <img class="img-items" src="/${item.image}" alt="" />
     </div>
     <div class="item-info">
       <a class="item-name" href="#" data-category="${item.category}" data-item="${item.Item}">${item.name}</a>
@@ -166,6 +144,28 @@ function createCartItemElement(item) {
     const detailPageURL = `/detailpage/detailpage.html?category=${categoryId}&item=${itemId}`;
     window.location.href = detailPageURL;
   });
+
+  //모달 창 이벤트
+  const Imgs = cartItem.querySelectorAll(".img-items");
+  Imgs.forEach(function (Img) {
+    Img.addEventListener("click", function () {
+      Modal.style.display = "flex";
+      ModalImg.src = this.src;
+    });
+  });
+
+  CloseModal.addEventListener("click", function () {
+    Modal.style.display = "none";
+  });
+
+  document.addEventListener("keydown", handleEscKey);
+
+  // 모달 외부 클릭 시 모달 닫기
+  window.onclick = function (event) {
+    if (event.target == Modal) {
+      Modal.style.display = "none";
+    }
+  };
 
   return cartItem;
 }
@@ -210,3 +210,9 @@ AllDelBtn.addEventListener("click", function () {
 // 페이지 로드 시 UI 업데이트를 호출하여 기존 장바구니 항목을 표시합니다.
 updateCartUI();
 updateCartItemQuantity();
+
+function handleEscKey(event) {
+  if (event.key === "Escape") {
+    Modal.style.display = "none";
+  }
+}
