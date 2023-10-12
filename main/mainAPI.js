@@ -75,9 +75,12 @@ function PopularItem(data) {
       const Item = categoryItems[i];
       const Product = document.createElement("div");
       Product.classList.add("Popular_Product");
+      const firstImageUrl = `url(/${Item.main_images[0]})`;
+      const secondImageUrl = `url(/${Item.main_images[1]})`;
       Product.innerHTML = `
       <div class="Product_Img">
-        <img src="${Item.main_images[0]}" alt="" />
+        <div class="first_Img" style="background-image: ${firstImageUrl};"></div>
+        <div class="second_Img" style="background-image: ${secondImageUrl};"></div>
       </div>
       <div class="Product_Name">${Item.name}</div>
       <div class="Product_Price">${Item.price} 원</div>
@@ -86,15 +89,14 @@ function PopularItem(data) {
       // Product를 Product_Col에 추가합니다.
       ProductCol.appendChild(Product);
 
-      // hover했을 때 hover이미지가 나오도록 구현
-      const ProductImg = Product.querySelector(".Product_Img img");
+      Product.onclick = function (event) {
+        // 클릭한 Product의 id 값을 가져옵니다.
+        const clickedItemId = Item.id;
+        const clickedCategoryId = Item.category.id;
 
-      ProductImg.addEventListener("mouseenter", function () {
-        ProductImg.src = `${Item.main_images[1]}`;
-      });
-      ProductImg.addEventListener("mouseleave", function () {
-        ProductImg.src = `${Item.main_images[0]}`;
-      });
+        // 클릭한 Product의 id를 사용하여 상세 페이지로 이동할 URL을 생성합니다.
+        window.location.href = `/detail?category=${clickedCategoryId}&item=${clickedItemId}`;
+      };
     }
 
     // PopularContainer에 카테고리 section을 추가합니다.

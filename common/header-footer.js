@@ -85,7 +85,6 @@ function createFooter(data) {
         <li>김영준</li>
         <li>김성재</li>
         <li>박준석</li>
-        <li>박진수</li>
         <li>이유진</li>
         <li>조승준</li>
       </ul>
