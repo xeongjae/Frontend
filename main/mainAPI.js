@@ -88,6 +88,7 @@ function PopularItem(data) {
 
       // hover했을 때 hover이미지가 나오도록 구현
       const ProductImg = Product.querySelector(".Product_Img img");
+
       ProductImg.addEventListener("mouseenter", function () {
         ProductImg.src = `${Item.main_images[1]}`;
       });
