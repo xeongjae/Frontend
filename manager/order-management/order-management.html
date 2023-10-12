@@ -35,45 +35,22 @@
         "
       >
         <button class="button-box-01"></button>
-        <div class="category-card">
-          <div class="item-box" id="item-box" data-id="232140-1366">
-            <div class="block-box">
-              <p class="p-order-number">주문 번호</p>
-              <p id="order-number">232140-1366</p>
-            </div>
-            <div class="block-box">
-              <p class="p-order-email">email</p>
-              <p id="order-email">cosmoyj7733@gmail.com</p>
-            </div>
-
-            <div class="block-box">
-              <p class="p-order-date">주문 날짜</p>
-              <p id="order-date">date</p>
-            </div>
-            <div class="block-box">
-              <p class="p-order-state">배송 상태</p>
-              <p id="order-state" class="order-state">배송 완료</p>
-            </div>
-          </div>
-          <div class="item-box" id="item-box" data-id="232140-5436">
-            <div class="block-box">
-              <p class="p-order-number">주문 번호</p>
-              <p id="order-number">232140-5436</p>
-            </div>
-            <div class="block-box">
-              <p class="p-order-email">email</p>
-              <p id="order-email">adsfasdf@gmail.com</p>
-            </div>
-
-            <div class="block-box">
-              <p class="p-order-date">주문 날짜</p>
-              <p id="order-date">date</p>
-            </div>
-            <div class="block-box">
-              <p class="p-order-state">배송 상태</p>
-              <p id="order-state" class="order-state">배송 완료</p>
-            </div>
-          </div>
+        <div class="category-card" style="display: flex;">
+            <table id="item-table" class="table" style="flex-grow: 1;">
+              <tr>
+                <th>주문번호</th>
+                <th>email</th>
+                <th>주문날짜</th>
+                <th>배송상태</th>
+              </tr>
+              <tbody></tbody>
+              <tfoot>
+                <tr>
+                  <td id="pagination" colspan="3"></td>
+                </tr>
+              </tfoot>
+            </table>
+          
         </div>
         <button class="button-box-02"></button>
         <div class="submit-card">
@@ -81,193 +58,24 @@
             style="
               display: flex;
               justify-content: center;
-              align-items: center;
               flex-direction: column;
               margin: 50px;
             "
           >
-            <form style="display: block; overflow: hidden">
-              <div
-                class="input-box"
-                style="
-                  display: flex;
-                  width: 400px;
-                  border: 0.5px dashed #2a8c56;
-                  padding: 5px;
-                "
-              >
-                <p style="margin: 10px">상품코드:</p>
-                <p id="desc-code" class="p-item-code" style="margin: 10px"></p>
-              </div>
-              <div
-                class="input-box"
-                style="
-                  display: flex;
-                  width: 400px;
-                  border: 0.5px dashed #2a8c56;
-                  padding: 5px;
-                "
-              >
-                <p style="margin: 10px">갯수:</p>
-                <p id="desc-count" class="p-count" style="margin: 10px"></p>
-              </div>
-              <div
-                class="input-box"
-                style="
-                  display: flex;
-                  width: 400px;
-                  border: 0.5px dashed #2a8c56;
-                  padding: 5px;
-                "
-              >
-                <p style="margin: 10px">총가격:</p>
-                <p id="desc-price" class="p-price" style="margin: 10px"></p>
-              </div>
-              <div
-                class="input-box"
-                style="
-                  display: flex;
-                  width: 400px;
-                  border: 0.5px dashed #2a8c56;
-                  padding: 5px;
-                "
-              >
-                <p style="margin: 10px">주문번호:</p>
-                <p
-                  id="desc-order-number"
-                  class="p-ordernumber"
-                  style="margin: 10px"
-                ></p>
-              </div>
-              <div
-                class="input-box"
-                style="
-                  display: flex;
-                  width: 400px;
-                  border: 0.5px dashed #2a8c56;
-                  padding: 5px;
-                "
-              >
-                <p style="margin: 10px">결제방식:</p>
-                <p id="desc-method" class="p-method" style="margin: 10px"></p>
-              </div>
-              <div
-                class="input-box"
-                style="
-                  display: flex;
-                  width: 400px;
-                  border: 0.5px dashed #2a8c56;
-                  padding: 5px;
-                "
-              >
-                <p style="margin: 10px">닉네임:</p>
-                <p
-                  id="desc-nickname"
-                  class="p-nickname"
-                  style="margin: 10px"
-                ></p>
-              </div>
-              <div
-                class="input-box"
-                style="
-                  display: flex;
-                  width: 400px;
-                  border: 0.5px dashed #2a8c56;
-                  padding: 5px;
-                "
-              >
-                <p style="margin: 10px">주문 날짜:</p>
-                <p id="desc-date" class="p-date" style="margin: 10px"></p>
-              </div>
-              <div
-                class="input-box"
-                style="
-                  display: flex;
-                  width: 400px;
-                  border: 0.5px dashed #2a8c56;
-                  padding: 5px;
-                "
-              >
-                <p style="margin: 10px">폰번호:</p>
-                <p
-                  id="desc-phone"
-                  class="p-phonenumber"
-                  style="margin: 10px"
-                ></p>
-              </div>
-              <div
-                class="input-box"
-                style="
-                  display: flex;
-                  width: 400px;
-                  border: 0.5px dashed #2a8c56;
-                  padding: 5px;
-                "
-              >
-                <p style="margin: 10px">이메일:</p>
-                <p id="desc-email" class="p--email" style="margin: 10px"></p>
-              </div>
-              <div
-                class="input-box"
-                style="
-                  display: flex;
-                  width: 400px;
-                  border: 0.5px dashed #2a8c56;
-                  padding: 5px;
-                "
-              >
-                <p style="margin: 10px">배송주소:</p>
-                <p id="desc-adress" class="p-adress" style="margin: 10px"></p>
-              </div>
-              <div
-                class="input-box"
-                style="
-                  display: flex;
-                  width: 400px;
-                  border: 0.5px dashed #2a8c56;
-                  padding: 5px;
-                "
-              >
-                <p style="margin: 10px">배송상태:</p>
-                <select name="" id="select-category">
-                  <option value="Plant">Plant</option>
-                  <option value="Plant">Pot</option>
-                  <option value="Plant">Gardening Tool</option>
-                  <option value="Plant">Gardening Kit</option>
-                </select>
-              </div>
-              <div
-                class="input-box"
-                style="
-                  display: flex;
-                  width: 400px;
-                  border: 0.5px dashed #2a8c56;
-                  padding: 5px;
-                "
-              >
-                <p style="margin: 10px">할인적용:</p>
-                <p
-                  id="desc-discount"
-                  class="p-discount"
-                  style="margin: 10px"
-                ></p>
-              </div>
-
-              <div
-                class="input-box"
-                style="
-                  display: block;
-                  width: 400px;
-                  border: 0.5px dashed #2a8c56;
-                  padding: 5px;
-                  height: 123px;
-                "
-              >
-                <p style="margin: 10px">요청사항:</p>
-                <p id="desc-messege" class="p-messege" style="margin: 10px"></p>
-                <p></p>
-              </div>
-            </form>
+          <table id="item-table" class="table" style="flex-grow: 1;">
+            <caption style="caption-side: top;">상세 주문 내역</caption>
+            <tbody>
+              <tr>
+                adsf
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td id="pagination" colspan="3"></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
             <button class="button-submit-category" type="submit">제출</button>
             <button class="button-delete-order" id="button-delete-order">삭제</button>
           </div>
