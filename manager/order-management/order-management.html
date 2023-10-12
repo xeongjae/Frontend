@@ -22,7 +22,7 @@
       <!--카테고리 관리 페이지-->
       <div class="out-container">
         <div class="in-container">
-          <table id="item-table" class="table">
+          <table id="order-table" class="table">
             <thead>
               <tr>
                 <th>주문 번호</th>
@@ -35,7 +35,7 @@
             <tbody></tbody>
             <tfoot>
               <tr>
-                <td id="pagination" colspan="3"></td>
+                <td id="pagination" colspan="3"><div></div></td>
               </tr>
             </tfoot>
           </table>
@@ -43,20 +43,21 @@
         <div class="item-submit-container in-container">
           <div style="margin: 50px">
             <form
+              id="update-form-box"
               class="item_form"
               style="display: flex; width: 100%; justify-content: center; align-items: center; flex-direction: column"
             >
               <div class="sub-box">
                 <div class="sub-title">주문번호:</div>
-                <div id="desc-order-number" class="p-data"></div>
+                <div id="desc-id" class="p-data"></div>
               </div>
               <div class="sub-box">
                 <div class="sub-title">배송상태:</div>
-                <select name="" id="select-category" class="p-data">
-                  <option value="Plant">Plant</option>
-                  <option value="Plant">Pot</option>
-                  <option value="Plant">Gardening Tool</option>
-                  <option value="Plant">Gardening Kit</option>
+                <select name="" id="desc-status" class="p-data">
+                  <option value="1">Plant</option>
+                  <option value="2">Pot</option>
+                  <option value="3">Gardening Tool</option>
+                  <option value="4">Gardening Kit</option>
                 </select>
               </div>
               <div class="sub-box">
@@ -68,8 +69,8 @@
                 <div id="desc-method" class="p-data"></div>
               </div>
               <div class="sub-box">
-                <div class="sub-title">닉네임:</div>
-                <div id="desc-nickname" class="p-data"></div>
+                <div class="sub-title">이름:</div>
+                <div id="desc-name" class="p-data"></div>
               </div>
               <div class="sub-box">
                 <div class="sub-title">주문 날짜:</div>
@@ -86,7 +87,9 @@
               <div class="sub-box">
                 <div class="sub-title">배송주소:</div>
                 <div id="desc-adress" class="p-data">asd</div>
+                <div id="desc-detail-adress" class="p-data">asd</div>
               </div>
+
               <div class="sub-box">
                 <div class="sub-title">할인적용:</div>
                 <div id="desc-discount" class="p-data">asd</div>
@@ -95,9 +98,9 @@
                 <div class="sub-title">요청사항:</div>
                 <div id="desc-messege" class="p-data">asd</div>
               </div>
+              <button class="button-submit" id="button-submit" type="submit">제출</button>
+              <button class="button-delete" id="button-delete" type="reset">삭제</button>
             </form>
-            <button class="button-submit" type="submit">제출</button>
-            <button class="button-delete" id="button-delete-order">삭제</button>
           </div>
         </div>
       </div>
@@ -110,5 +113,5 @@
         document.getElementById("nav-container").innerHTML = data;
       });
   </script>
-  <!-- <script src="order-descript.js"></script> -->
+  <script src="order.js"></script>
 </html>

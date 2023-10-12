@@ -105,22 +105,22 @@
   border-bottom: 0.5px solid #7c7c7c;
   box-sizing: border-box;
 } */
-
+/* 
 #table {
   border: 1px #a39485 solid;
   font-size: 1.1em;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   width: 100%;
   border-collapse: collapse;
-  /* border-spacing: 10px; */
+  border-spacing: 10px;
   border-radius: 5px;
   overflow: hidden;
   margin-right: 30px;
 }
 
-/* tr {
+tr {
   border-spacing: 10px;
-} */
+}
 
 th {
   text-align: left;
@@ -143,7 +143,7 @@ td {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   background: #fff;
   vertical-align: middle;
-}
+} */
 
 a {
   color: #73685d;

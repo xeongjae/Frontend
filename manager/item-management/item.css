@@ -10,6 +10,9 @@
   height: 120px;
   border-radius: 12px;
 }
+.hidden {
+  display: none;
+}
 /* 여기부터 */
 .in-container {
   width: 1000px;
@@ -33,8 +36,22 @@
   border-radius: 10px;
 }
 
+.in-container h2 {
+  font-size: 20px;
+  font-weight: 800;
+}
+
 .table {
   width: 100%;
+}
+
+.select-item {
+  background-color: #d3ecde;
+}
+
+#pagination div {
+  display: flex;
+  justify-content: space-around;
 }
 /* 여기까지 */
 

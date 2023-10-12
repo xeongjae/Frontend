@@ -21,6 +21,9 @@
 }
 
 /* 여기부터 */
+.hidden {
+  display: none;
+}
 .out-container {
   display: flex;
   justify-content: center;

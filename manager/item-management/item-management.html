@@ -30,54 +30,56 @@
             <tbody></tbody>
             <tfoot>
               <tr>
-                <td id="pagination" colspan="3"></td>
+                <td id="pagination" colspan="3">
+                  <div></div>
+                </td>
               </tr>
             </tfoot>
           </table>
         </div>
         <div class="item-submit-container in-container">
-          <div style="margin: 50px">
-            <form
-              class="item_form"
-              style="display: flex; width: 100%; justify-content: center; align-items: center; flex-direction: column"
-            >
-              <div class="sub-box">
-                <div class="sub-title">이름</div>
-                <input type="text" placeholder="상품이름" id="input-name" value="" />
-              </div>
-              <div class="sub-box">
-                <div class="sub-title">가격</div>
-                <input type="text" placeholder="가격" id="input-id" value="" />
-              </div>
-              <div class="sub-box">
-                <div class="sub-title">카테고리</div>
-                <select type="text" placeholder="카테고리 변경">
-                  <option value="Plant" id="Plant">Plant</option>
-                  <option value="Pot" id="Pot">Pot</option>
-                  <option value="Gardening Tool" id="Gardening-Tool">Gardening Tool</option>
-                  <option value="Gardening Kit" id="Gardening-Kit">Gardening Kit</option>
-                </select>
-              </div>
-              <div class="sub-box description">
-                <div class="sub-title">상세설명</div>
-                <textarea placeholder="상세 설명" class="input-description"></textarea>
-              </div>
-              <div id="main_image_preview" class="filebox">
-                <div class="sub-title">대표 이미지</div>
-                <label for="input_main_image">파일 찾기</label>
-                <input type="file" id="input_main_image" multiple required />
-                <div id="main_image_zone" class="att_zone" data-placeholder="파일 미리보기"></div>
-              </div>
-              <div id="detail_image_preview" class="filebox">
-                <div class="sub-title">상세 이미지</div>
-                <label for="input_detail_image">파일 찾기</label>
-                <input type="file" id="input_detail_image" multiple required />
-                <div id="detail_image_zone" class="att_zone" data-placeholder="파일 미리보기"></div>
-              </div>
-            </form>
-            <button class="button-submit" type="submit">제출</button>
-            <button class="button-delete" type="submit">삭제</button>
-          </div>
+          <h2 id="create-div">상품 등록</h2>
+          <h2 id="update-div" class="hidden">상품 수정</h2>
+          <form
+            class="item_form"
+            id="createFormBox"
+            enctype="multipart/form-data"
+            style="display: flex; width: 100%; justify-content: center; align-items: center; flex-direction: column"
+          >
+            <div class="sub-box">
+              <div class="sub-title">이름</div>
+              <input type="text" placeholder="상품이름" id="input-name" name="name" required />
+            </div>
+            <div class="sub-box">
+              <div class="sub-title">가격</div>
+              <input type="text" placeholder="가격" id="input-price" name="price" required />
+            </div>
+            <div class="sub-box">
+              <div class="sub-title">카테고리</div>
+              <select id="input-category" type="text" placeholder="카테고리 변경" name="category">
+                <option value="1" id="Plant">Plant</option>
+                <option value="2" id="Pot">Pot</option>
+                <option value="3" id="Gardening-Tool">Gardening Tool</option>
+                <option value="4" id="Gardening-Kit">Gardening Kit</option>
+              </select>
+            </div>
+            <div class="sub-box description">
+              <div class="sub-title">상세설명</div>
+              <textarea id="input-description" placeholder="상세 설명" class="input-description" name="description" required></textarea>
+            </div>
+            <div id="main_image_preview" class="filebox">
+              <div class="sub-title">대표 이미지</div>
+              <label for="input_main_image">파일 찾기</label>
+              <input type="file" id="input_main_image" name="main_images" multiple required />
+            </div>
+            <div id="detail_image_preview" class="filebox">
+              <div class="sub-title">상세 이미지</div>
+              <label for="input_detail_image">파일 찾기</label>
+              <input type="file" id="input_detail_image" name="images" multiple />
+            </div>
+            <button id="button-submit" class="button-submit" type="submit">확인</button>
+            <button id="button-delete" class="button-delete" type="reset">취소</button>
+          </form>
         </div>
       </div>
     </div>
@@ -89,7 +91,5 @@
         document.getElementById("nav-container").innerHTML = data;
       });
   </script>
-  <script src="/manager/item-management/item-descriptionPage.js"></script>
-  <script src="/manager/category-management/addCategory.js"></script>
   <script src="item.js"></script>
 </html>
