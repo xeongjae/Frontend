@@ -1,44 +1,57 @@
-const formSubmit = document.getElementById("form");
+const addBtn = document.getElementById("btn-submit");
 const categoryCard = document.querySelector(".category-card");
-const btnsDelete = document.querySelectorAll(".button-delete");
-const itemBoxs = document.querySelectorAll(".item-box p");
+const inputCategory = document.getElementById("input-value");
 
 
-
-function submitHandler(e) {
+// 추가 함수
+async function addHandler(e) {
   e.preventDefault();
+  const name = inputCategory.value;
+  const url = "/api";
 
-  itemBoxs.forEach((box) => {
-    const text = box.innerHTML;
+  let olderId = document.querySelectorAll(".item-box").length;
+  
+  let id = ++olderId;
+  try {
+    const res = await fetch(`${url}/categories`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        data: {
+          id,
+          name,
+        },
+      }),
+    });
+    const resData = await res.json();
 
-    console.log(text);
-  })
+    if (resData.message === "success") {
+      //item-box
+      const itemEl = document.createElement("div");
 
+      itemEl.setAttribute("class", "item-box");
+      itemEl.setAttribute("data-id", resData.category.id);
 
-  const itemEl = document.createElement("div");
-  const inputedCategory = document.getElementById("input-value").value;
+      const itemForm = `
+    <p>${resData.category.name}</p>
+  `;
 
-  itemEl.setAttribute("class", "item-box");
-  itemEl.setAttribute("data-id", inputedCategory);
+      if (inputCategory.length !== 0) {
+        itemEl.innerHTML = itemForm;
+      } else {
+        alert("입력란을 채워주세요!");
+      }
 
+      categoryCard.prepend(itemEl);
+    } else {
+      console.log("reflection 실패!");
+    }
 
-
-  const itemForm = `
-    <p>${inputedCategory}</p>
-    <button class="button-delete" data-id="${inputedCategory}">삭제</button>
-  `
-
-  if (inputedCategory.length !== 0) {
-    itemEl.innerHTML = itemForm;
-  } else {return;};
-
-  categoryCard.prepend(itemEl);
-
-
+    location.reload();
+  } catch (error) {
+    console.log("error Message:", error);
+    alert("서버 오류 발생!");
+  }
 }
 
-
-
-
-formSubmit.addEventListener("submit", submitHandler);
-
+addBtn.addEventListener("click", addHandler);
