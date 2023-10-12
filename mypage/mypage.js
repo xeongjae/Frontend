@@ -6,11 +6,12 @@ const Address_1 = document.querySelector(".address-input-first");
 const Address_2 = document.querySelector(".address-input-second");
 const ModifyBtn = document.querySelector(".modify-btn");
 
+const USER_URL = "/api";
 // 첫 번째 fetch 요청 - 로그인
-fetch(`${URL}/login`, {
+fetch(`${USER_URL}/login`, {
   method: "GET",
   headers: {
-    Origin: `${URL}`,
+    Origin: `${USER_URL}`,
     // 기타 헤더 설정
   },
   credentials: "include",
@@ -21,10 +22,10 @@ fetch(`${URL}/login`, {
     const uuid = data.data.uuid; // 로그인 후 반환된 UUID
 
     // 두 번째 fetch 요청 - 사용자 정보 가져오기
-    fetch(`${URL}/users/${uuid}`, {
+    fetch(`${USER_URL}/users/${uuid}`, {
       method: "GET",
       headers: {
-        Origin: `${URL}`,
+        Origin: `${USER_URL}`,
         // 기타 헤더 설정
       },
       credentials: "include",
@@ -115,8 +116,6 @@ ModifyBtn.addEventListener("click", function (e) {
 });
 
 document.querySelector("form").addEventListener("submit", function (event) {
-  event.preventDefault(); // 폼 제출 기본 동작을 막습니다.
-
   // 사용자가 입력한 데이터 수집
   const phoneNumber = document.querySelector(".phone-input").value;
   const addressInputFirst = document.querySelector(
@@ -128,16 +127,16 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
   // PATCH 요청을 위한 데이터 생성
   const userData = {
-    phoneNumber: phoneNumber,
+    phone: phoneNumber,
     address: addressInputFirst,
     detail_address: addressInputSecond,
   };
 
   // 첫 번째 fetch 요청 - 로그인
-  fetch(`${URL}/login`, {
+  fetch(`${USER_URL}/login`, {
     method: "GET",
     headers: {
-      Origin: `${URL}`,
+      Origin: `${USER_URL}`,
       // 기타 헤더 설정
     },
     credentials: "include",
@@ -147,20 +146,20 @@ document.querySelector("form").addEventListener("submit", function (event) {
       const uuid = data.data.uuid;
 
       // 두 번째 fetch 요청
-      fetch(`${URL}/users/${uuid}`, {
+      fetch(`${USER_URL}/users/${uuid}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          Origin: `${URL}`,
+          Origin: `${USER_URL}`,
         },
         credentials: "include",
         body: JSON.stringify(userData),
       })
         .then((response) => {
           if (response.ok) {
-            console.log("사용자 정보 업데이트 성공");
+            alert("사용자 정보 업데이트 성공");
           } else {
-            console.error("사용자 정보 업데이트 실패");
+            alert("사용자 정보 업데이트 실패");
           }
         })
         .catch((error) => {
