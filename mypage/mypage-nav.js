@@ -74,10 +74,56 @@ menuItems.forEach((menuItem) => {
 });
 
 // head-box와 body-box에 추가 (첫 번째 자식으로)
-
 headBox.insertBefore(titleElement, headBox.firstChild);
 bodyBox.insertBefore(ulElement, bodyBox.firstChild);
 
+//로그아웃 기능
+function getCookie(name) {
+  const cookies = document.cookie.split(";");
+  const foundCookie = cookies.find((cookie) =>
+    cookie.trim().startsWith(name + "=")
+  );
+
+  if (foundCookie) {
+    return foundCookie.split("=")[1].trim();
+  }
+
+  return null; // 해당 쿠키 이름을 찾지 못한 경우 null 반환
+}
+
+const userToken = getCookie("token");
+if (userToken) {
+  // 토큰이 있을 경우, 로그인한 사용자로 간주하고 다른 페이지로 리다이렉트
+  document.querySelector(".logout-item").addEventListener("click", function () {
+    const shouldLogOut = confirm("로그아웃 하시겠습니까?");
+
+    if (shouldLogOut) {
+      fetch(`${URL}/logout`, {
+        method: "POST",
+        headers: {
+          Origin: `${URL}`, // 클라이언트의 도메인
+          // 기타 헤더 설정
+        },
+        credentials: "include", // credentials 옵션을 include로 설정
+      })
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          console.log("사용자 삭제 성공");
+          window.location.href = "/";
+        })
+        .catch((error) => {
+          console.error("사용자 삭제 오류:", error);
+        });
+    }
+  });
+}
+
+//회원 탈퇴 기능
 document.querySelector(".account-item").addEventListener("click", function () {
   // 사용자에게 확인을 요청
   const shouldDelete = confirm("사용자를 삭제하시겠습니까?");
