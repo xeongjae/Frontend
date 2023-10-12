@@ -7,7 +7,7 @@ function createHeader(data) {
 
   headerContainer.innerHTML = `
     <div class="Header">
-      <a href="/main/index.html">
+      <a href="/">
         <h1 class="Title"></h1>
       </a>
       <div class="Header_Row">
@@ -16,8 +16,8 @@ function createHeader(data) {
           </div>
         </div>
         <div class="User">
-          <a class="far fa-user" href="/mypage/mypage.html"></a>
-          <a class="fas fa-shopping-bag" href="/cart/cart.html"></a>
+          <a class="far fa-user" href="/mypage"></a>
+          <a class="fas fa-shopping-bag" href="/cart"></a>
           <a class="fas fa-search"></a>
         </div>
       </div>
@@ -34,9 +34,9 @@ function createHeader(data) {
   for (let i = 0; i < data.categories.length; i++) {
     const category = data.categories[i];
     const categoryLink = document.createElement("a");
-    categoryLink.href = `/categories/category.html?category=${category.id}`;
+    categoryLink.href = `/categories?category=${category.id}`;
     categoryLink.onclick = function (event) {
-      window.location.href = `/categories/category.html?category=${category.id}`;
+      window.location.href = `/categories?category=${category.id}`;
     };
     categoryLink.textContent = category.name;
     CategoriesContainer.appendChild(categoryLink);
