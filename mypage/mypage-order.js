@@ -1,6 +1,6 @@
 const ContentBox = document.querySelector(".content-box");
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < data.order.length; i++) {
   // 새로운 요소를 생성
   const orderBox = document.createElement("div");
   orderBox.classList.add("order-box");
