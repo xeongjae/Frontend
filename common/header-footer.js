@@ -2,7 +2,9 @@ const customHeader = document.querySelector(".header-container");
 
 // 헤더 UI 생성 함수
 function createHeader(data) {
-  // data.categories 배열을 순회하면서 카테고리 추가
+  // data.categories 배열을 아이디 순으로 정렬
+  data.categories.sort((a, b) => a.id - b.id);
+
   const headerContainer = document.createElement("header");
 
   headerContainer.innerHTML = `
@@ -25,42 +27,26 @@ function createHeader(data) {
   `;
   const UserBtn = headerContainer.querySelector(".fa-user");
 
-  function getCookie(name) {
-    const cookies = document.cookie.split(";");
-    const foundCookie = cookies.find((cookie) =>
-      cookie.trim().startsWith(name + "=")
-    );
-
-    if (foundCookie) {
-      return foundCookie.split("=")[1].trim();
-    }
-
-    return null; // 해당 쿠키 이름을 찾지 못한 경우 null 반환
+  function getTokenFromLocalStorage() {
+    const userToken = localStorage.getItem("token");
+    return userToken;
   }
 
-  const userToken = getCookie("token");
+  const userToken = getTokenFromLocalStorage();
 
-  console.log(userToken);
-
-  // 2. 토큰 유무에 따라 페이지 리다이렉트
   if (userToken) {
-    // 토큰이 있을 경우, 로그인한 사용자로 간주하고 다른 페이지로 리다이렉트
     console.log("토큰이 있습니다.");
     UserBtn.onclick = function (event) {
-      window.location.href = "/mypage/"; // 로그인한 사용자를 대시보드 페이지로 리다이렉트
+      window.location.href = "/mypage/";
     };
-  } else if (!userToken) {
-    // 토큰이 없을 경우, 로그인이 필요한 페이지로 리다이렉트
+  } else {
     console.log("토큰이 없습니다.");
     UserBtn.onclick = function (event) {
-      window.location.href = "/login/"; // 로그인 페이지로 리다이렉트
+      window.location.href = "/login/";
     };
   }
 
-  // customHeader에 헤더 UI를 삽입
   customHeader.appendChild(headerContainer);
-
-  // 카테고리 추가 작업을 위한 CategoriesContainer 찾기
   const CategoriesContainer = document.querySelector(".categories");
 
   // data.categories 배열을 순회하면서 각 카테고리를 추가
@@ -85,7 +71,6 @@ function createFooter(data) {
         <li>김영준</li>
         <li>김성재</li>
         <li>박준석</li>
-        <li>박진수</li>
         <li>이유진</li>
         <li>조승준</li>
       </ul>

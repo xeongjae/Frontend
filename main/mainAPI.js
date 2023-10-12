@@ -61,7 +61,7 @@ function PopularItem(data) {
     CategorySection.innerHTML = `
     <div class="Product_Tiitle">
       <div class="Eng_Title">POPULAR ${categoryItems[0].category.name}</div>
-      <div class="KR_Title">이달의 신상품</div>
+      <div class="KR_Title">이달의 인기상품</div>
     </div>
   `;
 
@@ -70,31 +70,37 @@ function PopularItem(data) {
     ProductCol.classList.add("Product_Col");
     CategorySection.appendChild(ProductCol);
 
+    // 각 카테고리에서 data.sales 값을 기준으로 아이템 정렬
+    categoryItems.sort((a, b) => b.sales - a.sales);
+
     // 각 카테고리에서 최대 3개의 아이템을 보여줍니다.
     for (let i = 0; i < Math.min(3, categoryItems.length); i++) {
       const Item = categoryItems[i];
+      const itemName = Item.name.replace(/"/g, ""); // 큰따옴표 제거
       const Product = document.createElement("div");
       Product.classList.add("Popular_Product");
+      const firstImageUrl = `url(/${Item.main_images[0]})`;
+      const secondImageUrl = `url(/${Item.main_images[1]})`;
       Product.innerHTML = `
       <div class="Product_Img">
-        <img src="${Item.main_images[0]}" alt="" />
+        <div class="first_Img" style="background-image: ${firstImageUrl};"></div>
+        <div class="second_Img" style="background-image: ${secondImageUrl};"></div>
       </div>
-      <div class="Product_Name">${Item.name}</div>
+      <div class="Product_Name">${itemName}</div>
       <div class="Product_Price">${Item.price} 원</div>
     `;
 
       // Product를 Product_Col에 추가합니다.
       ProductCol.appendChild(Product);
 
-      // hover했을 때 hover이미지가 나오도록 구현
-      const ProductImg = Product.querySelector(".Product_Img img");
+      Product.onclick = function (event) {
+        // 클릭한 Product의 id 값을 가져옵니다.
+        const clickedItemId = Item.id;
+        const clickedCategoryId = Item.category.id;
 
-      ProductImg.addEventListener("mouseenter", function () {
-        ProductImg.src = `${Item.main_images[1]}`;
-      });
-      ProductImg.addEventListener("mouseleave", function () {
-        ProductImg.src = `${Item.main_images[0]}`;
-      });
+        // 클릭한 Product의 id를 사용하여 상세 페이지로 이동할 URL을 생성합니다.
+        window.location.href = `/detail?category=${clickedCategoryId}&item=${clickedItemId}`;
+      };
     }
 
     // PopularContainer에 카테고리 section을 추가합니다.

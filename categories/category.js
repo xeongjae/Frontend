@@ -22,6 +22,7 @@ fetch(`${URL}/categories/${categoryId}/items`, {
     return res.json();
   })
   .then((data) => {
+    console.log(data);
     ItemCategory(data);
   })
   .catch((error) => {
@@ -38,26 +39,19 @@ function ItemCategory(data) {
 
   for (let j = 0; j < categoryItems.length; j++) {
     let ItemInfo = categoryItems[j];
-    console.log(ItemInfo);
+    const firstImageUrl = `url(/${ItemInfo.main_images[0]})`;
+    const secondImageUrl = `url(/${ItemInfo.main_images[1]})`;
 
     const Product = document.createElement("div");
     Product.innerHTML = `<div class="Product">
       <div class="Product_Img">
-        <img src="/${ItemInfo.main_images[0]}" alt="" />
+        <div class="first_Img" style="background-image: ${firstImageUrl};"></div>
+        <div class="second_Img" style="background-image: ${secondImageUrl};"></div>
       </div>
       <div class="Product_Name">${ItemInfo.name}</div>
       <div class="Product_Price">${ItemInfo.price} 원</div>
     </div>`;
     ProductCol.appendChild(Product);
-
-    // hover했을 때 hover이미지가 나오도록 구현
-    const ProductImg = Product.querySelector(".Product_Img img");
-    ProductImg.addEventListener("mouseenter", function () {
-      ProductImg.src = `/${ItemInfo.main_images[1]}`;
-    });
-    ProductImg.addEventListener("mouseleave", function () {
-      ProductImg.src = `/${ItemInfo.main_images[0]}`;
-    });
 
     if (++ProductColCount === 3) {
       ProductColContainer.appendChild(ProductCol); // 현재의 ProductCol을 문서에 추가

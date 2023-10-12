@@ -63,6 +63,16 @@ html {
   text-align: center;
 }
 
+.count-box {
+  display: flex;
+  width: 36%;
+  height: 40px;
+}
+
+.item-price {
+  font-weight: 600;
+}
+
 /* 상품 정보들 */
 .cart-container {
   width: 100%;
@@ -110,12 +120,6 @@ html {
   justify-content: center;
 }
 
-.count-box {
-  display: flex;
-  width: 36%;
-  height: 40px;
-}
-
 .img-minus,
 .img-plus {
   width: 10px;
@@ -151,10 +155,6 @@ html {
   width: 100%;
   margin: auto;
   cursor: pointer;
-}
-
-.item-price {
-  font-weight: 600;
 }
 
 .delete-btn {
