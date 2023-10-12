@@ -115,6 +115,7 @@ ModifyBtn.addEventListener("click", function (e) {
   }
 });
 
+//사용자 정보 수정
 document.querySelector("form").addEventListener("submit", function (event) {
   // 사용자가 입력한 데이터 수집
   const phoneNumber = document.querySelector(".phone-input").value;

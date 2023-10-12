@@ -10,13 +10,14 @@
   height: 120px;
   border-radius: 12px;
 }
-
+/* 여기부터 */
 .in-container {
+  width: 1000px;
   height: 700px;
   border-radius: 12px;
   background-color: #ffffff;
   border: none;
-  box-shadow: #999 3px 3px 10px;
+  box-shadow: 0 3px 3px rgba(56, 56, 56, 0.2);
   padding: 50px;
   overflow-y: auto;
   margin: 0 20px;
@@ -35,6 +36,7 @@
 .table {
   width: 100%;
 }
+/* 여기까지 */
 
 .item-box {
   display: flex;
@@ -218,6 +220,7 @@
   border: 0.5px solid #2a8c56;
 }
 
+/* 여기부터 */
 .att_zone {
   min-height: 150px;
   padding: 10px;
@@ -313,3 +316,4 @@
   height: 150px;
   resize: none;
 }
+/* 여기까지 */

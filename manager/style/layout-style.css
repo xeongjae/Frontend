@@ -19,6 +19,8 @@
   height: 700px;
   width: 30px;
 }
+
+/* 여기부터 */
 .out-container {
   display: flex;
   justify-content: center;
@@ -26,6 +28,63 @@
   justify-content: space-around;
   margin: 50px;
 }
+
+.in-container {
+  width: 1000px;
+  height: 700px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  border: none;
+  box-shadow: 0 3px 3px rgba(56, 56, 56, 0.2);
+  padding: 50px;
+  overflow-y: auto;
+  margin: 0 20px;
+}
+.in-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.in-container::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: #b8b8b8; /* 스크롤바의 색상 */
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.table {
+  width: 100%;
+}
+
+.sub-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.sub-box input,
+.sub-box select,
+.sub-box textarea,
+.sub-box .p-data,
+.filebox .att_zone {
+  margin: 0;
+  width: 70%;
+  border: 1px rgb(204, 204, 204) solid;
+  border-radius: 5px;
+  padding: 10px 10px;
+  font-size: 13px;
+  height: 50px;
+  background-color: white;
+}
+
+.sub-box .sub-title,
+.filebox .sub-title {
+  line-height: 50px;
+  float: left;
+  font-weight: 500;
+  font-size: 15px;
+}
+/* 여기까지 수정 코드 */
 
 .button-box-01:active,
 .button-box-02:active {
