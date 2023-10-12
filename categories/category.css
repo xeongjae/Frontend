@@ -30,6 +30,10 @@ html {
   background-size: contain;
   transition: all 0.5s;
 }
+.Product_Img img {
+  width: 70%;
+  height: 100%;
+}
 
 .Product_Name {
   margin-top: 30px;

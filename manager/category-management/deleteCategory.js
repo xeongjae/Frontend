@@ -1,16 +1,25 @@
-// 삭제 버튼을 클릭할 때의 동작을 정의합니다.
-document.addEventListener("click", function(event) {
-  // 클릭된 요소가 삭제 버튼인지 확인합니다.
-  if (event.target.classList.contains("button-delete")) {
-    // 삭제 버튼의 data-id 속성을 가져옵니다.
-    const dataId = event.target.getAttribute("data-id");
+const btnDelete = document.getElementById("btn-delete");
 
-    // 해당 data-id 값을 가지는 item-box 요소를 찾습니다.
-    const itemBox = document.querySelector(`.item-box[data-id="${dataId}"]`);
+async function deleteHandler() { 
+  try {
+    const id = document.querySelector(".id").textContent; 
 
-    // item-box를 찾았을 경우, 삭제합니다.
-    if (itemBox) {
-      itemBox.remove();
+    const res = await fetch(`/api/categories/${id}`, { 
+      method: "DELETE", 
+    });
+
+    location.reload();
+
+    if (id === null) {
+      alert("카테고리를 선택하세요!");
+    } else if (res.status === 401) {
+      const data = await res.json(); 
+      alert(`오류 메시지: ${data.message}, 상태 코드: ${res.status}`);
     }
+  } catch (error) {
+    console.log("Error:", error);
+    alert("서버 오류 발생");
   }
-});
+}
+
+btnDelete.addEventListener("click", deleteHandler);

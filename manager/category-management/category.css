@@ -1,31 +1,11 @@
 .item-box {
-  display: flex; 
-  justify-content: space-between; 
+  display: flex;
+  justify-content: space-between;
   margin: 20px;
 
   border: 0.5px dashed #2a8c56;
   border-radius: 30px;
   padding: 12px;
-}
-
-.button-delete {
-  background-color: rgb(252, 118, 118);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  width: 80px;
-  box-shadow: 1px 1px 10px 2px gray;
-  transition-property: box-shadow, background-color;
-  transition-duration: 100ms, 100ms;
-  transition-timing-function: ease-in-out;
-}
-
-.button-delete:hover {
-  background-color: rgb(208, 97, 97);
-}
-
-.button-delete:active {
-  box-shadow: none;
 }
 
 .input-category {
@@ -39,7 +19,6 @@
   transition-property: box-shadow;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
-
 }
 
 .input-category:focus {
@@ -66,5 +45,51 @@
 }
 
 .button-submit-category:active {
+  box-shadow: none;
+}
+
+.button-delete {
+  font-size: 20px;
+  margin: 12px;
+  width: 400px;
+  height: 40px;
+  border: 0.2px dashed red;
+  border-radius: 30px;
+  background-color: #f8f8f8;
+  box-shadow: none;
+  transition-property: border, box-shadow background-color;
+  transition-duration: 50ms;
+}
+
+.button-delete:hover {
+  border: 0.2px dashed red;
+  box-shadow: 1px 1px 10px 2px #7c7c7c;
+  background-color: rgb(232, 118, 118);
+}
+
+.button-delete:active {
+  box-shadow: none;
+}
+
+.button-revise {
+  font-size: 20px;
+  margin: 12px;
+  width: 400px;
+  height: 40px;
+  border: 0.2px dashed rgb(114, 179, 16);
+  border-radius: 30px;
+  background-color: #f8f8f8;
+  box-shadow: none;
+  transition-property: border, box-shadow background-color;
+  transition-duration: 50ms;
+}
+
+.button-revise:hover {
+  border: 0.2px dashed rgb(81, 128, 12);
+  box-shadow: 1px 1px 10px 2px #7c7c7c;
+  background-color: rgb(114, 179, 16);
+}
+
+.button-revise:active {
   box-shadow: none;
 }

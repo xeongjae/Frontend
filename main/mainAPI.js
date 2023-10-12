@@ -1,16 +1,5 @@
-const URL = "http://kdt-sw-6-team08.elicecoding.com";
-// const res1 = await fetch(`/api/categories`, {
-//   method: "POST",
-//   headers: { "Content-Type": "application/json" },
-//   body: JSON.stringify({
-//     data: {
-//       id: 88,
-//       name: "category test ...",
-//     },
-//   }),
-// });
-// const data1 = await res1.json();
-// console.log("data1", data1);
+const URL = "/api";
+
 // 카테고리 목록을 가져오는 요청을 보냅니다.
 fetch(`/api/categories`)
   .then((res) => {
@@ -88,7 +77,7 @@ function PopularItem(data) {
       Product.classList.add("Popular_Product");
       Product.innerHTML = `
       <div class="Product_Img">
-        <img src="${Item.main_image[0]}" alt="" />
+        <img src="${Item.main_images[0]}" alt="" />
       </div>
       <div class="Product_Name">${Item.name}</div>
       <div class="Product_Price">${Item.price} 원</div>
@@ -99,11 +88,12 @@ function PopularItem(data) {
 
       // hover했을 때 hover이미지가 나오도록 구현
       const ProductImg = Product.querySelector(".Product_Img img");
+
       ProductImg.addEventListener("mouseenter", function () {
-        ProductImg.src = `${Item.main_image[1]}`;
+        ProductImg.src = `${Item.main_images[1]}`;
       });
       ProductImg.addEventListener("mouseleave", function () {
-        ProductImg.src = `${Item.main_image[0]}`;
+        ProductImg.src = `${Item.main_images[0]}`;
       });
     }
 

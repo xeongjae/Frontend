@@ -22,7 +22,6 @@ document
 
     const email = document.querySelector(".emailInput").value;
     const password = document.querySelector(".passwordInput").value;
-    const apiUrl = "http://kdt-sw-6-team08.elicecoding.com/login";
 
     if (!email) {
       return alert("email을 입력하세요.");
@@ -37,30 +36,26 @@ document
     }
 
     //서버에 보낼 데이터
-    const loginData = {
+    const data = {
       email,
       password,
     };
 
     //로그인 요청 (Fetch API)
-    const api = "http://kdt-sw-6-team08.elicecoding.com";
     try {
-      const res = await fetch(`${api}/login`, {
+      const res = await fetch("/api/login", {
         method: "POST",
         headers: {
-          Origin: "http://localhost:3000",
           "Content-Type": "application/json",
         },
-        credentials: "include",
         body: JSON.stringify(data),
       });
 
       const resData = await res.json();
-
-      if (res.status === 200) {
-        //respons.ok .status 둘다 console로 확인
+      console.log(resData);
+      if (resData.status === 200) {
         //localStorage.setItem("token", responseData.token); //쿠키에 저장되게 설정해놓으심
-        window.location.href = "/main/index.html";
+        window.location.href = "/";
       } else {
         alert(resData.message || "로그인 정보를 확인하세요");
       }
