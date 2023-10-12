@@ -1,4 +1,4 @@
-const URL = "http://kdt-sw-6-team08.elicecoding.com";
+const URL = "/api";
 
 // 카테고리 목록을 가져오는 요청을 보냅니다.
 fetch(`${URL}/categories`)
