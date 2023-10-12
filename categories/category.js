@@ -43,7 +43,7 @@ function ItemCategory(data) {
     const Product = document.createElement("div");
     Product.innerHTML = `<div class="Product">
       <div class="Product_Img">
-        <img src="${ItemInfo.main_images[0]}" alt="" />
+        <img src="/${ItemInfo.main_images[0]}" alt="" />
       </div>
       <div class="Product_Name">${ItemInfo.name}</div>
       <div class="Product_Price">${ItemInfo.price} 원</div>
@@ -53,10 +53,10 @@ function ItemCategory(data) {
     // hover했을 때 hover이미지가 나오도록 구현
     const ProductImg = Product.querySelector(".Product_Img img");
     ProductImg.addEventListener("mouseenter", function () {
-      ProductImg.src = `${ItemInfo.main_images[1]}`;
+      ProductImg.src = `/${ItemInfo.main_images[1]}`;
     });
     ProductImg.addEventListener("mouseleave", function () {
-      ProductImg.src = `${ItemInfo.main_images[0]}`;
+      ProductImg.src = `/${ItemInfo.main_images[0]}`;
     });
 
     if (++ProductColCount === 3) {
