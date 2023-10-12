@@ -61,7 +61,7 @@ function PopularItem(data) {
     CategorySection.innerHTML = `
     <div class="Product_Tiitle">
       <div class="Eng_Title">POPULAR ${categoryItems[0].category.name}</div>
-      <div class="KR_Title">이달의 신상품</div>
+      <div class="KR_Title">이달의 인기상품</div>
     </div>
   `;
 
@@ -70,9 +70,13 @@ function PopularItem(data) {
     ProductCol.classList.add("Product_Col");
     CategorySection.appendChild(ProductCol);
 
+    // 각 카테고리에서 data.sales 값을 기준으로 아이템 정렬
+    categoryItems.sort((a, b) => b.sales - a.sales);
+
     // 각 카테고리에서 최대 3개의 아이템을 보여줍니다.
     for (let i = 0; i < Math.min(3, categoryItems.length); i++) {
       const Item = categoryItems[i];
+      const itemName = Item.name.replace(/"/g, ""); // 큰따옴표 제거
       const Product = document.createElement("div");
       Product.classList.add("Popular_Product");
       const firstImageUrl = `url(/${Item.main_images[0]})`;
@@ -82,7 +86,7 @@ function PopularItem(data) {
         <div class="first_Img" style="background-image: ${firstImageUrl};"></div>
         <div class="second_Img" style="background-image: ${secondImageUrl};"></div>
       </div>
-      <div class="Product_Name">${Item.name}</div>
+      <div class="Product_Name">${itemName}</div>
       <div class="Product_Price">${Item.price} 원</div>
     `;
 

@@ -22,6 +22,7 @@ fetch(`${URL}/categories/${categoryId}/items`, {
     return res.json();
   })
   .then((data) => {
+    console.log(data);
     ItemCategory(data);
   })
   .catch((error) => {
