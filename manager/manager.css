@@ -16,9 +16,9 @@
 .div-login-layout {
   width: 500px;
   height: 360px;
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
   border-radius: 20px;
-  box-shadow: 2px 2px 30px 7px #2a8c56;
+  box-shadow: 2px 2px 30px 7px #d7dad8;
   padding: 20px;
 }
 
@@ -42,7 +42,7 @@ input {
   background-color: #41b977;
   box-shadow: none;
   font-size: 25px;
-  color: #3CB371;
+  color: #3cb371;
   border: none;
   border-radius: 12px;
   height: 45px;
@@ -50,7 +50,6 @@ input {
   transition-property: background-color, box-shadow;
   transition-duration: 0.2s, 90ms;
   transition-timing-function: ease-in-out;
-  
 }
 
 .button-submit:hover {
