@@ -1,39 +1,50 @@
-//import { products, Qty } from "/cart/cart.js";
-
+//페이지 로드 이벤트
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM Loaded");
-  const address2Input = document.querySelector(".detailAddressInput");
   // 주문자, 배송지 정보 가져오기
-  fetch("API", {
+  fetch(`/api/login`, {
     method: "GET",
     headers: {
-      //Authorization: "검증된 겁근 토큰",
       "Content-Type": "application/json",
     },
   })
-    .then((response) => {
-      if (!response.ok) { //.status !!
-        throw new Error("네트워크 오류");
-      }
-      return response.json();
-    })
+    .then((response) => response.json())
     .then((data) => {
-      const ordererArea = document.querySelector(".orderer-area");
-      ordererArea.textContent = data.name;
+      const uuid = data.data.uuid; // 로그인 후 반환된 UUID
 
-      const phoneNumberArea = document.querySelector(".phoneNumber-area");
-      phoneNumberArea.textContent = data.phone;
+      // 두 번째 fetch 요청 - 사용자 정보 가져오기
+      fetch(`/api/users/${uuid}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          const ordererArea = document.querySelector(".ordererInput");
+          ordererArea.value = data.data.name;
 
-      const orderedAddressInput = document.querySelector(".addressInput");
-      orderedAddressInput.value = data.address;
+          const phoneNumberArea = document.querySelector(".phoneNumberInput");
+          phoneNumberArea.value = data.data.phone;
 
-      const orderedDetailAddressInput = document.querySelector(
-        ".detailAddressInput"
-      );
-      orderedDetailAddressInput.value = data.detailAddress;
+          const orderedAddressInput = document.querySelector(".addressInput");
+          orderedAddressInput.value = data.data.address;
+
+          const orderedDetailAddressInput = document.querySelector(
+            ".detailAddressInput"
+          );
+          orderedDetailAddressInput.value = data.data.detail_address;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     })
     .catch((error) => {
-      console.error("Error:", error);
+      console.log(error);
     });
   //이름, 전화번호 수정 관련 기능
   document
@@ -135,14 +146,109 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       }).open();
     });
+  const address2Input = document.querySelector(".detailAddressInput");
   // 상세 주소 입력창에서 커서가 떠났을 때 다시 readonly
   address2Input.addEventListener("blur", function () {
     address2Input.setAttribute("readonly", true);
   });
 
-  // 주문 상품 목록, 총 결제 금액 (아직 구현되지 않음)
+  // 주문 상품 목록, 총 결제 금액
+  const orderedList = document.querySelector(".ordered-products-area");
+  const totalPriceArea = document.querySelector(".totalPrice");
+  const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  console.log("Cart Items from localStorage:", storedCartItems);
+  let totalAmount = 0;
+
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  storedCartItems.forEach((item) => {
+    const product = `
+          <div class="ordered-product-box">
+            <div class="ordered-product">
+                <h2>${item.name}</h2>
+            </div>
+            <div class="ordered-product">
+              <p> ${item.quantity} 개 / ${item.price} 원</p>
+            </div>
+          </div>`;
+    orderedList.insertAdjacentHTML("beforeend", product);
+
+    totalAmount += item.quantity * item.price;
+  });
+  totalPriceArea.textContent = `${numberWithCommas(totalAmount)}원`;
 });
+
+////////////////////////////////////////////////////////////////////////////////
+
 document.querySelector(".purchase-btn").addEventListener("click", function () {
-  window.location.href = "/order-completed/order-completed.html";
-  alert("주문이 완료 되었습니다!");
+  const ordererInput = document.querySelector(".ordererInput");
+  const phoneNumberInput = document.querySelector(".phoneNumberInput");
+  const address1Input = document.querySelector(".addressInput");
+  const address2Input = document.querySelector(".detailAddressInput");
+  const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const cardRadio = document.querySelector(".card");
+  const cashRadio = document.querySelector(".cash");
+
+  let selectedPaymentMethod;
+  if (document.getElementById("cardPayment").checked) {
+    selectedPaymentMethod = "CARD";
+  } else if (document.getElementById("bankTransfer").checked) {
+    selectedPaymentMethod = "BANK_TRANSFER";
+  }
+
+  let totalAmount = 0;
+
+  //totalAmount를 다시 계산합니다.
+  storedCartItems.forEach((item) => {
+    totalAmount += item.quantity * item.price;
+  });
+
+  const orderItems = storedCartItems.map((item) => {
+    return {
+      quantity: item.quantity,
+      unit_price: item.price,
+      item_id: item.Item,
+    };
+  });
+
+  const orderData = {
+    orderItems: orderItems,
+    total_price: totalAmount,
+    name: ordererInput.value,
+    address: address1Input.value,
+    detail_address: address2Input.value,
+    phone: phoneNumberInput.value,
+    pay_method: selectedPaymentMethod,
+    order_status: "결제완료",
+  };
+
+  console.log("Sending order data:", orderData);
+
+  // 서버에 POST 요청 전송
+  fetch("/api/order", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(orderData),
+  })
+    .then((response) => {
+      console.log("Raw server response:", response);
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Server response data:", data);
+      if (data.status === 201) {
+        alert("주문이 완료 되었습니다!");
+        window.location.href = "/order-completed";
+      } else {
+        alert("주문 실패: " + data.message);
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("주문 중 오류가 발생했습니다. 다시 시도해주세요.");
+    });
 });
