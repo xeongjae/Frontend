@@ -52,9 +52,8 @@ document
       });
 
       const resData = await res.json();
-      console.log(resData);
       if (resData.status === 200) {
-        //localStorage.setItem("token", responseData.token); //쿠키에 저장되게 설정해놓으심
+        //localStorage.setItem("token", resData.token);
         window.location.href = "/";
       } else {
         alert(resData.message || "로그인 정보를 확인하세요");
