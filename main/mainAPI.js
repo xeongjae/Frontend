@@ -1,7 +1,7 @@
 const URL = "/api";
 
 // 카테고리 목록을 가져오는 요청을 보냅니다.
-fetch(`${URL}/categories`)
+fetch(`/api/categories`)
   .then((res) => {
     if (!res.ok) {
       throw new Error("Network response was not ok");
@@ -11,7 +11,7 @@ fetch(`${URL}/categories`)
   .then((categories) => {
     // 카테고리 목록을 받은 후에 각각의 카테고리에 대한 요청을 보냅니다.
     categories.categories.forEach((category) => {
-      const categoryURL = `${URL}/categories/${category.id}/items`;
+      const categoryURL = `/api/categories/${category.id}/items`;
 
       fetch(categoryURL)
         .then((res) => {

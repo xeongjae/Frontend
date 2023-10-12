@@ -17,7 +17,7 @@ function createHeader(data) {
         </div>
         <div class="User">
           <a class="far fa-user"></a>
-          <a class="fas fa-shopping-bag" href="/cart/cart.html"></a>
+          <a class="fas fa-shopping-bag" href="/cart"></a>
           <a class="fas fa-search"></a>
         </div>
       </div>
