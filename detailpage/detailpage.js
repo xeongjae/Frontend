@@ -4,6 +4,7 @@ const Qty = document.querySelector(".input-count");
 const Price = document.querySelector(".item-price");
 const CartBtn = document.querySelector(".order_save_button");
 const ContainerImage = document.querySelector(".container_image");
+const Sales = document.querySelector(".product_rate_star");
 
 const ProductName = document.querySelector(".product_name");
 const ProductPrice = document.querySelector(".product_price");
@@ -38,15 +39,26 @@ fetch(`${URL}/categories/${categoryId}/items/${ItemId}`, {
   })
   .then((data) => {
     const ItemInfo = data.item;
-    console.log(ItemInfo.images.length);
-    // const targetItemId = items.id; // 원하는 id
+    console.log(ItemInfo);
     ProductName.textContent = `${ItemInfo.name}`;
     ProductPrice.textContent = `${ItemInfo.price} 원`;
     Description.textContent = `${ItemInfo.description}`;
     TotalPrice.textContent = `${ItemInfo.price} 원`;
+    Sales.textContent = `판매량 (${ItemInfo.sales})`;
+
+    const ContainerImage = document.querySelector(".container_image");
+
+    // 기존 이미지 컨테이너의 내용을 비워줍니다.
+    ContainerImage.innerHTML = "";
 
     for (let i = 0; i < ItemInfo.images.length; i++) {
-      ContainerImage.innerHTML = `<img src="/${ItemInfo.images[i]}" alt="" />`;
+      // 이미지 요소를 만들고 소스를 설정합니다.
+      const imgElement = document.createElement("img");
+      imgElement.src = `/${ItemInfo.images[i]}`;
+      imgElement.alt = ""; // alt 속성은 이미지에 대한 대체 텍스트를 제공합니다.
+
+      // 컨테이너에 이미지를 추가합니다.
+      ContainerImage.appendChild(imgElement);
     }
 
     CartBtn.addEventListener("click", function () {
@@ -78,6 +90,7 @@ fetch(`${URL}/categories/${categoryId}/items/${ItemId}`, {
         // 이미 장바구니에 같은 상품이 없는 경우, 새로운 상품 추가
         itemInfo.quantity = 1;
         storedCartItems.push(itemInfo);
+        alert("장바구니에 상품이 추가 되었습니다.");
       }
 
       // 다시 로컬 스토리지에 저장
