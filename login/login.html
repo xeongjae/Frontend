@@ -7,25 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="/common/header-footer.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
     <link rel="stylesheet" href="login.css" />
     <script src="login.js" defer></script>
     <script src="/common/header-footer.js" defer></script>
-    <script
-      src="https://kit.fontawesome.com/def66b134a.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="header-container"></div>
@@ -42,84 +30,43 @@
           <div class="member-form-container">
             <div class="inp-area email-inp-area">
               <label class="label" for="emailInput">이메일</label>
-              <input
-                class="input emailInput"
-                type="text"
-                placeholder="이메일을 입력하세요"
-                autocomplete="on"
-              />
+              <input class="input emailInput" type="text" placeholder="이메일을 입력하세요" autocomplete="on" />
             </div>
             <div class="inp-area">
               <label class="label" for="passwordInput">비밀번호</label>
-              <input
-                class="input passwordInput"
-                type="password"
-                placeholder="비밀번호를 입력하세요"
-              />
+              <input class="input passwordInput" type="password" placeholder="비밀번호를 입력하세요" />
             </div>
             <div class="btn-area">
-              <button class="login-button button is-success is-rounded">
-                로그인하기
-              </button>
+              <button class="login-button button is-success is-rounded">로그인하기</button>
             </div>
             <div class="btn-area">
-              <a class="naver-btn sign-up-button button is-rounded"
-                ><i class="fa-solid fa-n" style="color: #ffffff"></i> 네이버
-                로그인</a
-              >
+              <a class="naver-btn sign-up-button button is-rounded"><i class="fa-solid fa-n" style="color: #ffffff"></i> 네이버 로그인</a>
             </div>
             <div class="btn-area">
-              <a class="kakao-btn sign-up-button button is-rounded"
-                ><i class="fa-solid fa-comment" style="color: #000000"></i>
-                카카오 로그인</a
-              >
+              <a class="kakao-btn sign-up-button button is-rounded"><i class="fa-solid fa-comment" style="color: #000000"></i> 카카오 로그인</a>
             </div>
             <div class="btn-area">
-              <a href="/api/auth/google" class="google-btn button is-rounded"
-                ><i class="fa-solid fa-g" style="color: #000000"></i> 구글
-                로그인</a
-              >
+              <a class="google-btn button is-rounded" href="/api/auth/google"><i class="fa-solid fa-g" style="color: #000000"></i> 구글 로그인</a>
             </div>
             <div class="btn-area">
-              <a
-                href="/sign-up/sign-up.html"
-                class="sign-up-button button is-rounded"
-                >회원가입</a
-              >
+              <a href="/sign-up/sign-up.html" class="sign-up-button button is-rounded">회원가입</a>
             </div>
           </div>
 
           <div class="guest-form-container">
             <div class="inp-area orderer-name-inp-area">
               <label class="label" for="ordererNameInput">주문자명</label>
-              <input
-                id="ordererNameInput"
-                class="input ordererNameInput"
-                type="text"
-                placeholder="이름을 입력하세요"
-                autocomplete="on"
-              />
+              <input id="ordererNameInput" class="input ordererNameInput" type="text" placeholder="이름을 입력하세요" autocomplete="on" />
             </div>
             <div class="inp-area">
               <label class="label" for="orderNumber">주문번호</label>
-              <input
-                id="orderNumber"
-                class="input orderNumber"
-                type="text"
-                placeholder="주문번호를 입력하세요"
-              />
+              <input id="orderNumber" class="input orderNumber" type="text" placeholder="주문번호를 입력하세요" />
             </div>
             <div class="btn-area">
-              <button class="ordered-list-btn button is-success is-rounded">
-                주문 내역 조회하기
-              </button>
+              <button class="ordered-list-btn button is-success is-rounded">주문 내역 조회하기</button>
             </div>
             <div class="btn-area">
-              <a
-                href="/sign-up/sign-up.html"
-                class="sign-up-button button is-rounded"
-                >회원가입</a
-              >
+              <a href="/sign-up/sign-up.html" class="sign-up-button button is-rounded">회원가입</a>
             </div>
           </div>
         </form>

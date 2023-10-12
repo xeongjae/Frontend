@@ -11,13 +11,20 @@
   border: none;
   box-shadow: 1px 1px 10px 1px #2a8c56;
   border-radius: 30px;
-  background-color: #41b977;
+  background-color: #dadada;
 
   transition-property: box-shadow;
   transition-duration: 100ms;
   transition-timing-function: ease-in-out;
   height: 700px;
   width: 30px;
+}
+.out-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  margin: 50px;
 }
 
 .button-box-01:active,

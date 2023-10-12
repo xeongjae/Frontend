@@ -46,7 +46,7 @@ fetch(`${URL}/categories/${categoryId}/items/${ItemId}`, {
     TotalPrice.textContent = `${ItemInfo.price} 원`;
 
     for (let i = 0; i < ItemInfo.images.length; i++) {
-      ContainerImage.innerHTML = `<img src="${ItemInfo.images[i]}" alt="" />`;
+      ContainerImage.innerHTML = `<img src="/${ItemInfo.images[i]}" alt="" />`;
     }
 
     CartBtn.addEventListener("click", function () {
@@ -101,6 +101,7 @@ PlusBtn.addEventListener("click", function () {
   // 현재 수량을 가져온 후 1을 더하고 화면에 업데이트
   const currentQty = getCurrentQuantity();
   Qty.textContent = currentQty + 1;
+  updateItemPrice(currentQty + 1); // 수량 증가에 따른 가격 업데이트
 });
 
 // 빼기 버튼 이벤트 리스너
@@ -109,5 +110,13 @@ MinusBtn.addEventListener("click", function () {
   const currentQty = getCurrentQuantity();
   if (currentQty > 1) {
     Qty.textContent = currentQty - 1;
+    updateItemPrice(currentQty - 1); // 수량 감소에 따른 가격 업데이트
   }
 });
+
+// 상품 가격을 업데이트하는 함수
+function updateItemPrice(quantity) {
+  const price = parseFloat(ProductPrice.textContent.replace("원", "")); // "원"을 제외한 가격을 가져옴
+  const totalPrice = price * quantity;
+  TotalPrice.textContent = `${totalPrice} 원`;
+}

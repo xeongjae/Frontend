@@ -35,13 +35,10 @@
       >
         <button class="button-box-01"></button>
         <div class="category-card">
-          <div class="item-box" data-id="Plant">
-            <p>Plant</p>
-            <button class="button-delete" data-id="Plant">삭제</button>
-          </div>
+
         </div>
         <button class="button-box-02"></button>
-        <form class="submit-card" id="form">
+        <div class="submit-card" id="form">
           <div
             style="
               display: flex;
@@ -57,7 +54,8 @@
               type="text"
               placeholder="추가할 카테고리를 입력하세요"
             />
-            <div style="height: 500px"></div>
+            <p class="id" style="height: 30px"></p>
+            <div style="height: 330px"></div>
             <button
               id="btn-submit"
               class="button-submit-category"
@@ -65,8 +63,10 @@
             >
               제출
             </button>
+            <button id="btn-revise" class="button-revise">수정</button>
+            <button id="btn-delete" class="button-delete">삭제</button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </body>
@@ -77,6 +77,9 @@
         document.getElementById("nav-container").innerHTML = data;
       });
   </script>
-  <script src="/manager/category-management/addCategory.js"></script>
-  <script src="/manager/category-management/deleteCategory.js"></script>
+  <script src="reflectCategory.js"></script>
+  <script src="refreshCategory.js"></script>
+  <script src="addCategory.js"></script>
+  <script src="reviseCategory.js"></script>
+  <script src="deleteCategory.js"></script>
 </html>

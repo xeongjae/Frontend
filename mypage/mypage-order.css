@@ -33,7 +33,30 @@
 
 .item-box {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 20px;
+}
+
+.left-item {
+  display: flex;
+}
+
+.cancle-btn {
+  padding: 12px 20px;
+  color: #222222;
+  background-color: #fcfcfc;
+  border-color: #222222;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 52px;
+  margin-bottom: 37px;
+  transition-duration: 0.3s;
+}
+.cancle-btn:hover {
+  color: #fcfcfc;
+  background-color: #222222;
+  border-color: #222222;
 }
 
 .item-box img {

@@ -31,7 +31,7 @@ html {
   transition: all 0.5s;
 }
 .Product_Img img {
-  width: 100%;
+  width: 70%;
   height: 100%;
 }
 
