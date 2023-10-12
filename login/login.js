@@ -47,13 +47,14 @@ document
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: localStorage.getItem("access_token"),
         },
         body: JSON.stringify(data),
       });
 
       const resData = await res.json();
       if (resData.status === 200) {
-        //localStorage.setItem("token", resData.token);
+        localStorage.setItem("token", resData.token);
         window.location.href = "/";
       } else {
         alert(resData.message || "로그인 정보를 확인하세요");
