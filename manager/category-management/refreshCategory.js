@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function (e) {
-  const categoryCard = document.querySelector(".category-card");
+  const categoryCard = document.querySelector(".in-container");
   const url = "/api";
 
   try {
@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", async function (e) {
     const data = await res.json();
 
     const categoryDataArray = data.categories;
-
 
     categoryDataArray.forEach((obj) => {
       const categoryId = obj.id;

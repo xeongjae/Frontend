@@ -23,17 +23,6 @@ html {
 .Product div {
   text-align: center;
 }
-.Product_Img {
-  width: 600px;
-  height: 450px;
-  background: no-repeat center center;
-  background-size: contain;
-  transition: all 0.5s;
-}
-.Product_Img img {
-  width: 70%;
-  height: 100%;
-}
 
 .Product_Name {
   margin-top: 30px;
@@ -45,9 +34,31 @@ html {
   margin-top: 10px;
 }
 
+.Product_Img {
+  width: 600px;
+  height: 450px;
+  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+}
+.Product_Img div {
+  width: 420px;
+  height: 450px;
+  background-size: cover;
+  background-position: center center;
+}
+.first_Img {
+  position: relative;
+}
+.second_Img {
+  position: absolute !important;
+  opacity: 1;
+  transition: all 0.5s;
+}
+.second_Img:hover {
+  opacity: 0;
+}
 .Product_Img:hover {
   width: 610px;
-  height: 460px;
-  background: no-repeat center center;
-  background-size: contain;
+  height: 455px;
 }

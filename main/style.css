@@ -69,7 +69,9 @@ html {
 }
 
 .Popular_Product div {
+  display: flex;
   text-align: center;
+  justify-content: center;
 }
 
 .Product_Name {
@@ -93,15 +95,24 @@ html {
 
 .Product_Img:hover {
   width: 510px;
-  height: 410px;
+  height: 405px;
 }
 
-.Product_Img img {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.4s;
+.Product_Img div {
+  width: 420px;
+  height: 420px;
+  background-size: cover;
+  background-position: center center;
 }
 
-.Product_Img:hover img {
-  transform: scale(1.05);
+.first_Img {
+  position: relative;
+}
+.second_Img {
+  position: absolute !important;
+  opacity: 1;
+  transition: all 0.5s;
+}
+.second_Img:hover {
+  opacity: 0;
 }

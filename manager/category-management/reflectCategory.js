@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const card = document.querySelector(".category-card");
+  const card = document.querySelector(".in-container");
   const inputCategory = document.querySelector("#input-value");
-  const id = document.querySelector(".id")
+  const id = document.querySelector(".id");
 
   function descriptInpo(event) {
     const clickedItemBox = event.target;
