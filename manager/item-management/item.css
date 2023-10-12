@@ -18,7 +18,7 @@
   background-color: #ffffff;
   border: none;
   box-shadow: 0 3px 3px rgba(56, 56, 56, 0.2);
-  padding: 50px;
+  padding: 40px 50px;
   overflow-y: auto;
   margin: 0 20px;
 }
@@ -36,6 +36,15 @@
 .table {
   width: 100%;
 }
+
+.sub-header {
+  margin-bottom: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  color: #3b3a3a;
+}
+
 /* 여기까지 */
 
 .item-box {
@@ -52,17 +61,52 @@
 }
 
 /*-----------------button-----------------*/
-.button-delete {
-  background-color: rgb(252, 118, 118);
+.button-submit {
+  margin: 0 auto;
+  background-color: rgb(108, 218, 108);
   color: white;
   border: none;
-  border-radius: 12px;
-  width: 60px;
-  box-shadow: 1px 1px 10px 2px gray;
+  border-radius: 7px;
+  width: 210px;
+  height: 50px;
   transition-property: box-shadow, background-color;
   transition-duration: 100ms, 100ms;
   transition-timing-function: ease-in-out;
+  font-size: 18px;
+  font-weight: 600;
 }
+.button-submit:hover {
+  background-color: rgb(83, 180, 83);
+  color: white;
+}
+.button-submit:active {
+  box-shadow: none;
+}
+
+.button-delete {
+  margin: 0 auto;
+  background-color: rgb(252, 118, 118);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  width: 210px;
+  height: 50px;
+  transition-property: box-shadow, background-color;
+  transition-duration: 100ms, 100ms;
+  transition-timing-function: ease-in-out;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* #pagination {
+  display: flex;
+  justify-content: center;
+}
+
+#pagination > a {
+  color: black;
+  text-align: center;
+} */
 
 .button-delete:hover {
   background-color: rgb(208, 97, 97);
@@ -282,7 +326,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .sub-box input,
@@ -294,7 +338,7 @@
   border: 1px rgb(204, 204, 204) solid;
   border-radius: 5px;
   padding: 10px 10px;
-  font-size: 13px;
+  font-size: 16px;
   height: 50px;
   background-color: white;
 }

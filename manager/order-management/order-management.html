@@ -22,6 +22,7 @@
       <!--카테고리 관리 페이지-->
       <div class="out-container">
         <div class="in-container">
+          <h2 class="sub-header">주문 목록</h2>
           <table id="item-table" class="table">
             <thead>
               <tr>
@@ -41,11 +42,9 @@
           </table>
         </div>
         <div class="item-submit-container in-container">
+          <h2 class="sub-header">주문 내역</h2>
           <div style="margin: 50px">
-            <form
-              class="item_form"
-              style="display: flex; width: 100%; justify-content: center; align-items: center; flex-direction: column"
-            >
+            <form class="item_form" style="display: flex; width: 100%; justify-content: center; align-items: center; flex-direction: column">
               <div class="sub-box">
                 <div class="sub-title">주문번호:</div>
                 <div id="desc-order-number" class="p-data"></div>
@@ -96,8 +95,10 @@
                 <div id="desc-messege" class="p-data">asd</div>
               </div>
             </form>
-            <button class="button-submit" type="submit">제출</button>
-            <button class="button-delete" id="button-delete-order">삭제</button>
+            <div class="buttons">
+              <button class="button-submit" type="submit">제출</button>
+              <button class="button-delete" id="button-delete-order">삭제</button>
+            </div>
           </div>
         </div>
       </div>
