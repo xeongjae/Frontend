@@ -106,23 +106,22 @@
   box-sizing: border-box;
 } */
 
-#table {
+/* #table {
   border: 1px #a39485 solid;
   font-size: 1.1em;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   width: 70%;
   border-collapse: collapse;
-  /* border-spacing: 10px; */
   border-radius: 5px;
   overflow: hidden;
   margin-right: 30px;
-}
+} */
 
 /* tr {
   border-spacing: 10px;
 } */
 
-th {
+/* th {
   text-align: left;
 }
 
@@ -147,7 +146,7 @@ td {
 
 a {
   color: #73685d;
-}
+} */
 
 /* -------submit-card--------- */
 
@@ -240,4 +239,8 @@ a {
   border: none;
   background-color: #bbe3cd00;
   outline: none;
+}
+
+body {
+  background-color: #f8f8f8;
 }
