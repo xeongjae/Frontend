@@ -1,5 +1,13 @@
-//회원 비회원 선택
+
+
 document.addEventListener("DOMContentLoaded", function () {
+  //로그인 페이지를 로드할 때 세션스토리지에 토큰이 있다면 메인페이지로 리다이렉션
+  const token = sessionStorage.getItem("token");
+  if (token) {
+    window.location.href = "/";
+    return;
+ }
+  //회원 비회원 선택
   document.querySelector(".member").addEventListener("click", function () {
     document.querySelector(".member-form-container").style.display = "block";
     document.querySelector(".guest-form-container").style.display = "none";
@@ -47,14 +55,14 @@ document
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: localStorage.getItem("access_token"),
         },
         body: JSON.stringify(data),
       });
 
       const resData = await res.json();
       if (resData.status === 200) {
-        localStorage.setItem("token", resData.token);
+        sessionStorage.setItem("token", resData.token);
+        window.history.replaceState({}, '', '/'); //로그인 성공 시 히스토리를 메인페이지로 바꿔 뒤로가기해도 로그인페이지로 가지않음
         window.location.href = "/";
       } else {
         alert(resData.message || "로그인 정보를 확인하세요");

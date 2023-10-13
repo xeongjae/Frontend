@@ -1,10 +1,53 @@
 //페이지 로드 이벤트
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
+  let token = sessionStorage.getItem("token");
+  let userEmail = "";
+
+    // 토큰이 있을 경우 비회원 이메일 input 안보이게 
+    if (token) {
+      let guestInputBox = document.querySelector(".guestInput-box");
+      if (guestInputBox) {
+        guestInputBox.style.display = "none";
+      }
+    } else {
+      alert("비회원 주문입니다, 주문정보를 입력해주세요.")
+    }
+     // 토큰이 있을 경우 로그인 email을 받아옴 
+  if (token) {
+    try {
+        const res = await fetch("/api/login", {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+            },
+        });
+        const data = await res.json();
+        const uuid = data.data.uuid;
+
+        const getUser = await fetch(`/api/users/${uuid}`, {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+            },
+        });
+        const user = await getUser.json();
+        userEmail = user.data.email; // 사용자의 이메일을 저장합니다.
+    } catch (error) {
+        console.error("Fetching user data failed:", error);
+    }
+     // 토큰이 없을 경우 입력한 email을 받아옴
+} else {
+    const guestInput = document.querySelector(".guestInput")
+    userEmail = guestInput.value; // 비회원 이메일 input에서 값을 가져옴
+}
+
+
   // 주문자, 배송지 정보 가져오기
   fetch(`/api/login`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${sessionStorage.getItem("token")}`,
     },
   })
     .then((response) => response.json())
@@ -16,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
       })
         .then((response) => {
@@ -182,14 +226,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 ////////////////////////////////////////////////////////////////////////////////
 
+// 결제하기 버튼 클릭 시 서버에 POST 요청 전송
 document.querySelector(".purchase-btn").addEventListener("click", function () {
   const ordererInput = document.querySelector(".ordererInput");
   const phoneNumberInput = document.querySelector(".phoneNumberInput");
   const address1Input = document.querySelector(".addressInput");
   const address2Input = document.querySelector(".detailAddressInput");
   const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  const cardRadio = document.querySelector(".card");
-  const cashRadio = document.querySelector(".cash");
 
   let selectedPaymentMethod;
   if (document.getElementById("cardPayment").checked) {
@@ -209,7 +252,7 @@ document.querySelector(".purchase-btn").addEventListener("click", function () {
     return {
       quantity: item.quantity,
       unit_price: item.price,
-      item_id: item.Item,
+      item_id: item.item_objectId,
     };
   });
 
@@ -222,15 +265,18 @@ document.querySelector(".purchase-btn").addEventListener("click", function () {
     phone: phoneNumberInput.value,
     pay_method: selectedPaymentMethod,
     order_status: "결제완료",
+    user_id: "",
+    email: userEmail,
   };
 
   console.log("Sending order data:", orderData);
 
-  // 서버에 POST 요청 전송
+  //서버에 POST 요청 전송 api
   fetch("/api/order", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${sessionStorage.getItem("token")}`,
     },
     body: JSON.stringify(orderData),
   })
