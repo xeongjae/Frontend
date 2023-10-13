@@ -10,7 +10,6 @@ login()
     return getUserInfo(uuid);
   })
   .then((data) => {
-    console.log(data);
     const titleText = `<h1 class="title-text">마이페이지 (${data.name} 님)</h1>`;
     headBox.insertAdjacentHTML("afterbegin", titleText);
   })

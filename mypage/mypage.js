@@ -92,7 +92,8 @@ ModifyBtn.addEventListener("click", function (e) {
 
 //사용자 정보 수정
 document.querySelector("form").addEventListener("submit", function (event) {
-  event.preventDefault();
+  event.preventDefault(); // 폼의 기본 동작을 막습니다.
+
   // 사용자가 입력한 데이터 수집
   const phoneNumber = document.querySelector(".phone-input").value;
   const addressInputFirst = document.querySelector(
@@ -109,14 +110,12 @@ document.querySelector("form").addEventListener("submit", function (event) {
     detail_address: addressInputSecond,
   };
 
-  updateUserInfo(
-    userData,
-    (successMessage) => {
+  updateUserInfo(userData)
+    .then((successMessage) => {
       alert(successMessage);
       location.reload();
-    },
-    (errorMessage) => {
-      alert(errorMessage);
-    }
-  );
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
 });

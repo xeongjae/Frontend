@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const DescriptionMessegeEl = document.getElementById("desc-messege");
   const DescriptionDateEl = document.getElementById("desc-messege");
 
-  function reflectDesction(event) { 
+  function reflectDesction(event) {
     const clickedItemBox = event.currentTarget;
 
     const orderEmail = clickedItemBox.querySelector("#order-email").textContent;
@@ -29,28 +29,23 @@ document.addEventListener("DOMContentLoaded", function () {
     DescriptionEmailEl.textContent = orderEmail;
     DescriptionDateEl.textContent = orderDate;
     DescriptionStateEl.textContent = orderState;
-    console.log("scc");
   }
 
-  function deleteOrder () {
+  function deleteOrder() {
     const orderNum = document.getElementById("desc-order-number").innerText;
-  
+
     btnDescriptions.forEach((btn) => {
-      const id = btn.getAttribute("data-id")
-      console.log(id)
+      const id = btn.getAttribute("data-id");
 
-      if(orderNum === id) {
+      if (orderNum === id) {
         btn.remove();
-      } 
-    })
-
-    console.log(orderNum)
+      }
+    });
   }
 
-  
   btnDescriptions.forEach((btn) => {
     btn.addEventListener("click", reflectDesction);
   });
 
-  btnDeletes.addEventListener("click", deleteOrder)
+  btnDeletes.addEventListener("click", deleteOrder);
 });

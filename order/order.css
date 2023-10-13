@@ -111,10 +111,21 @@ input[readonly] {
   font-size: 20px;
   margin: 5px;
 }
+.productsPrice {
+  margin-bottom: 15px;
+  margin-left: 10px;
+  font-size: 25px;
+}
+.deliveryPrice{
+  margin-bottom: 40px;
+  margin-left: 10px;
+  font-size: 25px;
+}
 .totalPrice {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   margin-left: 10px;
   font-size: 35px;
+  font-weight: bold;
 }
 .cardOrcashBtnGroup {
   margin-left: 10px;

@@ -65,11 +65,11 @@ body {
 }
 .price_detail {
   width: 100%;
-  height: 10%;
+  height: 5%;
   margin-top: 20px;
   padding-top: 20px;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
 }
 .price_stack {
   margin-bottom: 15px;

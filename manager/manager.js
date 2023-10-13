@@ -27,7 +27,6 @@ async function submitHandler(e) {
     console.log(resData);
     if (resData.status === 200) {
       window.location.href = "/manager/category-management/category.html";
-
     } else {
       alert(resData.message || "로그인 정보를 확인하세요!");
     }

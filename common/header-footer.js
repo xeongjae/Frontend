@@ -23,7 +23,7 @@ function createHeader(data) {
         <div class="User">
           <a class="far fa-user"></a>
           <a class="fas fa-shopping-bag" href="/cart"></a>
-          <a class="fas fa-user-tie" style="display: none;" href="/manager"></a>
+          <a class="fas fa-user-tie" style="display: none;" href="/manager/category"></a>
         </div>
       </div>
     </div>
@@ -35,7 +35,6 @@ function createHeader(data) {
       return getUserInfo(uuid);
     })
     .then((data) => {
-      console.log(data);
       if (data.role === "ADMIN") {
         document.querySelector(".fa-user-tie").style.display = "block";
       }
@@ -53,12 +52,10 @@ function createHeader(data) {
   const userToken = getTokenFromsessionStorage();
 
   if (userToken) {
-    console.log("토큰이 있습니다.");
     UserBtn.onclick = function (event) {
       window.location.href = "/mypage/";
     };
   } else {
-    console.log("토큰이 없습니다.");
     UserBtn.onclick = function (event) {
       window.location.href = "/login/";
     };
