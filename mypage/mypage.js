@@ -2,7 +2,7 @@ import {
   login,
   updateUserInfo,
   getUserInfo,
-} from "../api-module/usermodule.js";
+} from "../api-module/user-module.js";
 
 const EmailInput = document.querySelector(".email-input");
 const PwInput = document.querySelector(".pw-input");

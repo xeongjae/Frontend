@@ -3,7 +3,7 @@ import {
   logout,
   getUserInfo,
   deleteUser,
-} from "../api-module/usermodule.js";
+} from "../api-module/user-module.js";
 
 const titleElement = document.createElement("h1");
 const headBox = document.querySelector(".head-box");
@@ -56,20 +56,6 @@ menuItems.forEach((menuItem) => {
 headBox.insertBefore(titleElement, headBox.firstChild);
 bodyBox.insertBefore(ulElement, bodyBox.firstChild);
 
-//로그아웃 기능
-function getCookie(name) {
-  const cookies = document.cookie.split(";");
-  const foundCookie = cookies.find((cookie) =>
-    cookie.trim().startsWith(name + "=")
-  );
-
-  if (foundCookie) {
-    return foundCookie.split("=")[1].trim();
-  }
-
-  return null; // 해당 쿠키 이름을 찾지 못한 경우 null 반환
-}
-
 const userToken = localStorage.getItem("token");
 if (userToken) {
   // 토큰이 있을 경우, 로그인한 사용자로 간주하고 다른 페이지로 리다이렉트
@@ -90,9 +76,14 @@ document.querySelector(".account-item").addEventListener("click", function () {
   const shouldDelete = confirm("사용자를 삭제하시겠습니까?");
 
   if (shouldDelete) {
-    // 사용자 삭제
-    deleteUser().catch((error) => {
-      console.error(error);
-    });
+    deleteUser()
+      .then(() => {
+        // 삭제가 성공하면 토큰을 삭제하고 메인 페이지로 리다이렉트
+        localStorage.removeItem("token");
+        window.location.href = "/";
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 });
