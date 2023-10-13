@@ -25,10 +25,10 @@ async function loadOderData() {
     console.log(data);
 
     orders.forEach(async ({ order, orderItems }, idx) => {
-      const itemCountText =
-        orderItems.length > 1 ? ` 외 ${orderItems.length - 1}` : "";
-      const getItem = await fetch(`/api/items/${orderItems[0].id}`);
-      let firstItem = await getItem.json();
+      const itemCountText = orderItems.length > 1 ? ` 외 ${orderItems.length - 1}` : "";
+      const getItem = await fetch(`/api/items/${orderItems[0].item_id}`);
+      let { item } = await getItem.json();
+      firstItem = item;
       if (!getItem.ok) {
         firstItem = null;
       }
@@ -40,17 +40,11 @@ async function loadOderData() {
 
             </div>
           <div class="item-box">
-          <img src="${
-            firstItem?.main_image[0] || "/cart/img/Plant1.jpg"
-          }" alt="" />
+          <img src="/${firstItem.main_images[0]}" alt="" />
             <div class="text-box">
               <span class="date-text">${orderStatus[order.order_status]}</span>
-              <span class="name-text">${
-                firstItem?.name || "엘호 물뿌리개(흰색)" + itemCountText
-              }</span>
-              <span class="price-text">${numberWithCommas(
-                order.total_price
-              )} 원</span>
+              <span class="name-text">${firstItem.name} ${itemCountText}</span>
+              <span class="price-text">${numberWithCommas(order.total_price)} 원</span>
               <span class="order-text">주문 ID: ${order.id}</span>
             </div>
           </div>
