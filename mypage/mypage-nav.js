@@ -56,7 +56,7 @@ menuItems.forEach((menuItem) => {
 headBox.insertBefore(titleElement, headBox.firstChild);
 bodyBox.insertBefore(ulElement, bodyBox.firstChild);
 
-const userToken = localStorage.getItem("token");
+const userToken = sessionStorage.getItem("token");
 if (userToken) {
   // 토큰이 있을 경우, 로그인한 사용자로 간주하고 다른 페이지로 리다이렉트
   document.querySelector(".logout-item").addEventListener("click", function () {
@@ -79,7 +79,7 @@ document.querySelector(".account-item").addEventListener("click", function () {
     deleteUser()
       .then(() => {
         // 삭제가 성공하면 토큰을 삭제하고 메인 페이지로 리다이렉트
-        localStorage.removeItem("token");
+        sessionStorage.removeItem("token");
         window.location.href = "/";
       })
       .catch((error) => {

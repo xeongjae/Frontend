@@ -30,6 +30,10 @@
   margin: 0 10px;
 }
 
+.select-order {
+  background-color: #d3ecde;
+}
+
 /* 여기부터 */
 .hidden {
   display: none;
