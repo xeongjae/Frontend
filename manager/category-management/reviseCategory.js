@@ -1,5 +1,3 @@
-const reviseBtn = document.getElementById("btn-revise");
-
 async function reviseHandler(e) {
   e.preventDefault();
 
@@ -31,5 +29,3 @@ async function reviseHandler(e) {
     alert("서버 오류 발생!");
   }
 }
-
-reviseBtn.addEventListener("click", reviseHandler);

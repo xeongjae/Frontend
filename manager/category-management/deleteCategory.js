@@ -6,6 +6,10 @@ async function deleteHandler() {
 
     const res = await fetch(`/api/categories/${id}`, {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + sessionStorage.getItem("token"),
+      },
     });
 
     location.reload();

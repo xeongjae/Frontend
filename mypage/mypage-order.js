@@ -22,7 +22,7 @@ async function loadOderData() {
     });
     const data = await resData.json();
     orders = data.data;
-    console.log(orders);
+    console.log(data);
 
     orders.forEach(async ({ order, orderItems }, idx) => {
       const itemCountText = orderItems.length > 1 ? ` 외 ${orderItems.length - 1}` : "";
