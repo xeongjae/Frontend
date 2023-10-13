@@ -91,7 +91,7 @@ function PopularItem(data) {
         <div class="second_Img" style="background-image: ${secondImageUrl};"></div>
       </div>
       <div class="Product_Name">${itemName}</div>
-      <div class="Product_Price">${Item.price} 원</div>
+      <div class="Product_Price">${numberWithCommas(Item.price)} 원</div>
     `;
 
       // Product를 Product_Col에 추가합니다.
@@ -110,4 +110,8 @@ function PopularItem(data) {
     // PopularContainer에 카테고리 section을 추가합니다.
     PopularContainer.appendChild(CategorySection);
   }
+}
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

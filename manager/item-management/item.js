@@ -81,15 +81,6 @@ createFormBox.addEventListener("submit", async (e) => {
       alert(`상품 등록에 실패하였습니다. error : ${data.message}`);
     }
   } else {
-<<<<<<< Updated upstream
-    const res = await fetch(`/api/categories/${inputCategory.value}/items/${updateId}`, {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-      },
-      body: formData,
-    });
-=======
     const res = await fetch(
       `/api/categories/${inputCategory.value}/items/${updateId}`,
       {
@@ -97,7 +88,6 @@ createFormBox.addEventListener("submit", async (e) => {
         body: formData,
       }
     );
->>>>>>> Stashed changes
     const data = await res.json();
     if (res.ok) {
       alert("상품이 수정되었습니다. ", data.item.name);
@@ -112,21 +102,12 @@ createFormBox.addEventListener("reset", async (e) => {
   if (updateId) {
     e.preventDefault();
     if (confirm(`상품을 삭제할까요?`)) {
-<<<<<<< Updated upstream
-      const res = await fetch(`/api/categories/${inputCategory.value}/items/${updateId}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-        },
-      });
-=======
       const res = await fetch(
         `/api/categories/${inputCategory.value}/items/${updateId}`,
         {
           method: "DELETE",
         }
       );
->>>>>>> Stashed changes
       if (res.ok) {
         alert("상품이 삭제되었습니다.");
       } else {

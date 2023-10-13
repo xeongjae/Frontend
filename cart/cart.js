@@ -74,14 +74,15 @@ function updateItemTotalPrice() {
   let totalItemPrice = 0;
 
   itemPriceElements.forEach(function (itemPriceElement) {
-    totalItemPrice += parseFloat(
-      itemPriceElement.textContent.replace("원", "")
-    );
+    const priceText = itemPriceElement.textContent;
+    const priceNumber = parseFloat(priceText.replace(/[^\d]/g, ""));
+    totalItemPrice += priceNumber;
+    itemPriceElement.textContent = numberWithCommas(priceNumber) + "원"; // 콤마 추가
   });
 
   // "item-total-price" 업데이트
   const itemTotalPriceElement = document.querySelector(".item-total-price");
-  itemTotalPriceElement.textContent = totalItemPrice + "원";
+  itemTotalPriceElement.textContent = numberWithCommas(totalItemPrice) + "원";
 }
 
 // 모든 항목의 가격을 더한 총 가격을 업데이트하는 함수
@@ -90,13 +91,16 @@ function updateTotalPrice() {
   let total = 0;
 
   itemPriceElements.forEach(function (itemPriceElement) {
-    total += parseFloat(itemPriceElement.textContent.replace("원", ""));
+    const priceText = itemPriceElement.textContent;
+    const priceNumber = parseFloat(priceText.replace(/[^\d]/g, ""));
+    total += priceNumber;
+    itemPriceElement.textContent = numberWithCommas(priceNumber) + "원"; // 콤마 추가
   });
 
   // 배송료 가져오기
   const deliveryPriceElement = document.querySelector(".delivery-price");
   const deliveryPrice = parseFloat(
-    deliveryPriceElement.textContent.replace("원", "")
+    deliveryPriceElement.textContent.replace(/[^\d]/g, "")
   );
 
   // 총 가격 계산
@@ -104,7 +108,7 @@ function updateTotalPrice() {
 
   // "total-price" 업데이트
   const totalPriceElement = document.querySelector(".total-price");
-  totalPriceElement.textContent = total + "원";
+  totalPriceElement.textContent = numberWithCommas(total) + "원";
 }
 
 // 페이지 로드 시 초기 총 가격을 설정
@@ -230,7 +234,6 @@ AllDelBtn.addEventListener("click", function () {
 
 // 페이지 로드 시 UI 업데이트를 호출하여 기존 장바구니 항목을 표시합니다.
 updateCartUI();
-updateCartItemQuantity();
 
 function handleEscKey(event) {
   if (event.key === "Escape") {
