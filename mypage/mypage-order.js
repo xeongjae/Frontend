@@ -24,7 +24,8 @@ async function loadOderData() {
     orders = data.data;
 
     orders.forEach(async ({ order, orderItems }, idx) => {
-      const itemCountText = orderItems.length > 1 ? ` 외 ${orderItems.length - 1}` : "";
+      const itemCountText =
+        orderItems.length > 1 ? ` 외 ${orderItems.length - 1}` : "";
       const getItem = await fetch(`/api/items/${orderItems[0].id}`);
       let firstItem = await getItem.json();
       if (!getItem.ok) {
@@ -38,11 +39,17 @@ async function loadOderData() {
             <span onclick=detail(${idx})><a>주문상세 ></a></span>
             </div>
           <div class="item-box">
-          <img src="${firstItem?.main_image[0] || "/cart/img/Plant1.jpg"}" alt="" />
+          <img src="${
+            firstItem?.main_image[0] || "/cart/img/Plant1.jpg"
+          }" alt="" />
             <div class="text-box">
               <span class="date-text">${orderStatus[order.order_status]}</span>
-              <span class="name-text">${firstItem?.name || "엘호 물뿌리개(흰색)" + itemCountText}</span>
-              <span class="price-text">${numberWithCommas(order.total_price)}</span>
+              <span class="name-text">${
+                firstItem?.name || "엘호 물뿌리개(흰색)" + itemCountText
+              }</span>
+              <span class="price-text">${numberWithCommas(
+                order.total_price
+              )}</span>
               <span class="order-text">주문 ID: ${order.id}</span>
             </div>
           </div>

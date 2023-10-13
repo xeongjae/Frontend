@@ -106,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
           price: ItemInfo.price,
           category: categoryId,
           Item: ItemId,
+          object_id: ItemInfo._id,
           quantity: parseInt(Qty.textContent), // 현재 input-count의 값을 가져옴
           total_price: TotalPrice.textContent.replace(" 원", ""),
         };
@@ -125,7 +126,6 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           // 이미 장바구니에 같은 상품이 없는 경우, 새로운 상품 추가
           storedCartItems.push(itemInfo);
-          alert("장바구니에 상품이 추가 되었습니다.");
         }
 
         // 다시 로컬 스토리지에 저장

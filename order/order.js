@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           </div>`;
     orderedList.insertAdjacentHTML("beforeend", product);
 
-    productPrice += item.quantity * item.price
+    productPrice += item.quantity * item.price;
     totalAmount += item.quantity * item.price + 3500;
   });
   productPriceArea.textContent = `${numberWithCommas(productPrice)}원`;
