@@ -69,6 +69,9 @@ createFormBox.addEventListener("submit", async (e) => {
   if (!updateId) {
     const res = await fetch(`/api/categories/${inputCategory.value}/items`, {
       method: "POST",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
       body: formData,
     });
     const data = await res.json();
@@ -81,6 +84,9 @@ createFormBox.addEventListener("submit", async (e) => {
   } else {
     const res = await fetch(`/api/categories/${inputCategory.value}/items/${updateId}`, {
       method: "PUT",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
       body: formData,
     });
     const data = await res.json();
@@ -99,6 +105,9 @@ createFormBox.addEventListener("reset", async (e) => {
     if (confirm(`상품을 삭제할까요?`)) {
       const res = await fetch(`/api/categories/${inputCategory.value}/items/${updateId}`, {
         method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
       });
       if (res.ok) {
         alert("상품이 삭제되었습니다.");
