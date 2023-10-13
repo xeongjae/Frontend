@@ -1,9 +1,4 @@
-import {
-  login,
-  logout,
-  getUserInfo,
-  deleteUser,
-} from "../api-module/user-module.js";
+import { login, logout, getUserInfo, deleteUser } from "../api-module/user-module.js";
 
 const titleElement = document.createElement("h1");
 const headBox = document.querySelector(".head-box");

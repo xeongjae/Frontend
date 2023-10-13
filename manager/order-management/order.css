@@ -20,6 +20,12 @@
   box-shadow: none;
 }
 
+#desc-status {
+  /* border: solid rgb(204, 204, 204); */
+  background-color: #ffffff;
+  color: #000;
+}
+
 /* -----버튼------ */
 
 .button-submit {
