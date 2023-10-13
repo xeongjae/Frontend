@@ -25,38 +25,21 @@
   display: flex;
   justify-content: space-between;
 }
-
 .title-box span {
   font-size: 20px;
   font-weight: 700;
 }
 
+.title-box a {
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #41b977;
+}
+
 .item-box {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-top: 20px;
-}
-
-.left-item {
-  display: flex;
-}
-
-.cancle-btn {
-  padding: 12px 20px;
-  color: #222222;
-  background-color: #fcfcfc;
-  border-color: #222222;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-right: 52px;
-  margin-bottom: 37px;
-  transition-duration: 0.3s;
-}
-.cancle-btn:hover {
-  color: #fcfcfc;
-  background-color: #222222;
-  border-color: #222222;
 }
 
 .item-box img {
@@ -94,5 +77,5 @@
 }
 
 .order-text {
-  color: #41b977;
+  color: #2d5c42;
 }
