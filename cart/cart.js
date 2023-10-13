@@ -241,6 +241,7 @@ AllDelBtn.addEventListener("click", function () {
     // UI에서 모든 항목을 제거
     const cartContainer = document.querySelector(".cart-container");
     cartContainer.innerHTML = "";
+    location.reload();
   }
 });
 
