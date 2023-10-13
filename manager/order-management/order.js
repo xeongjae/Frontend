@@ -37,7 +37,9 @@ async function order() {
     <tr id="order-${idx}">
       <td>${order.id}</td>
       <td>${order.name}</td>
-      <td>${order.price}</td>
+      <td>${order.email}</td>
+      <td>${order.createdAt.slice(0, 10)}</td>
+      <td>${order.order_status}</td>
     </tr>
     `;
   });
@@ -53,8 +55,8 @@ async function order() {
     inputId.innerHTML = order.id;
     inputPrice.innerHTML = order.total_price;
     inputName.innerHTML = order.name;
-    inputAddress.innerHTML = order.assress;
-    inputDetailAddress.innerHTML = order.detail_address;
+    inputAddress.innerHTML = order.address;
+    inputDetailAddress.innerHTML = order.detail_address || "";
     inputStatus.innerHTML = order.order_status;
     inputPhone.innerHTML = order.phone;
     inputRequest.innerHTML = order.request;

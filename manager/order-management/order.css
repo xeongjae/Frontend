@@ -21,9 +21,6 @@
 }
 
 /* -----버튼------ */
-.buttons {
-  margin-top: 20px;
-}
 
 .button-submit {
   margin: 0 auto;
@@ -184,7 +181,8 @@ td {
 
 a {
   color: #73685d;
-} */
+}
+*/
 
 /* -------submit-card--------- */
 
@@ -282,3 +280,8 @@ a {
 /* body {
   background-color: #f8f8f8;
 } */
+
+#pagination div {
+  display: flex;
+  justify-content: center;
+}
