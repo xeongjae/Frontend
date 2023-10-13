@@ -82,11 +82,11 @@ html {
 
 .fa-user,
 .fa-shopping-bag,
-.fa-search {
+.fa-user-tie {
   cursor: pointer;
 }
 .fa-user:hover,
 .fa-shopping-bag:hover,
-.fa-search:hover {
+.fa-user-tie:hover {
   color: #959595;
 }

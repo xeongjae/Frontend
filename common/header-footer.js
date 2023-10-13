@@ -1,3 +1,6 @@
+import { login, getUserInfo } from "../api-module/user-module.js";
+import { getcategories } from "../api-module/page-module.js";
+
 const customHeader = document.querySelector(".header-container");
 
 // 헤더 UI 생성 함수
@@ -20,11 +23,26 @@ function createHeader(data) {
         <div class="User">
           <a class="far fa-user"></a>
           <a class="fas fa-shopping-bag" href="/cart"></a>
-          <a class="fas fa-search"></a>
+          <a class="fas fa-user-tie" style="display: none;" href="/manager"></a>
         </div>
       </div>
     </div>
   `;
+  //로그인 했을 때 관리자면 관리자 버튼이 활성화 되도록 로그인 api를 가져 옴
+  login()
+    .then((uuid) => {
+      // UUID를 사용하여 사용자 정보 가져오기
+      return getUserInfo(uuid);
+    })
+    .then((data) => {
+      console.log(data);
+      if (data.role === "ADMIN") {
+        document.querySelector(".fa-user-tie").style.display = "block";
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   const UserBtn = headerContainer.querySelector(".fa-user");
 
   function getTokenFromLocalStorage() {
@@ -95,23 +113,8 @@ function createFooter(data) {
 
 // DOMContentLoaded 이벤트 리스너를 이동
 document.addEventListener("DOMContentLoaded", function () {
-  const URL = "/api";
-
   // 카테고리 목록을 가져오는 요청을 보냅니다.
-  fetch(`${URL}/categories`, {
-    method: "GET",
-    headers: {
-      Origin: `${URL}`, // 클라이언트의 도메인
-      // 기타 헤더 설정
-    },
-    credentials: "include", // credentials 옵션을 include로 설정
-  })
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return res.json();
-    })
+  getcategories()
     .then((data) => {
       createHeader(data);
       createFooter(data);

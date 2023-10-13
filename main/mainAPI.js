@@ -8,9 +8,12 @@ fetch(`/api/categories`)
     }
     return res.json();
   })
-  .then((categories) => {
-    // 카테고리 목록을 받은 후에 각각의 카테고리에 대한 요청을 보냅니다.
-    categories.categories.forEach((category) => {
+  .then((response) => {
+    const categories = response.categories;
+
+    categories.sort((a, b) => a.id - b.id);
+
+    categories.forEach((category) => {
       const categoryURL = `/api/categories/${category.id}/items`;
 
       fetch(categoryURL)
@@ -40,6 +43,7 @@ function PopularItem(data) {
   // API 데이터를 순회하면서 카테고리 ID를 기준으로 그룹화합니다.
   data.items.forEach((item) => {
     const categoryId = item.category.id;
+
     if (!categoryDataMap[categoryId]) {
       categoryDataMap[categoryId] = [];
     }
@@ -79,8 +83,8 @@ function PopularItem(data) {
       const itemName = Item.name.replace(/"/g, ""); // 큰따옴표 제거
       const Product = document.createElement("div");
       Product.classList.add("Popular_Product");
-      const firstImageUrl = `url(/${Item.main_images[0]})`;
-      const secondImageUrl = `url(/${Item.main_images[1]})`;
+      const firstImageUrl = `url(/${Item.main_images[1]})`;
+      const secondImageUrl = `url(/${Item.main_images[0]})`;
       Product.innerHTML = `
       <div class="Product_Img">
         <div class="first_Img" style="background-image: ${firstImageUrl};"></div>
