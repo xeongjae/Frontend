@@ -20,6 +20,16 @@
   width: 30px;
 }
 
+.buttonBox {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.buttonBox button {
+  margin: 0 10px;
+}
+
 /* 여기부터 */
 .hidden {
   display: none;
@@ -86,6 +96,11 @@
   float: left;
   font-weight: 500;
   font-size: 16px;
+}
+
+#pagination div {
+  display: flex;
+  justify-content: center;
 }
 /* 여기까지 수정 코드 */
 
