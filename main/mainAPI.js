@@ -14,7 +14,7 @@ fetch(`/api/categories`)
     categories.sort((a, b) => a.id - b.id);
 
     categories.forEach((category) => {
-      const categoryURL = `/api/categories/${category.id}/items`;
+      const categoryURL = `/api/categories/${category.id}/items?sort=인기순`;
 
       fetch(categoryURL)
         .then((res) => {
@@ -75,7 +75,8 @@ function PopularItem(data) {
     CategorySection.appendChild(ProductCol);
 
     // 각 카테고리에서 data.sales 값을 기준으로 아이템 정렬
-    categoryItems.sort((a, b) => b.sales - a.sales);
+    categoryItems.sort((a, b) => Number(b.sales) - Number(a.sales));
+    console.log(categoryItems);
 
     // 각 카테고리에서 최대 3개의 아이템을 보여줍니다.
     for (let i = 0; i < Math.min(3, categoryItems.length); i++) {
