@@ -36,7 +36,7 @@ async function loadOderData() {
         <div class="order-box">
           <div class="title-box">
             <span>${order.createdAt.slice(0, 10)}</span>
-            <span onclick=detail(${idx})><a>주문상세 ></a></span>
+
             </div>
           <div class="item-box">
           <img src="${
@@ -49,7 +49,7 @@ async function loadOderData() {
               }</span>
               <span class="price-text">${numberWithCommas(
                 order.total_price
-              )}</span>
+              )} 원</span>
               <span class="order-text">주문 ID: ${order.id}</span>
             </div>
           </div>

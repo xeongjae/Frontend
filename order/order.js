@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       });
       const data = await res.json();
       const uuid = data.data.uuid;
+      userUuid = data.data.uuid;
 
       const getUser = await fetch(`/api/users/${uuid}`, {
         headers: {
