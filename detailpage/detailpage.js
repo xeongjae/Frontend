@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const categoryId = qs.get("category");
   const ItemId = qs.get("item");
   const URL = "/api";
-  console.log(categoryId, ItemId);
 
   const savedProductInfo =
     JSON.parse(localStorage.getItem("productInfo")) || {};
@@ -42,11 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .then((data) => {
       const ItemInfo = data.item;
-      console.log(ItemInfo);
       ProductName.textContent = `${ItemInfo.name}`;
-      ProductPrice.textContent = `${ItemInfo.price} 원`;
+      ProductPrice.textContent = `${numberWithCommas(ItemInfo.price)} 원`;
       Description.textContent = `${ItemInfo.description}`;
-      TotalPrice.textContent = `${ItemInfo.price} 원`;
+      TotalPrice.textContent = `${numberWithCommas(ItemInfo.price)} 원`;
       Sales.textContent = `판매량 (${ItemInfo.sales})`;
 
       const ContainerImage = document.querySelector(".container_image");
@@ -179,6 +177,10 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => {
       console.log(error);
     });
+
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
 
   // 현재 수량을 가져오는 함수
   function getCurrentQuantity() {

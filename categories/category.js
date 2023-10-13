@@ -22,12 +22,15 @@ fetch(`${URL}/categories/${categoryId}/items?perPage=30`, {
     return res.json();
   })
   .then((data) => {
-    console.log(data);
     ItemCategory(data);
   })
   .catch((error) => {
     console.log(error);
   });
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 function ItemCategory(data) {
   const ProductColContainer = document.querySelector(".Product_Col_Container");
@@ -49,7 +52,7 @@ function ItemCategory(data) {
         <div class="second_Img" style="background-image: ${secondImageUrl};"></div>
       </div>
       <div class="Product_Name">${ItemInfo.name}</div>
-      <div class="Product_Price">${ItemInfo.price} 원</div>
+      <div class="Product_Price">${numberWithCommas(ItemInfo.price)} 원</div>
     </div>`;
     ProductCol.appendChild(Product);
 

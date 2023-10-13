@@ -7,31 +7,48 @@ const Modal = document.querySelector(".modal");
 const ModalImg = document.querySelector(".modal-content");
 const BuyBtn = document.querySelector(".btn-buy");
 
-function updateCartItemQuantity() {
-  const cartContainer = document.querySelector(".cart-container");
+cartContainer.addEventListener("click", function (event) {
+  const target = event.target;
+  const liElement = target.closest("li");
+  const ClosetQty = liElement.querySelector(".input-count");
+  const Qty = parseInt(ClosetQty.textContent);
 
-  cartContainer.addEventListener("click", function (event) {
-    const target = event.target;
-    const liElement = target.closest("li");
-    const ClosetQty = liElement.querySelector(".input-count");
-    const Qty = parseInt(ClosetQty.textContent);
-
-    if (
-      target.classList.contains("btn-minus") ||
-      target.classList.contains("img-minus")
-    ) {
-      if (Qty > 1) {
-        ClosetQty.textContent = Qty - 1;
-        updateCartItemTotal(liElement);
-      }
-    } else if (
-      target.classList.contains("btn-plus") ||
-      target.classList.contains("img-plus")
-    ) {
-      ClosetQty.textContent = Qty + 1;
+  if (
+    target.classList.contains("btn-minus") ||
+    target.classList.contains("img-minus")
+  ) {
+    if (Qty > 1) {
+      ClosetQty.textContent = Qty - 1;
       updateCartItemTotal(liElement);
+      // 해당 아이템의 수량을 localStorage에서도 업데이트
+      updateCartItemLocalStorage(liElement, Qty - 1);
     }
-  });
+  } else if (
+    target.classList.contains("btn-plus") ||
+    target.classList.contains("img-plus")
+  ) {
+    ClosetQty.textContent = Qty + 1;
+    updateCartItemTotal(liElement);
+    // 해당 아이템의 수량을 localStorage에서도 업데이트
+    updateCartItemLocalStorage(liElement, Qty + 1);
+  }
+});
+
+// 로컬 스토리지에서 해당 아이템의 수량 업데이트
+function updateCartItemLocalStorage(cartItem, newQuantity) {
+  const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const itemName = cartItem.querySelector(".item-name").textContent;
+
+  // 해당 아이템 찾아서 수량 업데이트
+  for (const item of storedCartItems) {
+    if (item.name === itemName) {
+      item.quantity = newQuantity;
+      break;
+    }
+  }
+
+  // 업데이트된 장바구니 정보를 로컬 스토리지에 저장
+  localStorage.setItem("cartItems", JSON.stringify(storedCartItems));
 }
 
 // 장바구니 항목의 가격 업데이트를 처리하는 함수
@@ -105,7 +122,9 @@ function createCartItemElement(item) {
       <img class="img-items" src="/${item.image}" alt="" />
     </div>
     <div class="item-info">
-      <a class="item-name" href="#" data-category="${item.category}" data-item="${item.Item}">${item.name}</a>
+      <div class="name-box">
+        <a class="item-name" href="#" data-category="${item.category}" data-item="${item.Item}">${item.name}</a>
+      </div>
       <div class="count-box">
         <button class="btn-minus" id="btn-minus">
           <img class="img-minus" src="./img/minus.png" alt="" />
@@ -119,42 +138,6 @@ function createCartItemElement(item) {
     </div>
     <span class="delete-btn">X</span>
   `;
-
-  const inputQtyList = document.querySelectorAll(".input-count");
-
-  inputQtyList.forEach(function (inputQty) {
-    // 각각의 inputQty 요소에 접근할 수 있음
-    console.log(inputQty.textContent);
-  });
-  //구매하기 버튼 눌렀을 때 수량과 총 가격 넘기는 이벤트
-  BuyBtn.addEventListener("click", function () {
-    // 현재 상품 정보를 담을 객체 생성
-    const itemInfo = {
-      name: item.name,
-      price: item.price,
-      quantity: parseInt(inputQty.textContent), // 현재 input-count의 값을 가져와 quantity로 설정
-    };
-
-    // 기존 장바구니 정보를 로컬 스토리지에서 가져옵니다.
-    const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
-    // 동일한 상품이 장바구니에 이미 있는지 확인하고 인덱스 찾기
-    const existingItemIndex = storedCartItems.findIndex((cartItem) => {
-      return cartItem.name === itemInfo.name;
-    });
-
-    if (existingItemIndex !== -1) {
-      // 동일한 상품이 이미 장바구니에 있는 경우, 해당 상품의 수량을 업데이트
-      storedCartItems[existingItemIndex].quantity = itemInfo.quantity;
-      storedCartItems[existingItemIndex].price = itemInfo.price;
-    }
-
-    // 다시 로컬 스토리지에 업데이트된 장바구니 정보를 저장
-    localStorage.setItem("cartItems", JSON.stringify(storedCartItems));
-
-    // 저장 완료 메시지 또는 원하는 작업을 수행할 수 있습니다.
-    console.log("상품 정보가 장바구니에 업데이트되었습니다.");
-  });
 
   // 삭제 이벤트
   const deleteBtn = cartItem.querySelector(".delete-btn");
@@ -253,4 +236,8 @@ function handleEscKey(event) {
   if (event.key === "Escape") {
     Modal.style.display = "none";
   }
+}
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

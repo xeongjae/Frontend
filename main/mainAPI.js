@@ -24,7 +24,6 @@ fetch(`/api/categories`)
           return res.json();
         })
         .then((data) => {
-          console.log(data);
           PopularItem(data);
         })
         .catch((error) => {
