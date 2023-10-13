@@ -56,7 +56,7 @@ async function order() {
   function detailView(e) {
     const idx = e.target.parentElement.id.replace("order-", "");
     const order = orders[idx];
-    updateId = order.id;
+    updateId = order._id;
 
     inputId.innerHTML = order.id;
     inputPrice.innerHTML = order.total_price;
@@ -113,9 +113,10 @@ updateFormBox.addEventListener("submit", async (e) => {
   }
 });
 
-deleteBtn.addEventListener("click", async (e) => {
+updateFormBox.addEventListener("reset", async (e) => {
   e.preventDefault();
 
+  console.log(updateId);
   if (updateId) {
     if (confirm(`주문을 삭제할까요?`)) {
       const res = await fetch(`/api/order/admin/${updateId}`, {
@@ -127,11 +128,11 @@ deleteBtn.addEventListener("click", async (e) => {
       });
       if (res.ok) {
         alert("주문이 삭제되었습니다.");
+        location.href = `?page=${page}`;
       } else {
         const data = await res.json();
         alert(`주문 삭제에 실패하였습니다. error: ${data.message}`);
       }
     }
-    location.href = `?page=${page}`;
   }
 });
