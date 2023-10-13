@@ -40,7 +40,11 @@
         </div>
         <div class="item-submit-container in-container">
           <h2 id="create-div" class="sub-header">상품 등록</h2>
-          <form class="item_form" style="display: flex; width: 100%; justify-content: center; align-items: center; flex-direction: column">
+          <form
+            id="create-form-box"
+            class="item_form"
+            style="display: flex; width: 100%; justify-content: center; align-items: center; flex-direction: column"
+          >
             <div class="sub-box">
               <div class="sub-title">이름</div>
               <input type="text" placeholder="상품이름" id="input-name" name="name" required />
@@ -72,11 +76,11 @@
               <label for="input_detail_image">파일 찾기</label>
               <input type="file" id="input_detail_image" name="images" multiple />
             </div>
+            <div class="buttonBox">
+              <button id="button-submit" class="button-submit" type="submit">확인</button>
+              <button id="button-delete" class="button-delete" type="reset">취소</button>
+            </div>
           </form>
-          <div class="buttons">
-            <button id="button-submit" class="button-submit" type="submit">확인</button>
-            <button id="button-delete" class="button-delete" type="reset">취소</button>
-          </div>
         </div>
       </div>
     </div>

@@ -35,7 +35,7 @@ html {
 }
 
 .Product_Img {
-  width: 600px;
+  width: 560px;
   height: 450px;
   transition: all 0.5s;
   display: flex;
@@ -59,6 +59,6 @@ html {
   opacity: 0;
 }
 .Product_Img:hover {
-  width: 610px;
+  width: 565px;
   height: 455px;
 }

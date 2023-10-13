@@ -20,6 +20,16 @@
   width: 30px;
 }
 
+.buttonBox {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.buttonBox button {
+  margin: 0 10px;
+}
+
 /* 여기부터 */
 .hidden {
   display: none;
@@ -62,7 +72,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .sub-box input,
@@ -72,12 +82,19 @@
 .filebox .att_zone {
   margin: 0;
   width: 70%;
-  border: 1px rgb(204, 204, 204) solid;
+  border: 1px rgb(199, 199, 199) solid;
   border-radius: 5px;
   padding: 10px 10px;
   font-size: 16px;
   height: 50px;
-  background-color: white;
+  background-color: rgb(241, 241, 241);
+  color: rgb(107, 107, 107);
+}
+
+#desc-status {
+  /* border: solid rgb(204, 204, 204); */
+  background-color: #ffffff;
+  color: #000;
 }
 
 .sub-box .sub-title,
@@ -86,6 +103,11 @@
   float: left;
   font-weight: 500;
   font-size: 16px;
+}
+
+#pagination div {
+  display: flex;
+  justify-content: center;
 }
 /* 여기까지 수정 코드 */
 

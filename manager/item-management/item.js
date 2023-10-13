@@ -5,9 +5,7 @@ const itemTable = document.querySelector("#item-table tbody");
 const pagination = document.querySelector("#pagination div");
 
 const createDiv = document.querySelector("#create-div");
-const createFormBox = document.querySelector("#createFormBox");
-const updateDiv = document.querySelector("#update-div");
-const updateFormBox = document.querySelector("#updateFormBox");
+const createFormBox = document.querySelector("#create-form-box");
 const inputName = document.querySelector("#input-name");
 const inputPrice = document.querySelector("#input-price");
 const inputDescription = document.querySelector("#input-description");
@@ -47,8 +45,7 @@ async function item() {
     inputPrice.value = item.price;
     inputDescription.value = item.description;
 
-    createDiv.classList.add("hidden");
-    updateDiv.classList.remove("hidden");
+    createDiv.innerHTML = "상품 수정";
 
     for (let i = 0; i < items.length; i++) {
       const tr = document.querySelector(`#item-${i}`);

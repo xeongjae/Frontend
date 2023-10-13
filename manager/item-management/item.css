@@ -46,7 +46,7 @@
 
 #pagination div {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 .sub-header {
   margin-bottom: 30px;
@@ -72,6 +72,16 @@
 }
 
 /*-----------------button-----------------*/
+.buttonBox {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.buttonBox button {
+  margin: 0 10px;
+}
+
 .button-submit {
   margin: 0 auto;
   background-color: rgb(108, 218, 108);
