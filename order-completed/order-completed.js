@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  fetch(`/api/order`, {
+  fetch("/api/order", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -13,19 +13,20 @@ document.addEventListener("DOMContentLoaded", function () {
       return response.json();
     })
     .then((data) => {
+      console.log(data);
       const ordererArea = document.querySelector(".orderer-name-area");
-      ordererArea.value = data.name;
+      ordererArea.textContent = data.name;
 
       const phoneNumberArea = document.querySelector(".phone-number-area");
-      phoneNumberArea.value = data.phone;
+      phoneNumberArea.textContent = data.phone;
 
       const orderedAddressInput = document.querySelector(".address-area");
-      orderedAddressInput.value = data.address;
+      orderedAddressInput.textContent = data.address;
 
       const orderedDetailAddressInput = document.querySelector(
         ".detail-address-area"
       );
-      orderedDetailAddressInput.value = data.detail_address;
+      orderedDetailAddressInput.textContent = data.detail_address;
 
       const orderedProducts = document.querySelector(".ordered-products-area");
       const productHtml = data.orderItems
