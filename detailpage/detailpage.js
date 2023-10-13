@@ -60,9 +60,41 @@ document.addEventListener("DOMContentLoaded", function () {
         imgElement.src = `/${ItemInfo.images[i]}`;
         imgElement.alt = ""; // alt 속성은 이미지에 대한 대체 텍스트를 제공합니다.
 
-        // 컨테이너에 이미지를 추가합니다.
-        ContainerImage.appendChild(imgElement);
-      }
+      // 컨테이너에 이미지를 추가합니다.
+      ContainerImage.appendChild(imgElement);
+    }
+
+    CartBtn.addEventListener("click", function () {
+      const storedCartItems =
+        JSON.parse(localStorage.getItem("cartItems")) || [];
+
+      // 현재 상품 정보를 담을 객체 생성
+      const itemInfo = {
+        image: ItemInfo.main_images[0],
+        name: ItemInfo.name,
+        price: ItemInfo.price,
+        category: categoryId,
+        Item: ItemId,
+        object_id: ItemInfo._id,
+      };
+
+        // 이미 장바구니에 같은 상품이 있는지 확인
+        const existingItemIndex = storedCartItems.findIndex((cartItem) => {
+          return (
+            cartItem.name === itemInfo.name &&
+            cartItem.category === categoryId &&
+            cartItem.Item === ItemId
+          );
+        });
+
+        if (existingItemIndex !== -1) {
+          // 이미 장바구니에 같은 상품이 있는 경우, 수량 증가 또는 다른 조치를 취할 수 있음
+          alert("이미 장바구니에 있는 제품입니다.");
+        } else {
+          // 이미 장바구니에 같은 상품이 없는 경우, 새로운 상품 추가
+          storedCartItems.push(itemInfo);
+          alert("장바구니에 상품이 추가 되었습니다.");
+        }
 
       BuyBtn.addEventListener("click", function () {
         const storedCartItems =
