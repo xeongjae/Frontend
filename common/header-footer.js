@@ -45,12 +45,12 @@ function createHeader(data) {
     });
   const UserBtn = headerContainer.querySelector(".fa-user");
 
-  function getTokenFromLocalStorage() {
-    const userToken = localStorage.getItem("token");
+  function getTokenFromsessionStorage() {
+    const userToken = sessionStorage.getItem("token");
     return userToken;
   }
 
-  const userToken = getTokenFromLocalStorage();
+  const userToken = getTokenFromsessionStorage();
 
   if (userToken) {
     console.log("토큰이 있습니다.");
