@@ -3,7 +3,6 @@ let userUuid = "";
 //페이지 로드 이벤트
 document.addEventListener("DOMContentLoaded", async function () {
   let token = sessionStorage.getItem("token");
-  let userEmail = "";
 
   // 토큰이 있을 경우 비회원 이메일 input 안보이게
   if (token) {
@@ -199,8 +198,10 @@ document.addEventListener("DOMContentLoaded", async function () {
   // 주문 상품 목록, 총 결제 금액
   const orderedList = document.querySelector(".ordered-products-area");
   const totalPriceArea = document.querySelector(".totalPrice");
+  const productPriceArea = document.querySelector(".productsPrice");
   const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   let totalAmount = 0;
+  let productPrice = 0;
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -218,8 +219,10 @@ document.addEventListener("DOMContentLoaded", async function () {
           </div>`;
     orderedList.insertAdjacentHTML("beforeend", product);
 
-    totalAmount += item.quantity * item.price;
+    productPrice += item.quantity * item.price
+    totalAmount += item.quantity * item.price + 3500;
   });
+  productPriceArea.textContent = `${numberWithCommas(productPrice)}원`;
   totalPriceArea.textContent = `${numberWithCommas(totalAmount)}원`;
 });
 
@@ -264,6 +267,7 @@ document.querySelector(".purchase-btn").addEventListener("click", function () {
     order_status: "ORDER_CONFIRMED",
     email: userEmail,
   };
+  console.log(orderData);
   //서버에 POST 요청 전송 api
   fetch("/api/order", {
     method: "POST",
