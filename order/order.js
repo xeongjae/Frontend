@@ -1,3 +1,4 @@
+
 //페이지 로드 이벤트
 document.addEventListener("DOMContentLoaded", function () {
   // 주문자, 배송지 정보 가져오기
@@ -5,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${sessionStorage.getItem("token")}`,
     },
   })
     .then((response) => response.json())
@@ -16,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
       })
         .then((response) => {
@@ -182,14 +185,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 ////////////////////////////////////////////////////////////////////////////////
 
+// 결제하기 버튼 클릭 시 서버에 POST 요청 전송
 document.querySelector(".purchase-btn").addEventListener("click", function () {
   const ordererInput = document.querySelector(".ordererInput");
   const phoneNumberInput = document.querySelector(".phoneNumberInput");
   const address1Input = document.querySelector(".addressInput");
   const address2Input = document.querySelector(".detailAddressInput");
   const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  const cardRadio = document.querySelector(".card");
-  const cashRadio = document.querySelector(".cash");
 
   let selectedPaymentMethod;
   if (document.getElementById("cardPayment").checked) {
@@ -209,7 +211,7 @@ document.querySelector(".purchase-btn").addEventListener("click", function () {
     return {
       quantity: item.quantity,
       unit_price: item.price,
-      item_id: item.Item,
+      item_id: item.item_objectId,
     };
   });
 
@@ -222,15 +224,17 @@ document.querySelector(".purchase-btn").addEventListener("click", function () {
     phone: phoneNumberInput.value,
     pay_method: selectedPaymentMethod,
     order_status: "결제완료",
+    user_id: 
   };
 
   console.log("Sending order data:", orderData);
 
-  // 서버에 POST 요청 전송
+  //서버에 POST 요청 전송 api
   fetch("/api/order", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${sessionStorage.getItem("token")}`,
     },
     body: JSON.stringify(orderData),
   })
