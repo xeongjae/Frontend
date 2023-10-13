@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           </div>`;
     orderedList.insertAdjacentHTML("beforeend", product);
 
-    productPrice += item.quantity * item.price
+    productPrice += item.quantity * item.price;
     totalAmount += item.quantity * item.price + 3500;
   });
   productPriceArea.textContent = `${numberWithCommas(productPrice)}원`;
@@ -286,6 +286,7 @@ document.querySelector(".purchase-btn").addEventListener("click", function () {
     .then((data) => {
       if (data.status === 201) {
         alert("주문이 완료 되었습니다!");
+        localStorage.removeItem("cartItems");
         window.location.href = "/";
       } else {
         alert("주문 실패: " + data.message);
