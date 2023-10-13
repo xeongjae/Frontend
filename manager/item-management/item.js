@@ -1,21 +1,32 @@
 const qs = new URLSearchParams(window.location.search);
 const categoryId = qs.get("category");
 const page = qs.get("page");
-const itemBox = document.querySelector("#item-box");
 const itemTable = document.querySelector("#item-table tbody");
-const pagination = document.querySelector("#pagination");
-const submitCard = document.querySelector("#submit-card");
+const pagination = document.querySelector("#pagination div");
+
+const createDiv = document.querySelector("#create-div");
+const createFormBox = document.querySelector("#createFormBox");
+const updateDiv = document.querySelector("#update-div");
+const updateFormBox = document.querySelector("#updateFormBox");
+const inputName = document.querySelector("#input-name");
+const inputPrice = document.querySelector("#input-price");
+const inputDescription = document.querySelector("#input-description");
+const inputCategory = document.querySelector("#input-category");
+const submitBtn = document.querySelector("#button-submit");
+const deleteBtn = document.querySelector("#button-delete");
+let updateId = false;
 
 async function item() {
   // 상품리스트 가져오기
-  const res = await fetch(`/api/categories/${categoryId}/items?perPage=5&page=${page}`);
+  const res = await fetch(`/api/categories/${categoryId}/items?&page=${page}`);
   if (!res.ok) {
+    console.log(res);
   }
   const data = await res.json();
   const items = data.items;
   items.map((item, idx) => {
     itemTable.innerHTML += `
-    <tr id="${idx}">
+    <tr id="item-${idx}">
       <td>${item.id}</td>
       <td>${item.name}</td>
       <td>${item.price}</td>
@@ -28,128 +39,76 @@ async function item() {
 
   itemTable.addEventListener("click", function (e) {
     e.preventDefault();
-    const idx = Number(e.target.parentElement.id);
+    const idx = e.target.parentElement.id.replace("item-", "");
     const item = items[idx];
     console.log(item);
+    updateId = item.id;
+    inputName.value = item.name;
+    inputPrice.value = item.price;
+    inputDescription.value = item.description;
+
+    createDiv.classList.add("hidden");
+    updateDiv.classList.remove("hidden");
+
+    for (let i = 0; i < items.length; i++) {
+      const tr = document.querySelector(`#item-${i}`);
+      tr.classList.remove("select-item");
+    }
+    e.target.parentElement.classList.add("select-item");
+    submitBtn.innerHTML = "수정";
+    deleteBtn.innerHTML = "삭제";
   });
 }
 
 item();
 
-// 이미지 미리보기
-/* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
-imageView = function imageView(att_zone, btn) {
-  var attZone = document.getElementById(att_zone);
-  var btnAtt = document.getElementById(btn);
-  var sel_files = [];
+createFormBox.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const formData = new FormData(createFormBox);
+  if (formData.getAll("main_images").length > 2) {
+    return alert("대표 사진은 최대 2개까지 업로드 가능합니다. ");
+  }
 
-  // 이미지와 체크 박스를 감싸고 있는 div 속성
-  var div_style = "display:inline-block;position:relative;" + "width:150px;height:120px;margin:5px;border:1px solid #00f;z-index:1";
-  // 미리보기 이미지 속성
-  var img_style = "width:100%;height:100%;z-index:none";
-  // 이미지안에 표시되는 체크박스의 속성
-  var chk_style =
-    "width:30px;height:30px;position:absolute;font-size:24px;" +
-    "right:0px;bottom:0px;z-index:999;background-color:rgba(255,255,255,0.1);color:#f00";
-
-  btnAtt.onchange = function (e) {
-    var files = e.target.files;
-    if (files.length > 2) {
-      alert("메인 이미지는 최대 2개까지만 가능합니다.");
-      btnAtt.value = "";
-      return;
+  if (!updateId) {
+    const res = await fetch(`/api/categories/${inputCategory.value}/items`, {
+      method: "POST",
+      body: formData,
+    });
+    const data = await res.json();
+    if (res.ok) {
+      alert("상품이 등록되었습니다. ", data.item.name);
+      location.href = `?category=${categoryId}&page=${page}`;
+    } else {
+      alert(`상품 등록에 실패하였습니다. error : ${data.message}`);
     }
-    var fileArr = Array.prototype.slice.call(files);
-    for (f of fileArr) {
-      imageLoader(f);
+  } else {
+    const res = await fetch(`/api/categories/${inputCategory.value}/items/${updateId}`, {
+      method: "PUT",
+      body: formData,
+    });
+    const data = await res.json();
+    if (res.ok) {
+      alert("상품이 수정되었습니다. ", data.item.name);
+      location.href = `?category=${categoryId}&page=${page}`;
+    } else {
+      alert(`상품 수정에 실패하였습니다. error : ${data.message}`);
     }
-  };
+  }
+});
 
-  // 탐색기에서 드래그앤 드롭 사용
-  // attZone.addEventListener(
-  //   "dragenter",
-  //   function (e) {
-  //     e.preventDefault();
-  //     e.stopPropagation();
-  //   },
-  //   false
-  // );
-
-  // attZone.addEventListener(
-  //   "dragover",
-  //   function (e) {
-  //     e.preventDefault();
-  //     e.stopPropagation();
-  //   },
-  //   false
-  // );
-
-  // attZone.addEventListener(
-  //   "drop",
-  //   function (e) {
-  //     var files = {};
-  //     e.preventDefault();
-  //     e.stopPropagation();
-  //     files;
-  //     var dt = e.dataTransfer;
-  //     files = dt.files;
-  //     if (btnAtt.files.length + files.length > 2) {
-  //       alert("메인 이미지는 최대 2개 까지만 가능합니다.");
-  //       return;
-  //     }
-  //     for (f of files) {
-  //       imageLoader(f);
-  //     }
-  //   },
-  //   false
-  // );
-
-  /*첨부된 이미리즐을 배열에 넣고 미리보기 */
-  imageLoader = function (file) {
-    sel_files.push(file);
-    var reader = new FileReader();
-    reader.onload = function (e_read) {
-      let img = document.createElement("img");
-      img.setAttribute("style", img_style);
-      img.src = e_read.target.result;
-      attZone.appendChild(makeDiv(img, file));
-    };
-
-    reader.readAsDataURL(file);
-  };
-
-  /*첨부된 파일이 있는 경우 checkbox와 함께 attZone에 추가할 div를 만들어 반환 */
-  makeDiv = function (img, file) {
-    var div = document.createElement("div");
-    div.setAttribute("style", div_style);
-
-    var btn = document.createElement("input");
-    btn.setAttribute("type", "button");
-    btn.setAttribute("value", "x");
-    btn.setAttribute("delFile", file.name);
-    btn.setAttribute("style", chk_style);
-    btn.onclick = function (ev) {
-      var ele = ev.srcElement;
-      var delFile = ele.getAttribute("delFile");
-      for (var i = 0; i < sel_files.length; i++) {
-        if (delFile == sel_files[i].name) {
-          sel_files.splice(i, 1);
-        }
+createFormBox.addEventListener("reset", async (e) => {
+  if (updateId) {
+    e.preventDefault();
+    if (confirm(`상품을 삭제할까요?`)) {
+      const res = await fetch(`/api/categories/${inputCategory.value}/items/${updateId}`, {
+        method: "DELETE",
+      });
+      if (res.ok) {
+        alert("상품이 삭제되었습니다.");
+      } else {
+        alert(`상품 삭제에 실패하였습니다. error : ${data.message}`);
       }
-
-      dt = new DataTransfer();
-      for (f in sel_files) {
-        var file = sel_files[f];
-        dt.items.add(file);
-      }
-      btnAtt.files = dt.files;
-      var p = ele.parentNode;
-      attZone.removeChild(p);
-    };
-    div.appendChild(img);
-    div.appendChild(btn);
-    return div;
-  };
-};
-imageView("main_image_zone", "input_main_image");
-// imageView('att_zone', 'input_file')
+    }
+    location.href = `?category=${categoryId}&page=${page}`;
+  }
+});

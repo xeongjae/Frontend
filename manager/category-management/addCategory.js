@@ -2,7 +2,6 @@ const addBtn = document.getElementById("btn-submit");
 const categoryCard = document.querySelector(".category-card");
 const inputCategory = document.getElementById("input-value");
 
-
 // 추가 함수
 async function addHandler(e) {
   e.preventDefault();
@@ -10,7 +9,7 @@ async function addHandler(e) {
   const url = "/api";
 
   let olderId = document.querySelectorAll(".item-box").length;
-  
+
   let id = ++olderId;
   try {
     const res = await fetch(`${url}/categories`, {
