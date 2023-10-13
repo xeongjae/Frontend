@@ -39,8 +39,8 @@ function ItemCategory(data) {
 
   for (let j = 0; j < categoryItems.length; j++) {
     let ItemInfo = categoryItems[j];
-    const firstImageUrl = `url(/${ItemInfo.main_images[0]})`;
-    const secondImageUrl = `url(/${ItemInfo.main_images[1]})`;
+    const firstImageUrl = `url(/${ItemInfo.main_images[1]})`;
+    const secondImageUrl = `url(/${ItemInfo.main_images[0]})`;
 
     const Product = document.createElement("div");
     Product.innerHTML = `<div class="Product">

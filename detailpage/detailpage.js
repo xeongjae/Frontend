@@ -72,6 +72,7 @@ fetch(`${URL}/categories/${categoryId}/items/${ItemId}`, {
         price: ItemInfo.price,
         category: categoryId,
         Item: ItemId,
+        category_id: ItemInfo._id,
       };
 
       // 이미 장바구니에 같은 상품이 있는지 확인
