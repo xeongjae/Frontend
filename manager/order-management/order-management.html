@@ -36,7 +36,7 @@
             <tbody></tbody>
             <tfoot>
               <tr>
-                <td id="pagination" colspan="3"><div></div></td>
+                <td id="pagination" colspan="5"><div></div></td>
               </tr>
             </tfoot>
           </table>
@@ -56,10 +56,10 @@
               <div class="sub-box">
                 <div class="sub-title">배송상태:</div>
                 <select name="" id="desc-status" class="p-data">
-                  <option value="1">Plant</option>
-                  <option value="2">Pot</option>
-                  <option value="3">Gardening Tool</option>
-                  <option value="4">Gardening Kit</option>
+                  <option value="ORDER_CONFIRMED">주문 완료</option>
+                  <option value="PREPARING_FOR_SHIPMENT">배송 준비 중</option>
+                  <option value="DELIVERED">배송 중</option>
+                  <option value="SHIPPED">배송 완료</option>
                 </select>
               </div>
               <div class="sub-box">
@@ -89,22 +89,13 @@
               <div class="sub-box">
                 <div class="sub-title">배송주소:</div>
                 <div id="desc-adress" class="p-data">asd</div>
-                <div id="desc-detail-adress" class="p-data">asd</div>
-              </div>
-              <div class="sub-box">
-                <div class="sub-title"></div>
-                <div id="desc-detail-adress" class="p-data">asd</div>
-              </div>
-              <div class="sub-box">
-                <div class="sub-title">할인적용:</div>
-                <div id="desc-discount" class="p-data">asd</div>
               </div>
               <div class="sub-box">
                 <div class="sub-title">요청사항:</div>
                 <div id="desc-messege" class="p-data">asd</div>
               </div>
               <div class="buttonBox">
-                <button class="button-submit" id="button-submit" type="submit">제출</button>
+                <button class="button-submit" id="button-submit" type="submit">수정</button>
                 <button class="button-delete" id="button-delete" type="reset">삭제</button>
               </div>
             </form>
