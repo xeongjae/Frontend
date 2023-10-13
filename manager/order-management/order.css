@@ -20,17 +20,46 @@
   box-shadow: none;
 }
 
-.button-delete {
-  background-color: rgb(252, 118, 118);
+/* -----버튼------ */
+.buttons {
+  margin-top: 20px;
+}
+
+.button-submit {
+  margin: 0 auto;
+  background-color: rgb(108, 218, 108);
   color: white;
-  border-radius: 12px;
-  width: 60px;
-  margin: 10px;
-  height: 30px;
-  /* box-shadow: 1px 1px 10px 2px gray; */
+  border: none;
+  border-radius: 7px;
+  width: 210px;
+  height: 50px;
   transition-property: box-shadow, background-color;
   transition-duration: 100ms, 100ms;
   transition-timing-function: ease-in-out;
+  font-size: 18px;
+  font-weight: 600;
+}
+.button-submit:hover {
+  background-color: rgb(83, 180, 83);
+  color: white;
+}
+.button-submit:active {
+  box-shadow: none;
+}
+
+.button-delete {
+  margin: 0 auto;
+  background-color: rgb(252, 118, 118);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  width: 210px;
+  height: 50px;
+  transition-property: box-shadow, background-color;
+  transition-duration: 100ms, 100ms;
+  transition-timing-function: ease-in-out;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .button-delete:hover {
@@ -90,6 +119,14 @@
 
 /*-----------------button-----------------*/
 
+.sub-header {
+  margin-bottom: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  color: #3b3a3a;
+}
+
 /* .name,
 .id,
 .price {
@@ -116,13 +153,13 @@
   border-radius: 5px;
   overflow: hidden;
   margin-right: 30px;
-}
+} */
 
 tr {
   border-spacing: 10px;
 }
 
-th {
+/* th {
   text-align: left;
 }
 
@@ -147,7 +184,7 @@ td {
 
 a {
   color: #73685d;
-}
+} */
 
 /* -------submit-card--------- */
 
@@ -234,3 +271,14 @@ a {
 .p-order-state {
   font-weight: bold;
 }
+
+#select-category {
+  margin: 0;
+  border-radius: 5px solid, rgb(204, 204, 204);
+  /* background-color: #bbe3cd00; */
+  outline: none;
+}
+
+/* body {
+  background-color: #f8f8f8;
+} */
