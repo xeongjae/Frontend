@@ -1,13 +1,15 @@
 // 이메일 중복검사
-document.querySelector(".id-duplicated-confilm-btn").addEventListener("click", function (e) {
-  e.preventDefault();
+document
+  .querySelector(".id-duplicated-confilm-btn")
+  .addEventListener("click", function (e) {
+    e.preventDefault();
 
-  const email = document.querySelector(".emailInput").value;
+    const email = document.querySelector(".emailInput").value;
 
-  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  if (!emailRegex.test(email)) {
-    return alert("올바른 이메일 형식을 입력하세요.");
-  }
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailRegex.test(email)) {
+      return alert("올바른 이메일 형식을 입력하세요.");
+    }
 
     fetch("/api/check-email-duplicate", {
       method: "POST",
@@ -31,39 +33,42 @@ document.querySelector(".id-duplicated-confilm-btn").addEventListener("click", f
   });
 
 //daum 주소찾기 API
-document.querySelector(".find-address-btn").addEventListener("click", function () {
-  new daum.Postcode({
-    oncomplete: function (data) {
-      let addr = "";
-      let extraAddr = "";
+document
+  .querySelector(".find-address-btn")
+  .addEventListener("click", function () {
+    new daum.Postcode({
+      oncomplete: function (data) {
+        let addr = "";
+        let extraAddr = "";
 
-      const address1Input = document.querySelector(".addressInput");
-      const address2Input = document.querySelector(".detailAddressInput");
+        const address1Input = document.querySelector(".addressInput");
+        const address2Input = document.querySelector(".detailAddressInput");
 
-      if (data.userSelectedType === "R") {
-        addr = data.roadAddress;
-      } else {
-        addr = data.jibunAddress;
-      }
-
-      if (data.userSelectedType === "R") {
-        if (data.bname !== "" && /[동|로|가]$/g.test(data.bname)) {
-          extraAddr += data.bname;
+        if (data.userSelectedType === "R") {
+          addr = data.roadAddress;
+        } else {
+          addr = data.jibunAddress;
         }
-        if (data.buildingName !== "" && data.apartment === "Y") {
-          extraAddr += extraAddr !== "" ? ", " + data.buildingName : data.buildingName;
-        }
-        if (extraAddr !== "") {
-          extraAddr = " (" + extraAddr + ")";
-        }
-      }
 
-      address1Input.value = `${addr} ${extraAddr}`;
-      address2Input.placeholder = "상세 주소를 입력해 주세요.";
-      address2Input.focus();
-    },
-  }).open();
-});
+        if (data.userSelectedType === "R") {
+          if (data.bname !== "" && /[동|로|가]$/g.test(data.bname)) {
+            extraAddr += data.bname;
+          }
+          if (data.buildingName !== "" && data.apartment === "Y") {
+            extraAddr +=
+              extraAddr !== "" ? ", " + data.buildingName : data.buildingName;
+          }
+          if (extraAddr !== "") {
+            extraAddr = " (" + extraAddr + ")";
+          }
+        }
+
+        address1Input.value = `${addr} ${extraAddr}`;
+        address2Input.placeholder = "상세 주소를 입력해 주세요.";
+        address2Input.focus();
+      },
+    }).open();
+  });
 
 // 회원가입 처리
 const signUpButton = document.querySelector(".sign-up-btn");
@@ -121,7 +126,9 @@ async function handleSignUp(e) {
   //비밀번호 형식 확인
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/;
   if (!passwordRegex.test(password)) {
-    return alert("비밀번호는 8자리 이상이며, 영어, 숫자, 특수문자를 포함해야 합니다.");
+    return alert(
+      "비밀번호는 8자리 이상이며, 영어, 숫자, 특수문자를 포함해야 합니다."
+    );
   }
 
   if (!phone) {
@@ -145,7 +152,6 @@ async function handleSignUp(e) {
     address,
     detail_address,
   };
-  console.log(data);
 
   try {
     const res = await fetch("/api/sign-up", {
@@ -155,7 +161,7 @@ async function handleSignUp(e) {
       },
       body: JSON.stringify(data),
     });
-    
+
     const responseData = await res.json();
 
     if (responseData.status === 200) {

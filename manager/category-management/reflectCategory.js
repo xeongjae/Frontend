@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function descriptInpo(event) {
     const clickedItemBox = event.target;
 
-    console.log("click");
     const itemName = clickedItemBox.querySelector(".item-name").textContent;
     const itemId = clickedItemBox.getAttribute("data-id");
     inputCategory.value = itemName;

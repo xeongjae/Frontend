@@ -1,11 +1,11 @@
 const btnDelete = document.getElementById("btn-delete");
 
-async function deleteHandler() { 
+async function deleteHandler() {
   try {
-    const id = document.querySelector(".id").textContent; 
+    const id = document.querySelector(".id").textContent;
 
-    const res = await fetch(`/api/categories/${id}`, { 
-      method: "DELETE", 
+    const res = await fetch(`/api/categories/${id}`, {
+      method: "DELETE",
     });
 
     location.reload();
@@ -13,7 +13,7 @@ async function deleteHandler() {
     if (id === null) {
       alert("카테고리를 선택하세요!");
     } else if (res.status === 401) {
-      const data = await res.json(); 
+      const data = await res.json();
       alert(`오류 메시지: ${data.message}, 상태 코드: ${res.status}`);
     }
   } catch (error) {

@@ -57,8 +57,8 @@ async function order() {
   function detailView(e) {
     const idx = e.target.parentElement.id.replace("order-", "");
     const order = orders[idx];
-    console.log(order);
-    updateId = order._id;
+    updateId = order.id;
+>>>>>>> Stashed changes
 
     inputId.innerHTML = order.id;
     inputPrice.innerHTML = order.total_price;

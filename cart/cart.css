@@ -102,13 +102,17 @@ html {
   align-items: center;
 }
 
+.name-box {
+  width: 45%;
+}
+
 .item-name {
+  display: inline-block;
   text-decoration: none;
   color: black;
   font-size: 16px;
   font-weight: 600;
   margin-left: 20px;
-  width: 43%;
 }
 .input-count {
   width: 40px;

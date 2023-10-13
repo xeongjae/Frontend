@@ -3,43 +3,44 @@ let userUuid = "";
 //페이지 로드 이벤트
 document.addEventListener("DOMContentLoaded", async function () {
   let token = sessionStorage.getItem("token");
+  let userEmail = "";
+
   // 토큰이 있을 경우 비회원 이메일 input 안보이게
   if (token) {
     let guestInputBox = document.querySelector(".guestInput-box");
     if (guestInputBox) {
       guestInputBox.style.display = "none";
     }
+  } else {
+    alert("비회원 주문입니다, 주문정보를 입력해주세요.");
   }
-
   // 토큰이 있을 경우 로그인 email을 받아옴
   if (token) {
     try {
       const res = await fetch("/api/login", {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
       });
-
-      if (!res.ok) {
-        throw new Error(`Login API call failed with status: ${res.status}`);
-      }
-
       const data = await res.json();
-      userUuid = data.data.uuid;
+      const uuid = data.data.uuid;
 
-      const getUser = await fetch(`/api/users/${userUuid}`, {
+      const getUser = await fetch(`/api/users/${uuid}`, {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
       });
       const user = await getUser.json();
-      userEmail = user.data.email;
-      userUuid = data.data.uuid;
+      userEmail = user.data.email; // 사용자의 이메일을 저장합니다.
     } catch (error) {
       console.error("Fetching user data failed:", error);
     }
+    // 토큰이 없을 경우 입력한 email을 받아옴
+  } else {
+    const guestInput = document.querySelector(".guestInput");
+    userEmail = guestInput.value; // 비회원 이메일 input에서 값을 가져옴
   }
 
   // 주문자, 배송지 정보 가져오기
@@ -199,7 +200,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   const orderedList = document.querySelector(".ordered-products-area");
   const totalPriceArea = document.querySelector(".totalPrice");
   const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  console.log("Cart Items from localStorage:", storedCartItems);
   let totalAmount = 0;
 
   function numberWithCommas(x) {
@@ -264,8 +264,6 @@ document.querySelector(".purchase-btn").addEventListener("click", function () {
     order_status: "ORDER_CONFIRMED",
     email: userEmail,
   };
-  console.log("uuid:", userUuid);
-  console.log("data:", orderData);
   //서버에 POST 요청 전송 api
   fetch("/api/order", {
     method: "POST",
@@ -282,7 +280,6 @@ document.querySelector(".purchase-btn").addEventListener("click", function () {
       return response.json();
     })
     .then((data) => {
-      console.log("Server response data:", data);
       if (data.status === 201) {
         alert("주문이 완료 되었습니다!");
         window.location.href = "/";
