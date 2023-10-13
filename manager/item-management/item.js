@@ -70,7 +70,7 @@ createFormBox.addEventListener("submit", async (e) => {
     const res = await fetch(`/api/categories/${inputCategory.value}/items`, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
       },
       body: formData,
     });
@@ -85,7 +85,7 @@ createFormBox.addEventListener("submit", async (e) => {
     const res = await fetch(`/api/categories/${inputCategory.value}/items/${updateId}`, {
       method: "PUT",
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
       },
       body: formData,
     });
@@ -106,7 +106,7 @@ createFormBox.addEventListener("reset", async (e) => {
       const res = await fetch(`/api/categories/${inputCategory.value}/items/${updateId}`, {
         method: "DELETE",
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
       });
       if (res.ok) {

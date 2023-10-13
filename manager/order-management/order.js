@@ -31,7 +31,7 @@ async function order() {
   // 주문리스트 가져오기
   const res = await fetch(`/api/order/${page}`, {
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: `Bearer ${sessionStorage.getItem("token")}`,
     },
   });
   if (!res.ok) {
@@ -96,7 +96,7 @@ updateFormBox.addEventListener("submit", async (e) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("token")}`,
+        authorization: `Bearer ${sessionStorage.getItem("token")}`,
       },
       body: JSON.stringify({
         data: {
