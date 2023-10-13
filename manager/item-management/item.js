@@ -14,6 +14,34 @@ const submitBtn = document.querySelector("#button-submit");
 const deleteBtn = document.querySelector("#button-delete");
 let updateId = false;
 
+fetch("/api/categories", {
+  method: "GET",
+  headers: {
+    Origin: `/api`, // 클라이언트의 도메인
+    // 기타 헤더 설정
+  },
+  credentials: "include", // credentials 옵션을 include로 설정
+})
+  .then((res) => {
+    if (!res.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return res.json();
+  })
+  .then((data) => {
+    console.log(data);
+    const selectElement = document.getElementById("input-category");
+    for (let i = 0; i < data.categories.length; i++) {
+      const option = document.createElement("option");
+      option.value = i + 1; // 1부터 시작하는 값으로 설정
+      option.textContent = data.categories[i].name;
+      selectElement.appendChild(option);
+    }
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
 async function item() {
   // 상품리스트 가져오기
   const res = await fetch(`/api/categories/${categoryId}/items?&page=${page}`);

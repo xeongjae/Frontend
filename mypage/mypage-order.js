@@ -22,6 +22,7 @@ async function loadOderData() {
     });
     const data = await resData.json();
     orders = data.data;
+    console.log(data);
 
     orders.forEach(async ({ order, orderItems }, idx) => {
       const itemCountText =

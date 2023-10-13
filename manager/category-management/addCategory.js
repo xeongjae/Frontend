@@ -14,7 +14,11 @@ async function addHandler(e) {
   try {
     const res = await fetch(`${url}/categories`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        Origin: `${url}`, // 클라이언트의 도메인
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + sessionStorage.getItem("token"),
+      },
       body: JSON.stringify({
         data: {
           id,
@@ -49,7 +53,8 @@ async function addHandler(e) {
     location.reload();
   } catch (error) {
     console.log("error Message:", error);
-    alert("서버 오류 발생!");
+    location.reload();
+    // alert("서버 오류 발생!");
   }
 }
 
