@@ -286,6 +286,7 @@ document.querySelector(".purchase-btn").addEventListener("click", function () {
     .then((data) => {
       if (data.status === 201) {
         alert("주문이 완료 되었습니다!");
+        localStorage.removeItem("cartItems");
         window.location.href = "/";
       } else {
         alert("주문 실패: " + data.message);
