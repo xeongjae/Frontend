@@ -10,6 +10,9 @@
   height: 120px;
   border-radius: 12px;
 }
+.hidden {
+  display: none;
+}
 /* 여기부터 */
 .in-container {
   width: 1000px;
@@ -37,6 +40,14 @@
   width: 100%;
 }
 
+.select-item {
+  background-color: #d3ecde;
+}
+
+#pagination div {
+  display: flex;
+  justify-content: space-around;
+}
 .sub-header {
   margin-bottom: 30px;
   font-size: 25px;
