@@ -34,6 +34,7 @@ async function order() {
       Authorization: `Bearer ${sessionStorage.getItem("token")}`,
     },
   });
+
   if (!res.ok) {
     console.log(res);
   }
@@ -118,19 +119,21 @@ deleteBtn.addEventListener("click", async (e) => {
   e.preventDefault();
 
   if (updateId) {
-    const res = await fetch(`/api/order/admin/${updateId}`, {
-      method: "DELETE", // DELETE 요청으로 변경
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    });
-    if (res.ok) {
-      alert("주문이 삭제되었습니다.");
-      location.href = `?&page=${page}`;
-    } else {
-      const data = await res.json();
-      alert(`주문 삭제에 실패하였습니다. error: ${data.message}`);
+    if (confirm(`주문을 삭제할까요?`)) {
+      const res = await fetch(`/api/order/admin/${updateId}`, {
+        method: "DELETE", // DELETE 요청으로 변경
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+      });
+      if (res.ok) {
+        alert("주문이 삭제되었습니다.");
+      } else {
+        const data = await res.json();
+        alert(`주문 삭제에 실패하였습니다. error: ${data.message}`);
+      }
     }
+    location.href = `?page=${page}`;
   }
 });
