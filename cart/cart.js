@@ -5,6 +5,7 @@ const PlusBtn = document.querySelectorAll(".btn-plus");
 const CloseModal = document.querySelector(".close-modal");
 const Modal = document.querySelector(".modal");
 const ModalImg = document.querySelector(".modal-content");
+const BuyBtn = document.querySelector(".btn-buy");
 
 function updateCartItemQuantity() {
   const cartContainer = document.querySelector(".cart-container");
@@ -109,15 +110,51 @@ function createCartItemElement(item) {
         <button class="btn-minus" id="btn-minus">
           <img class="img-minus" src="./img/minus.png" alt="" />
         </button>
-        <div class="input-count">1</div>
+        <div class="input-count">${item.quantity}</div>
         <button class="btn-plus" id="btn-plus">
           <img class="img-plus" src="./img/plus.png" alt="" />
         </button>
       </div>
-      <p class="item-price" data-price="${item.price}">${item.price}원</p>
+      <p class="item-price" data-price="${item.price}">${item.total_price}원</p>
     </div>
     <span class="delete-btn">X</span>
   `;
+
+  const inputQtyList = document.querySelectorAll(".input-count");
+
+  inputQtyList.forEach(function (inputQty) {
+    // 각각의 inputQty 요소에 접근할 수 있음
+    console.log(inputQty.textContent);
+  });
+  //구매하기 버튼 눌렀을 때 수량과 총 가격 넘기는 이벤트
+  BuyBtn.addEventListener("click", function () {
+    // 현재 상품 정보를 담을 객체 생성
+    const itemInfo = {
+      name: item.name,
+      price: item.price,
+      quantity: parseInt(inputQty.textContent), // 현재 input-count의 값을 가져와 quantity로 설정
+    };
+
+    // 기존 장바구니 정보를 로컬 스토리지에서 가져옵니다.
+    const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    // 동일한 상품이 장바구니에 이미 있는지 확인하고 인덱스 찾기
+    const existingItemIndex = storedCartItems.findIndex((cartItem) => {
+      return cartItem.name === itemInfo.name;
+    });
+
+    if (existingItemIndex !== -1) {
+      // 동일한 상품이 이미 장바구니에 있는 경우, 해당 상품의 수량을 업데이트
+      storedCartItems[existingItemIndex].quantity = itemInfo.quantity;
+      storedCartItems[existingItemIndex].price = itemInfo.price;
+    }
+
+    // 다시 로컬 스토리지에 업데이트된 장바구니 정보를 저장
+    localStorage.setItem("cartItems", JSON.stringify(storedCartItems));
+
+    // 저장 완료 메시지 또는 원하는 작업을 수행할 수 있습니다.
+    console.log("상품 정보가 장바구니에 업데이트되었습니다.");
+  });
 
   // 삭제 이벤트
   const deleteBtn = cartItem.querySelector(".delete-btn");

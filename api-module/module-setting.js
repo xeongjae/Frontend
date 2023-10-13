@@ -1,2 +1,2 @@
 export const URL = "/api";
-export const TOKEN = localStorage.getItem("token");
+export const TOKEN = sessionStorage.getItem("token");

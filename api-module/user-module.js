@@ -91,7 +91,7 @@ export function logout() {
       return response.json();
     })
     .then(() => {
-      localStorage.removeItem("token");
+      sessionStorage.removeItem("token");
       window.location.href = "/";
     })
     .catch((error) => {

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/detailpage/detailpage.css" />
     <link rel="stylesheet" href="/common/header-footer.css" />
     <script src="/detailpage/detailpage.js" defer></script>
-    <script src="/common/header-footer.js" defer></script>
+    <script type="module" src="/common/header-footer.js" defer></script>
     <title>detailPage</title>
   </head>
   <body>
@@ -41,7 +41,9 @@
           <p class="item-price"></p>
         </div>
         <div class="order_button">
-          <div class="order_buy_button">구매하기</div>
+          <div class="order_buy_button" onclick="location.href='/order'">
+            구매하기
+          </div>
           <div class="order_save_button">장바구니에 담기</div>
         </div>
       </div>
