@@ -1,46 +1,46 @@
+let userEmail = "";
+let userUuid = "";
 //페이지 로드 이벤트
 document.addEventListener("DOMContentLoaded", async function () {
   let token = sessionStorage.getItem("token");
-  let userEmail = "";
-
-    // 토큰이 있을 경우 비회원 이메일 input 안보이게 
-    if (token) {
-      let guestInputBox = document.querySelector(".guestInput-box");
-      if (guestInputBox) {
-        guestInputBox.style.display = "none";
-      }
-    } else {
-      alert("비회원 주문입니다, 주문정보를 입력해주세요.")
+  // 토큰이 있을 경우 비회원 이메일 input 안보이게
+  if (token) {
+    let guestInputBox = document.querySelector(".guestInput-box");
+    if (guestInputBox) {
+      guestInputBox.style.display = "none";
     }
-     // 토큰이 있을 경우 로그인 email을 받아옴 
+  }
+
+  // 토큰이 있을 경우 로그인 email을 받아옴
   if (token) {
     try {
-        const res = await fetch("/api/login", {
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-            },
-        });
-        const data = await res.json();
-        const uuid = data.data.uuid;
+      const res = await fetch("/api/login", {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-        const getUser = await fetch(`/api/users/${uuid}`, {
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-            },
-        });
-        const user = await getUser.json();
-        userEmail = user.data.email; // 사용자의 이메일을 저장합니다.
+      if (!res.ok) {
+        throw new Error(`Login API call failed with status: ${res.status}`);
+      }
+
+      const data = await res.json();
+      userUuid = data.data.uuid;
+
+      const getUser = await fetch(`/api/users/${userUuid}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const user = await getUser.json();
+      userEmail = user.data.email;
+      userUuid = data.data.uuid;
     } catch (error) {
-        console.error("Fetching user data failed:", error);
+      console.error("Fetching user data failed:", error);
     }
-     // 토큰이 없을 경우 입력한 email을 받아옴
-} else {
-    const guestInput = document.querySelector(".guestInput")
-    userEmail = guestInput.value; // 비회원 이메일 input에서 값을 가져옴
-}
-
+  }
 
   // 주문자, 배송지 정보 가져오기
   fetch(`/api/login`, {
@@ -155,7 +155,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   document
     .querySelector(".findAddressBtn")
     .addEventListener("click", function () {
-      console.log("안녕");
       new daum.Postcode({
         oncomplete: function (data) {
           let addr = "";
@@ -224,8 +223,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   totalPriceArea.textContent = `${numberWithCommas(totalAmount)}원`;
 });
 
-////////////////////////////////////////////////////////////////////////////////
-
 // 결제하기 버튼 클릭 시 서버에 POST 요청 전송
 document.querySelector(".purchase-btn").addEventListener("click", function () {
   const ordererInput = document.querySelector(".ordererInput");
@@ -252,33 +249,33 @@ document.querySelector(".purchase-btn").addEventListener("click", function () {
     return {
       quantity: item.quantity,
       unit_price: item.price,
-      item_id: item.item_objectId,
+      item_id: item.object_id,
     };
   });
 
   const orderData = {
-    orderItems: orderItems,
+    orderItems,
     total_price: totalAmount,
     name: ordererInput.value,
     address: address1Input.value,
     detail_address: address2Input.value,
     phone: phoneNumberInput.value,
     pay_method: selectedPaymentMethod,
-    order_status: "결제완료",
-    user_id: "",
+    order_status: "ORDER_CONFIRMED",
     email: userEmail,
   };
-
-  console.log("Sending order data:", orderData);
-
+  console.log("uuid:", userUuid);
+  console.log("data:", orderData);
   //서버에 POST 요청 전송 api
   fetch("/api/order", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${sessionStorage.getItem("token")}`,
     },
-    body: JSON.stringify(orderData),
+    body: JSON.stringify({
+      data: orderData,
+      uuid: userUuid,
+    }),
   })
     .then((response) => {
       console.log("Raw server response:", response);
@@ -288,7 +285,7 @@ document.querySelector(".purchase-btn").addEventListener("click", function () {
       console.log("Server response data:", data);
       if (data.status === 201) {
         alert("주문이 완료 되었습니다!");
-        window.location.href = "/order-completed";
+        window.location.href = "/";
       } else {
         alert("주문 실패: " + data.message);
       }
