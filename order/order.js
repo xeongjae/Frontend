@@ -255,7 +255,6 @@ document.querySelector(".purchase-btn").addEventListener("click", function () {
     order_status: "ORDER_CONFIRMED",
     email: userEmail,
   };
-
   //서버에 POST 요청 전송 api
   fetch("/api/order", {
     method: "POST",

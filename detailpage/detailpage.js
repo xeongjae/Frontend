@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
           image: ItemInfo.main_images[0],
           name: ItemInfo.name,
           price: ItemInfo.price,
-          category: categoryId,
+          object_id: ItemInfo._id,
           Item: ItemId,
           object_id: ItemInfo._id,
           quantity: parseInt(Qty.textContent), // 현재 input-count의 값을 가져옴
