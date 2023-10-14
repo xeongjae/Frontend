@@ -1,6 +1,6 @@
 const ItemImage = document.querySelector(".container_image");
 
-const qs = new URLSearchParams(window.location.search);
+qs = new URLSearchParams(window.location.search);
 qs.get("category");
 qs.get("item");
 const categoryId = qs.get("category");
