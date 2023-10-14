@@ -37,7 +37,6 @@ async function loadOderData() {
         <div class="order-box">
           <div class="title-box">
             <span>${order.createdAt.slice(0, 10)}</span>
-
             </div>
           <div class="item-box">
           <img src="/${firstItem.main_images[0]}" alt="" />
