@@ -39,7 +39,7 @@ html {
   display: flex;
   flex-direction: column;
 }
-.New {
+.Popular {
   margin-top: 140px;
 }
 
@@ -63,20 +63,15 @@ html {
   margin-top: 40px;
 }
 
-.New_Product {
+.Popular_Product {
   margin-left: 30px;
   cursor: pointer;
 }
 
-.New_Product div {
+.Popular_Product div {
+  display: flex;
   text-align: center;
-}
-
-.Product_Img img {
-  width: 500px;
-  height: 400px;
-  background-size: cover;
-  transition: all 0.5s;
+  justify-content: center;
 }
 
 .Product_Name {
@@ -90,9 +85,34 @@ html {
   margin-top: 10px;
 }
 
-.Product_Img img:hover {
+.Product_Img {
+  width: 500px;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s;
+}
+
+.Product_Img:hover {
   width: 510px;
-  height: 410px;
-  background: no-repeat center center;
-  background-size: contain;
+  height: 405px;
+}
+
+.Product_Img div {
+  width: 420px;
+  height: 420px;
+  background-size: cover;
+  background-position: center center;
+}
+
+.first_Img {
+  position: relative;
+}
+.second_Img {
+  position: absolute !important;
+  opacity: 1;
+  transition: all 0.5s;
+}
+.second_Img:hover {
+  opacity: 0;
 }

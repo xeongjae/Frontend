@@ -10,6 +10,20 @@ html {
   margin: 13px;
   width: 65%;
 }
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Del-Btn {
+  padding: 5px 10px;
+  background-color: #e7e7e7;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.Del-Btn:hover {
+  background-color: #cccccc;
+}
 
 .cart-header {
   font-size: 25px;
@@ -49,6 +63,16 @@ html {
   text-align: center;
 }
 
+.count-box {
+  display: flex;
+  width: 36%;
+  height: 40px;
+}
+
+.item-price {
+  font-weight: 600;
+}
+
 /* 상품 정보들 */
 .cart-container {
   width: 100%;
@@ -56,9 +80,7 @@ html {
   flex-direction: column;
   justify-content: center;
 }
-#ul1 {
-  border-top: 1px solid #969696;
-}
+
 .cart-container ul {
   width: 100%;
   list-style: none;
@@ -80,13 +102,17 @@ html {
   align-items: center;
 }
 
+.name-box {
+  width: 45%;
+}
+
 .item-name {
+  display: inline-block;
   text-decoration: none;
   color: black;
   font-size: 16px;
   font-weight: 600;
   margin-left: 20px;
-  width: 43%;
 }
 .input-count {
   width: 40px;
@@ -96,12 +122,6 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.count-box {
-  display: flex;
-  width: 36%;
-  height: 40px;
 }
 
 .img-minus,
@@ -139,10 +159,6 @@ html {
   width: 100%;
   margin: auto;
   cursor: pointer;
-}
-
-.item-price {
-  font-weight: 600;
 }
 
 .delete-btn {

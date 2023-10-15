@@ -13,7 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/manager.css" />
+    <link rel="stylesheet" href="./manager.css" />
     <title>manager</title>
   </head>
 
@@ -29,20 +29,26 @@
           justify-content: center;
           align-items: center;
           margin: 50px;
+          margin-top: 150px;
         "
       >
         <div class="div-login-layout">
           <form
+            id="form"
             style="display: block; justify-content: center; align-items: center"
           >
-            <h1 style="font-weight: bold; color: white; font-size: 1.5rem">
+            <h1 style="font-weight: bold; color: #3cb371; font-size: 1.5rem">
               로그인
             </h1>
             <div class="box-formargin">
-              <input type="email" placeholder="아이디" />
+              <input id="input-email" type="email" placeholder="아이디" />
             </div>
             <div class="box-formargin">
-              <input type="password" placeholder="비밀번호" />
+              <input
+                id="input-password"
+                type="password"
+                placeholder="비밀번호"
+              />
             </div>
 
             <div style="margin-top: 140px">
@@ -51,8 +57,8 @@
                   로그인
                 </button>
                 <div class="box-formargin">
-                  <a href="#" style="font-size: 12px; color: white"
-                    >아직 관리자가 아닙니꺼?</a
+                  <a href="#" style="font-size: 12px; color: #3cb371"
+                    >아직 관리자가 아닙니까?</a
                   >
                 </div>
               </div>
@@ -69,4 +75,5 @@
         document.getElementById("nav-container").innerHTML = data;
       });
   </script>
+  <script src="manager.js"></script>
 </html>

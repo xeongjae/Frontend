@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mypage</title>
+
+    <script
+      src="https://kit.fontawesome.com/def66b134a.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/mypage/mypage-order.css" />
+    <link rel="stylesheet" href="/common/header-footer.css" />
+    <link rel="stylesheet" href="/mypage/mypage-nav.css" />
+    <script type="module" src="/common/header-footer.js" defer></script>
+    <script type="module" src="mypage-nav.js" defer></script>
+    <script src="mypage-order.js" defer></script>
+    <script
+      src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="header-container"></div>
+    <div class="mypage-box">
+      <div class="head-box">
+        <div class="body-box">
+          <form action="" class="">
+            <div id="content-box" class="content-box"></div>
+          </form>
+          <form id="update-form-box" class="item_form hidden">
+            <div class="sub-box">
+              <div class="sub-title">주문번호</div>
+              <div id="desc-id" class="p-data"></div>
+            </div>
+            <div class="sub-box">
+              <div class="sub-title">주문 날짜</div>
+              <div id="desc-date" class="p-data"></div>
+            </div>
+            <div class="sub-box">
+              <div class="sub-title">배송상태</div>
+              <div id="desc-status" class="p-data"></div>
+            </div>
+            <div class="sub-box">
+              <div class="sub-title">주문자명</div>
+              <div id="desc-name" class="p-data">dd</div>
+            </div>
+            <div class="sub-box">
+              <div class="sub-title">총가격</div>
+              <div id="desc-price" class="p-data"></div>
+            </div>
+            <div class="sub-box">
+              <div class="sub-title">결제방식</div>
+              <div id="desc-method" class="p-data"></div>
+            </div>
+            <div class="sub-box">
+              <div class="sub-title">전화번호</div>
+              <div id="desc-phone" class="p-data"></div>
+            </div>
+            <div class="sub-box">
+              <div class="sub-title">배송주소</div>
+              <div id="desc-adress" class="p-data"></div>
+            </div>
+            <div class="sub-box">
+              <div class="sub-title">요청사항</div>
+              <div id="desc-messege" class="p-data"></div>
+            </div>
+            <div class="buttonBox">
+              <button class="button-submit" id="button-submit" type="submit">
+                수정
+              </button>
+              <button class="button-delete" id="button-delete" type="reset">
+                삭제
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-container"></div>
+  </body>
+</html>

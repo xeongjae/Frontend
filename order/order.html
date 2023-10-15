@@ -6,7 +6,6 @@
     <title>order</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="../common/header-footer.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap"
       rel="stylesheet"
@@ -15,12 +14,15 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
+    <link rel="stylesheet" href="/common/header-footer.css" />
     <link rel="stylesheet" href="order.css" defer />
-    <script src="/common/header-footer.js" defer></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script type="module" src="/common/header-footer.js" defer></script>
     <script
       src="https://kit.fontawesome.com/def66b134a.js"
       crossorigin="anonymous"
     ></script>
+    <script src="order.js" defer></script>
   </head>
 
   <body>
@@ -29,40 +31,72 @@
       <h1 class="title">주문/결제</h1>
 
       <div class="container">
-        <div class="notification is-primary">
-          <p>주문자</p>
-          <span class="orderer-area"></span>
-          <p>배송지</p>
-          <span class="ordered-address-area"></span>
-          <p>배송메세지</p>
-          <select class="deliveryMsg">
-            <option name="msg">배송메세지를 선택하세요.</option>
-            <option name="msg">도착전 전화해주세요.</option>
-            <option name="msg">부재시 문자남겨주세요.</option>
-            <option name="msg">경비실에 맡겨주세요.</option>
-          </select>
+        <div class="container-box">
+          <div class="guestInput-box">
+            <p class="sub-title">비회원 이메일</p>
+            <input type="email" class="guestInput empty-input" placeholder="비회원 이메일 입력"/>
+          </div>
+          <div>
+            <p class="sub-title">이름</p>
+            <input class="ordererInput empty-input" readonly/>
+            <button class="edit-name-btn edit-btn">이름 변경</button>
+          </div>
+
+          <div>
+            <p class="sub-title">전화번호</p>
+            <input class="phoneNumberInput empty-input" readonly/>
+            <button class="edit-phone-btn edit-btn">전화번호 변경</button>
+          </div>
+
+          <div>
+            <P class="sub-title">배송지 주소</p>
+            <input type="text" id="addressInput" class="addressInput ads-input" readonly/>
+            <button type="button" class="findAddressBtn edit-btn">배송지 변경</button>
+          </div>
+
+          <div>
+            <P class="sub-title">상세 주소</p>
+            <input type="text" class="detailAddressInput ads-input" readonly/>
+            </button>
+          </div>
+          
+          <div>
+            <p class="sub-title"></p>
+            <select class="deliveryMsg">
+              <option name="msg">배송메세지를 선택하세요.</option>
+              <option name="msg">도착전 문자남겨주세요.</option>
+              <option name="msg">부재 시 택배함에 넣어주세요.</option>
+              <option name="msg">부재 시 경비실에 맡겨주세요.</option>
+              <option name="msg">부재 시 집 앞에 놔주세요.</option>
+              <option name="msg">파손의 위험이 있는 상품입니다. 배송 시 주의해 주세요.</option>
+            </select>
+          </div>
         </div>
       </div>
-        <div class="container"> 
-        <div class="notification is-primary">
-          <p>주문상품</p>
+      <div class="container">
+        <div class="container-box">
+          <p class="sub-title">주문상품</p>
           <span class="ordered-products-area"></span>
         </div>
       </div>
 
       <div class="container">
-        <div class="notification is-primary">
-          <p class="priceTitle">결제금액</p>
-          <p class="totalPrice"></p>
-          <h2 class="cardOrcashTitle">결제수단</h2>
+        <div class="container-box">
+          <p class="sub-title">상품 금액</p>
+          <div class="productsPrice empty-area"></div>
+          <p class="sub-title">배송비</pclass>
+            <div class="deliveryPrice empty-area">3,500원</div>
+          <p class="priceTitle sub-title">결제 금액</p>
+          <div class="totalPrice empty-area"></div>
+          <h2 class="cardOrcashTitle sub-title">결제수단</h2>
           <div class="cardOrcashBtnGroup">
             <div class="cardOrcashBtn">
-              <input type="radio" class="card" name="radio" checked />
+              <input type="radio" class="card" id="cardPayment" name="radio" checked />
               <label>카드결제</label>
             </div>
 
             <div class="cardOrcashBtn">
-              <input type="radio" class="cash" name="radio" />
+              <input type="radio" class="cash" id="bankTransfer" name="radio" />
               <label>무통장입금</label>
             </div>
           </div>
@@ -70,12 +104,12 @@
       </div>
 
       <div class="btn-container">
-        <button class="button is-success is-rounded" id="purchase-btn">
+        <button type="button" class="button is-rounded purchase-btn">
           결제하기
         </button>
-        <a href=../cart/cart.html class="button is-success is-rounded"
-        id="go-to-cart-btn"> 장바구니로 돌아가기
-        <a />
+        <a href=/cart/cart.html class="go-to-cart-btn button
+        is-rounded"> 장바구니로 돌아가기
+      </a>
       </div>
     </main>
     <div class="footer-container"></div>

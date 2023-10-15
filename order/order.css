@@ -9,20 +9,52 @@ body {
 }
 .title {
   text-align: center;
-  padding: 50px;
-  margin-top: 20px;
+  font-size: 55px;
+  margin-top: 60px;
 }
-.notification.is-primary {
+.sub-title {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  width: 170px;
+}
+.container {
+  width: 1100px;
+}
+.container-box.container-box {
+  background-color: white;
+  color: black;
+  margin-right: 100px;
+  margin-left: 100px;
   border-radius: 5px;
   border: 3px solid white;
-  color: black;
-  background-color: white;
-  height: 100%;
   margin-top: 30px;
-  margin-left: 50px;
-  margin-right: 50px;
-  padding: 30px;
+  padding: 40px;
   box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.3);
+}
+.addressInput {
+  width: 500px;
+  height: 40px;
+  margin-top: 10px;
+}
+.detailAddressInput {
+  width: 500px;
+  height: 40px;
+  margin: 10px 0px 30px 0px;
+}
+.findAddressBtn:hover {
+  filter: brightness(0.95);
+}
+.deliveryMsg {
+  height: 40px;
+  width: 500px;
+  margin-top: 10px;
+  background-color: white;
+  border: rgb(66, 63, 63) solid 0.7px;
+  cursor: pointer;
+}
+.deliveryMsg:hover {
+  filter: brightness(0.97);
 }
 .btn-container {
   text-align: center;
@@ -31,15 +63,72 @@ body {
 .button {
   margin-left: 40px;
   margin-right: 40px;
-  width: 500px;
+  width: 400px;
   height: 50px;
+  color: white;
 }
-#go-to-cart-btn {
+.edit-btn {
+  width: 100px;
+  height: 40px;
+  color: white;
+  background-color: rgb(33, 29, 29);
+  cursor: pointer;
+  border: black solid 0.5px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+.edit-btn:hover {
+  filter: brightness(0.7);
+}
+.empty-input {
+  height: 40px;
+  width: 500px;
+  margin: 10px 0px 30px 0px;
+}
+.go-to-cart-btn.go-to-cart-btn {
   background-color: gray;
 }
-#purchase-btn {
+.purchase-btn.purchase-btn {
   background-color: #3cb371;
 }
 .button:hover {
   filter: brightness(0.9);
+}
+.box {
+  padding: 0px;
+  margin: 0px;
+  height: 100px;
+}
+input[readonly] {
+  background-color: #f3f3f3;
+  border: rgb(66, 63, 63) solid 0.7px;
+}
+.ordered-product-box {
+  display: flex;
+  justify-content: space-between;
+}
+.ordered-product {
+  font-size: 20px;
+  margin: 5px;
+}
+.productsPrice {
+  margin-bottom: 15px;
+  margin-left: 10px;
+  font-size: 25px;
+}
+.deliveryPrice{
+  margin-bottom: 40px;
+  margin-left: 10px;
+  font-size: 25px;
+}
+.totalPrice {
+  margin-bottom: 15px;
+  margin-left: 10px;
+  font-size: 35px;
+  font-weight: bold;
+}
+.cardOrcashBtnGroup {
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size: 20px;
 }

@@ -10,13 +10,17 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat&family=Nanum+Gothic&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/common/header-footer.css" />
     <link rel="stylesheet" href="cart.css" />
     <script
       src="https://kit.fontawesome.com/def66b134a.js"
       crossorigin="anonymous"
     ></script>
-    <script src="/common/header-footer.js" defer></script>
+    <script type="module" src="/common/header-footer.js" defer></script>
     <script src="/cart/cart.js" defer></script>
   </head>
 
@@ -24,7 +28,10 @@
     <div class="header-container"></div>
     <div class="cart-box">
       <div class="wrapper">
-        <h1 class="cart-header">장바구니 (idx)</h1>
+        <div class="title-container">
+          <h1 class="cart-header">장바구니</h1>
+          <button class="Del-Btn">전체삭제</button>
+        </div>
         <div class="product-container">
           <span class="info">상품 정보</span>
           <span class="name">상품명 </span>
@@ -32,68 +39,23 @@
           <span class="price">가격</span>
         </div>
         <div class="cart-container">
-          <ul id="ul1">
-            <li id="cart-item">
-              <div class="img-box">
-                <img class="img-items" src="./img/Plant1.jpg" alt="" />
-              </div>
-              <div class="item-info">
-                <a class="item-name" href="/detailpage/detailpage.html"
-                  >스투키 & 하트호야 골드</a
-                >
-                <div class="count-box">
-                  <button class="btn-minus" id="btn-minus">
-                    <img class="img-minus" src="./img/minus.png" alt="" />
-                  </button>
-                  <div class="input-count">1</div>
-                  <button class="btn-plus" id="btn-plus">
-                    <img class="img-plus" src="./img/plus.png" alt="" />
-                  </button>
-                </div>
-                <p class="item-price">38,000원</p>
-              </div>
-              <span class="delete-btn">X</span>
-            </li>
-          </ul>
-          <ul>
-            <li id="cart-item">
-              <div class="img-box">
-                <img class="img-items" src="/cart/img/Pot1_Img.jpg" alt="" />
-              </div>
-              <div class="item-info">
-                <a class="item-name" href="/detailpage/detailpage.html"
-                  >세라믹 힐 실린더</a
-                >
-                <div class="count-box">
-                  <button class="btn-minus" id="btn-minus">
-                    <img class="img-minus" src="./img/minus.png" alt="" />
-                  </button>
-                  <div class="input-count">1</div>
-                  <button class="btn-plus" id="btn-plus">
-                    <img class="img-plus" src="./img/plus.png" alt="" />
-                  </button>
-                </div>
-                <p class="item-price">38,000원</p>
-              </div>
-              <span class="delete-btn">X</span>
-            </li>
-          </ul>
+          <ul id="cart-list"></ul>
         </div>
         <div class="container-box">
           <div class="price-container">
             <div>
               <p class="item-total-text">상품 합계</p>
-              <p class="item-total-price">38,000원</p>
+              <p class="item-total-price"></p>
             </div>
             <div>
               <p class="delivery-text">배송비</p>
-              <p class="delivery-price">3,500원</p>
+              <p class="delivery-price">3500원</p>
             </div>
           </div>
         </div>
         <div class="total-container">
           <p class="p-total">합계</p>
-          <p class="total-price">41,500원</p>
+          <p class="total-price"></p>
         </div>
         <div class="btn-container">
           <button onclick="location.href='/order/order.html'" class="btn-buy">

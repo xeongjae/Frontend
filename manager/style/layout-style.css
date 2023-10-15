@@ -1,0 +1,152 @@
+.button-box-01,
+.button-box-02 {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  margin: 12px;
+  width: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: none;
+  box-shadow: 1px 1px 10px 1px #2a8c56;
+  border-radius: 30px;
+  background-color: #dadada;
+
+  transition-property: box-shadow;
+  transition-duration: 100ms;
+  transition-timing-function: ease-in-out;
+  height: 700px;
+  width: 30px;
+}
+
+.buttonBox {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.buttonBox button {
+  margin: 0 10px;
+}
+
+.select-order {
+  background-color: #d3ecde;
+}
+
+/* 여기부터 */
+.hidden {
+  display: none;
+}
+.out-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  margin: 100px 50px 50px;
+}
+
+.in-container {
+  width: 1000px;
+  height: 700px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  border: none;
+  box-shadow: 0 3px 3px rgba(56, 56, 56, 0.2);
+  padding: 40px 50px;
+  overflow-y: auto;
+  margin: 0 20px;
+}
+.in-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.in-container::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: #b8b8b8; /* 스크롤바의 색상 */
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.table {
+  width: 100%;
+}
+
+.sub-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.sub-box input,
+.sub-box select,
+.sub-box textarea,
+.sub-box .p-data,
+.filebox .att_zone {
+  margin: 0;
+  width: 70%;
+  border: 1px rgb(199, 199, 199) solid;
+  border-radius: 5px;
+  padding: 10px 10px;
+  font-size: 16px;
+  height: 50px;
+  background-color: rgb(241, 241, 241);
+  color: rgb(107, 107, 107);
+}
+
+#desc-status {
+  /* border: solid rgb(204, 204, 204); */
+  background-color: #ffffff;
+  color: #000;
+}
+
+.sub-box .sub-title,
+.filebox .sub-title {
+  line-height: 50px;
+  float: left;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+#pagination div {
+  display: flex;
+  justify-content: center;
+}
+/* 여기까지 수정 코드 */
+
+.button-box-01:active,
+.button-box-02:active {
+  box-shadow: none;
+}
+
+.category-card,
+.submit-card {
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 3px rgba(56, 56, 56, 0.2);
+  border-radius: 12px;
+  display: block;
+}
+
+.category-card {
+  width: 1000px;
+  height: 780px;
+  margin-right: 20px;
+}
+
+.submit-card {
+  width: 600px;
+  height: 780px;
+}
+
+.submit-card::-webkit-scrollbar {
+  width: 5px;
+}
+
+.submit-card::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: #d7dad8; /* 스크롤바의 색상 */
+
+  border-radius: 10px;
+}

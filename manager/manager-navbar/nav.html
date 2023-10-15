@@ -17,29 +17,43 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="div-block-01"></div>
     <div class="div-block-03">
-      <div class="div-block-02"></div>
       <nav class="navbar">
         <div class="navbar-brand">
-          <a class="title" href="/manager/manager.html">
-            <p>Casa Verde</p>
-          </a>
+          <a class="title" href="/">Casa Verde</a>
         </div>
+
         <div class="item-container">
-          <div style="display: flex; height: 100%; align-items: center">
-            <div class="anchor-nav-category">
-              <a href="/manager/category-management/category.html">Category</a>
-            </div>
-            <div class="anchor-nav-item">
-              <a href="/manager/item-management/item.html">Item</a>
-            </div>
-            <div class="anchor-nav-order">
-              <a href="/manager/order-management/order.html">Order</a>
-            </div>
-          </div>
+          <ul
+            class="items"
+            style="display: flex; height: 100%; align-items: center"
+          >
+            <li class="anchor-nav-category">
+              <a id="unactive-page" href="/manager/category">Category</a>
+            </li>
+            <li class="anchor-nav-item">
+              <a id="unactive-page" href="/manager/item?category=1&page=1"
+                >Item</a
+              >
+            </li>
+            <li class="anchor-nav-order">
+              <a id="unactive-page" href="/manager/order?page=1">Order</a>
+            </li>
+          </ul>
         </div>
       </nav>
     </div>
+    <!-- <div>
+      <nav id="nav1">
+        <a href="#">Casa Verde</a>
+        <ul>
+          <li><a href="#">Category</a></li>
+          <li><a href="#">Item</a></li>
+          <li><a href="#">Order</a></li>
+        </ul>
+      </nav>
+    </div> -->
   </body>
+
+  <script src="/manager/manager-navbar/nav.js"></script>
 </html>

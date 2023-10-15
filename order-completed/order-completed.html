@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>order-completed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="/common/header-footer.css" />
+    <link rel="stylesheet" href="order-completed.css" defer />
+    <script type="module" src="/common/header-footer.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/def66b134a.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="order-completed.js" defer></script>
+  </head>
+
+  <body>
+    <div class="header-container"></div>
+    <div class="main-box">
+      <main>
+        <div class="main-container">
+          <div class="order-complete-item main-item">
+            <h1 class="title">주문이 완료되었습니다.</h1>
+          </div>
+
+          <div class="order-complete-item">
+            <p class="sub-title">이름:</p>
+            <div class="orderer-name-area"></div>
+          </div>
+
+          <div class="order-complete-item">
+            <p class="sub-title">전화번호:</p>
+            <div class="phone-number-area"></div>
+          </div>
+
+          <div class="order-complete-item">
+            <p class="sub-title">배송지 주소:</p>
+            <div class="address-area"></div>
+            <div class="detail-address-area"></div>
+          </div>
+
+          <div class="order-complete-item">
+            <p class="sub-title">상품정보:</p>
+            <span class="ordered-products-area"></span>
+          </div>
+
+          <div class="order-complete-item">
+            <p class="priceTitle sub-title">결제금액:</p>
+            <div class="total-price-area empty-area"></div>
+          </div>
+
+          <div class="btn-container">
+            <a href="/manager/order-management" class="button button1">주문 상세보기</a>
+            <a href="/" class="button botton2"> 홈으로 돌아가기
+            <a />
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="footer-container"></div>
+  </body>
+</html>

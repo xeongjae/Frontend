@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/manager/style/layout-style.css" />
+    <link rel="stylesheet" href="order.css" />
+
+    <title>manager</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!--관리자 페이지 사이드 nav바-->
+      <div class="container-wrapper">
+        <div id="nav-container"></div>
+      </div>
+      <!--카테고리 관리 페이지-->
+      <div class="out-container">
+        <div class="in-container">
+          <h2 class="sub-header">주문 목록</h2>
+          <table id="order-table" class="table">
+            <thead>
+              <tr>
+                <th>주문 번호</th>
+                <th>주문자 명</th>
+                <th>email</th>
+                <th>주문 날짜</th>
+                <th>배송 상태</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+              <tr>
+                <td id="pagination" colspan="5"><div></div></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="item-submit-container in-container">
+          <h2 class="sub-header">주문 내역</h2>
+          <div style="margin: 50px">
+            <form
+              id="update-form-box"
+              class="item_form"
+              style="display: flex; width: 100%; justify-content: center; align-items: center; flex-direction: column"
+            >
+              <div class="sub-box">
+                <div class="sub-title">주문번호:</div>
+                <div id="desc-id" class="p-data"></div>
+              </div>
+              <div class="sub-box">
+                <div class="sub-title">배송상태:</div>
+                <select name="" id="desc-status" class="p-data">
+                  <option value="ORDER_CONFIRMED">주문 완료</option>
+                  <option value="PREPARING_FOR_SHIPMENT">배송 준비 중</option>
+                  <option value="DELIVERED">배송 중</option>
+                  <option value="SHIPPED">배송 완료</option>
+                </select>
+              </div>
+              <div class="sub-box">
+                <div class="sub-title">이름:</div>
+                <div id="desc-name" class="p-data"></div>
+              </div>
+              <div class="sub-box">
+                <div class="sub-title">이메일:</div>
+                <div id="desc-email" class="p-data"></div>
+              </div>
+              <div class="sub-box">
+                <div class="sub-title">주문 날짜:</div>
+                <div id="desc-date" class="p-data"></div>
+              </div>
+              <div class="sub-box">
+                <div class="sub-title">총가격:</div>
+                <div id="desc-price" class="p-data"></div>
+              </div>
+              <div class="sub-box">
+                <div class="sub-title">결제방식:</div>
+                <div id="desc-method" class="p-data"></div>
+              </div>
+              <div class="sub-box">
+                <div class="sub-title">전화번호:</div>
+                <div id="desc-phone" class="p-data"></div>
+              </div>
+              <div class="sub-box">
+                <div class="sub-title">배송주소:</div>
+                <div id="desc-adress" class="p-data"></div>
+              </div>
+              <div class="sub-box">
+                <div class="sub-title">요청사항:</div>
+                <div id="desc-messege" class="p-data"></div>
+              </div>
+              <div class="buttonBox">
+                <button class="button-submit" id="button-submit" type="submit">수정</button>
+                <button class="button-delete" id="button-delete" type="reset">삭제</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    fetch("/manager/manager-navbar/nav.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("nav-container").innerHTML = data;
+      });
+  </script>
+  <script src="order.js"></script>
+</html>
